@@ -1,24 +1,18 @@
 /* HEADER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - BASE */
 header {
-    height: 60vh;
+    height: 80vh;
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed; }
-@media all and (max-width: 420px) {
-    header {
-        height: 20vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed; } }
-@media all and (min-width: 769px) {
+
+@media all and (max-width: 1025px) {
     header {
         height: 70vh;
-        background-position: bottom;
+        background-position: right;
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed; } }
-
 header div {
     background-color: #A5ABAF; }
 header ul {
@@ -51,6 +45,18 @@ header ul .magnifyingGlass {
 header .menu {
     position: sticky;
     top: -1px; }
+.content_search{
+    padding: 5%;
+}
+.search a{
+    text-decoration: none;
+    color: black;
+}
+.search a:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 
 .boutton {
     border: whitesmoke solid 1px;
@@ -77,6 +83,10 @@ header .menu {
     color: white;
     margin-bottom: 20%; }
 
+/* formalitées  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+.formalite{
+    padding: 6%;
+}
 
 /* ARTICLES  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  HOME */
 
@@ -213,6 +223,134 @@ ul a:hover {
     background-size: cover;
 
 }
+/* POST  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+article a{
+    text-decoration: none;
+    color: black;
+}
+article a:hover{
+    text-decoration: none;
+    color: black;
+}
+.message {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    background-color: #EAEAEA;
+    min-height: 40vh;
+    margin-bottom: 3%;
+}
+.commentaire{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    background-color: #EAEAEA;
+    min-height: 20vh;
+    margin-bottom: 2%;
+}
+.poster{
+    width: 25%;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    border-right: black 1px solid;
+    align-items: center;
+
+}
+.avatar{
+    width: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+.info{
+    background-color: #EAEAEA;
+}
+.content{
+    width: 90%;
+    height: 20%;
+    background-color: #EAEAEA;
+    padding: 2%;
+}
+
+.reponse{
+    width: 70%;
+    background-color: #EAEAEA;
+    padding: 2%;
+    margin: auto;
+    margin-bottom: 4%;
+    min-height: 30vh;
+}
+.description{
+    display: flex;
+    justify-content: center;
+    /* haut | droit | bas | gauche */
+    margin: auto;
+    background-color: #EAEAEA;
+    width: 70%;
+    padding: 2%;
+    min-height: 20vh;
+}
+.Album{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
+}
+@media all and (max-width: 1025px) {
+    .Album {
+        flex-direction: column;
+        align-items: center; } }
+
+.PictureAlbum{
+    width: 30%;
+    min-height: 200px;
+    text-align: center;
+    text-decoration: none;
+}
+@media all and (max-width: 1025px) {
+    .PictureAlbum{
+        width: 70%;
+        min-height: 200px;
+        text-align: center;
+        text-decoration: none;
+    } }
+.PictureAlbum ul{
+    list-style: none;
+}
+.PictureAlbum a{
+    text-decoration: none;
+    color: black;
+}
+.PictureAlbum a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+img{
+    width: 100%;
+}
+
+/* connexion  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+.formulaires{
+    text-align: center;
+    width: 90%;
+    padding: 8%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.connexion{
+    width: 45%;
+}
+.inscription{
+    width: 45%;
+}
+
 /* FOOTER  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  BASE */
 
 footer {

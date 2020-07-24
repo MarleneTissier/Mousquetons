@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+        <ul class="row ariane">
+            <li><a href={{ path('Home') }}>Acceuil</a></li>
+            <li><span>/ discussion précédente</span></li>
+            <li><span>/ nom du post</span></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- for -->
+        <div class="commentaire">
+            <div class="poster">
+                <div class="avatar">
+                    <img src="{{ asset("img/avatar.jpg") }}" alt="">
+                </div>
+                <div class="info">
+                    <p>PSEUDO</p>
+                    <p>DATE INSCRIPTION</p>
+                </div>
+            </div>
+            <div class="content">
+                <p>LE MESSAGE RECUPERE</p>
+            </div>
+        </div>
+
+        <!--si connecté / futur formulaire -->
+        <div class="reponse  col-10">
+            <p>ECRIVEZ VOTRE REPONSE</p>
+        </div>
+        </div>
+    </main>
+
+{% endblock %}

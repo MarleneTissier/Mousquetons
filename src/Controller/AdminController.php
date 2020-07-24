@@ -7,7 +7,7 @@
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\HttpFoundation\Request;
 
-    class HomeController extends AbstractController{
+    class AdminController extends AbstractController{
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx HOME xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

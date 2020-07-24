@@ -1,0 +1,190 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <main>
+        <div class="container-fluid">
+            <ul class="row ariane">
+                <li><a href={{ path('Home') }}>Acceuil</a></li>
+                <li><span>/ Activités</span></li>
+            </ul>
+        </div>
+
+        <div class="news activity">
+            <article>
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst"
+                     style="background-image: url({{ asset("img/france_parcour.jpg") }});">
+                    <div class="d-none d-md-block col-2 icon">
+                        <img src="../img/france_parcour.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h2>Les activités en France</h2>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>nombres de réponses</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>date d'ajour du post</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h4>Titre du sujet posté</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>25</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>02.02.2020</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="text-center text-md-right">
+                    <a href="{{ path('ActivitiesDiscussion') }}">Voir plus</a>
+                </div>
+
+            </article>
+
+            <!-- article 2 -->
+
+            <article>
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauSecond"
+                     style="background-image: url({{ asset("img/espagne_parcour.JPG") }});">
+                    <div class="d-none d-md-block col-2 icon">
+                        <img src="../img/espagne_parcour.JPG" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h3>Les activités en Espagne</h3>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>nombres de réponses</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>date d'ajour du post</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h4>Nom de lieux</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>25</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>02.02.2020</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="text-center text-md-right">
+                    <a href="{{ path('ActivitiesDiscussion') }}">Voir plus</a>
+                </div>
+            </article>
+
+            <!-- article 3 -->
+
+            <article>
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauThird"
+                     style="background-image: url({{ asset("img/europ_parcour.jpg") }});">
+                    <div class="d-none d-md-block col-2 icon">
+                        <img src="../img/europ_parcour.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h3>Les activités en Europe</h3>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>nombres de réponses</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>date d'ajour du post</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h4>Les derniers sujets postés</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>25</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>02.02.2020</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="text-center text-md-right">
+                    <a href="{{ path('ActivitiesDiscussion') }}">Voir plus</a>
+                </div>
+            </article>
+
+            <!-- article 4 -->
+
+            <article>
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFourth"
+                     style="background-image: url({{ asset("img/world_parcour.jpg") }});">
+                    <div class="d-none d-md-block col-2 icon">
+                        <img src="../img/world_parcour.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h3>Les activités dans le reste du monde</h3>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>nombres de réponses</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>date d'ajour du post</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h4>Les derniers sujets postés</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>25</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span>02.02.2020</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="text-center text-md-right">
+                    <a href="{{ path('ActivitiesDiscussion') }}">Voir plus</a>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+
+
+{% endblock %}
