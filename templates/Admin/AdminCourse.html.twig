@@ -1,18 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'Admin/Adminbase.html.twig' %}
 {% block content %}
 
     <main>
         <div class="container-fluid">
             <ul class="row ariane">
                 <li><a href={{ path('Home') }}>Acceuil</a></li>
-                <li><span>/ Lieux</span></li>
+                <li><span>/ Parcours</span></li>
             </ul>
         </div>
 
-        <div class="news places">
+        <div class="news parcour">
             <article>
                 <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst"
-                     style="background-image: url({{ asset("img/france_parcour.jpg") }});">
+                    style="background-image: url({{ asset("img/france_parcour.jpg") }});">
                     <div class="d-none d-md-block col-2 icon">
                         <img src="../img/france_parcour.jpg" alt="" class="img-fluid">
                     </div>
@@ -21,7 +21,7 @@
                     <li>
                         <ul class="row menu container-fluid justify-content-between align-items-center m-0">
                             <li class="col-md-6 text-center text-md-left">
-                                <h2>Les lieux en France</h2>
+                                <h2>Les parcours en France</h2>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
                                 <span>nombres de réponses</span>
@@ -47,8 +47,9 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="{{ path('PlacesDiscussion') }}">Voir plus</a>
+                    <a href="{{ path('CourseDiscussion') }}">Voir plus</a>
                 </div>
+
             </article>
 
             <!-- article 2 -->
@@ -64,7 +65,7 @@
                     <li>
                         <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
                             <li class="col-md-6 text-center text-md-left">
-                                <h3>Les lieux en Espagne</h3>
+                                <h3>Les parcours en Espagne</h3>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
                                 <span>nombres de réponses</span>
@@ -90,7 +91,7 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="{{ path('PlacesDiscussion') }}">Voir plus</a>
+                    <a href="{{ path('CourseDiscussion') }}">Voir plus</a>
                 </div>
             </article>
 
@@ -107,7 +108,7 @@
                     <li>
                         <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
                             <li class="col-md-6 text-center text-md-left">
-                                <h3>Les lieux en Europe</h3>
+                                <h3>Les parcours en Europe</h3>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
                                 <span>nombres de réponses</span>
@@ -133,7 +134,7 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="{{ path('PlacesDiscussion') }}">Voir plus</a>
+                    <a href="{{ path('CourseDiscussion') }}">Voir plus</a>
                 </div>
             </article>
 
@@ -150,7 +151,7 @@
                     <li>
                         <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
                             <li class="col-md-6 text-center text-md-left">
-                                <h3>Les lieux dans le reste du monde</h3>
+                                <h3>Les parcours dans le reste du monde</h3>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
                                 <span>nombres de réponses</span>
@@ -174,16 +175,16 @@
                             </li>
                         </ul>
                     </li>
-
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="{{ path('PlacesDiscussion') }}">Voir plus</a>
+                    <a href="{{ path('CourseDiscussion') }}">Voir plus</a>
                 </div>
             </article>
 
         </div>
 
     </main>
+
 
 
 {% endblock %}

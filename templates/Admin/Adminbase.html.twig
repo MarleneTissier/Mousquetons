@@ -19,25 +19,25 @@
                     <li class="col-8">
                         <ul class="row justify-content-start align-items-center p-0">
                             <li class="col-2 m-2 d-none d-md-block"><img src="{{ asset('img/logo_provisoire.png') }}" alt="" class="img-fluid"></li>
-                            <li class="d-none d-lg-block"><a href={{ path('Home') }}><h1>Les Mousquetons Globe-trotteurs</h1></a></li>
-                            <li class="d-none d-md-block d-lg-none"><a href={{ path('Home') }}></a><h1>Les Mousquetons<br>Globe-trotteurs</a></h1></li>
+                            <li class="d-none d-lg-block"><a href={{ path('HomeAdmin') }}><h1>Les Mousquetons Globe-trotteurs <br>salut Admin</h1></a></li>
+                            <li class="d-none d-md-block d-lg-none"><a href={{ path('HomeAdmin') }}></a><h1>Les Mousquetons<br>Globe-trotteurs<br>salut Admin</a></h1></li>
                         </ul>
                     </li>
 
                     <li class="d-none d-md-block col-2 col-lg-1 p-0">
-                        <a class="boutton" href="{{ path('connexion') }}">Connexion</a>
+                        <a class="boutton" href="">Deconnexion</a>
                     </li>
 
                 </ul>
                 <ul class="container-fluid justify-content-around text-align-center align-items-center m-0 p-1 d-none d-md-flex">
-                    <li class="col-2"><a href={{ path('Course') }}>Les parcours</a></li>
-                    <li class="col-2"><a href={{ path('Places') }}>Lieux à visiter</a></li>
-                    <li class="col-2"><a href={{ path('Activities') }}>Les activités</a></li>
-                    <li class="col-2"><a href={{ path('Galeries') }}>Les galeries</a></li>
+                    <li class="col-2"><a href={{ path('CourseAdmin') }}>Les parcours</a></li>
+                    <li class="col-2"><a href={{ path('PlacesAdmin') }}>Lieux à visiter</a></li>
+                    <li class="col-2"><a href={{ path('ActivitiesAdmin') }}>Les activités</a></li>
+                    <li class="col-2"><a href={{ path('GaleriesAdmin') }}>Les galeries</a></li>
                     <li class="col-2">
                         <a href="">
                             <ul class="d-flex container-fluid justify-content-center text-center align-items-center p-2 m-0">
-                                <li class="d-none d-lg-block col-10 search"><a href="{{ path('search') }}">Une recherche?</a></li>
+                                <li class="d-none d-lg-block col-10 search"><a href="{{ path('searchAdmin') }}">Une recherche?</a></li>
                                 <li class="col-2 col-lg-1 p-0"><img src="{{ asset('img/recherche.png') }}" alt=""  class="img-fluid"></li>
                             </ul>
                         </a>
@@ -54,10 +54,10 @@
                                 </ul>
                             </li>
                             <li class="col-2"><a href=""><img src="{{ asset('img/recherche.png') }}" alt="" class="img-fluid"></a></li>
-                            <li class="col-6"><h1>Les Mousquetons<br>Globe-trotteurs</h1></li>
+                            <li class="col-6"><h1>Les Mousquetons<br>Globe-trotteurs<br>salut Admin</h1></li>
                         </ul>
                     </li>
-                    <li class="col-3 p-0"><a class="boutton" href="{{ path('connexion') }}">Connexion</a></li>
+                    <li class="col-3 p-0"><a class="boutton" href="">Deconnexion</a></li>
                 </ul>
             </div>
 
@@ -73,10 +73,10 @@
         <!--le footer-->
         <footer>
             <ul class="container-fluid justify-content-center text-center align-items-center m-0">
-                <li class="col-md-2"><a href="{{ path('formalitees') }}">Nous contacter</a></li>
-                <li class="col-md-4"><a href="{{ path('formalitees') }}">Réglement du forum</a></li>
-                <li class="col-md-4"><a href="{{ path('formalitees') }}">Politique de confidentialité</a></li>
-                <li class="col-md-2"><a href="{{ path('formalitees') }}">Plan du site</a></li>
+                <li class="col-md-2"><a href="{{ path('formaliteesAdmin') }}">Nous contacter</a></li>
+                <li class="col-md-4"><a href="{{ path('formaliteesAdmin') }}">Réglement du forum</a></li>
+                <li class="col-md-4"><a href="{{ path('formaliteesAdmin') }}">Politique de confidentialité</a></li>
+                <li class="col-md-2"><a href="{{ path('formaliteesAdmin') }}">Plan du site</a></li>
             </ul>
         </footer>
 

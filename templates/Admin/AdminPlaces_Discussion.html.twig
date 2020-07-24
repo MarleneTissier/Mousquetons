@@ -1,12 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'Admin/Adminbase.html.twig' %}
 {% block content %}
 
     <main>
         <div class="container-fluid">
             <ul class="row ariane">
-                <li><a href={{ path('Home') }}>Acceuil</a></li>
+                <li><a href={{ path('HomeAdmin') }}>Acceuil</a></li>
                 <li> / </li>
-                <li><a href={{ path('Places') }}>Lieux</a> </li>
+                <li><a href={{ path('PlacesAdmin') }}>Lieux</a> </li>
                 <li><span>/ Discussions</span></li>
             </ul>
         </div>

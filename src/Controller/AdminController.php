@@ -12,140 +12,129 @@
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx HOME xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/", name="Home")
+         * @route ("/admin", name="HomeAdmin")
          */
         public function Home(){
             //var_dump('hello world');
             //die;
-            return $this->render('Home.html.twig');
+            return $this->render('Admin/AdminHome.html.twig');
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx COURSE xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/parcours", name="Course")
+         * @route ("/admin/parcours", name="CourseAdmin")
          */
         public function Course(){
             //var_dump('hello world');
             //die;
-            return $this->render('Course.html.twig');
+            return $this->render('Admin/AdminCourse.html.twig');
         }
 
         /**
-         * @route ("/parcours/discussions", name="CourseDiscussion")
+         * @route ("/admin/parcours/discussions", name="CourseDiscussionAdmin")
          */
         public function CourseDiscussion(){
             //var_dump('hello world');
             //die;
-            return $this->render('Course_Discussion.html.twig');
+            return $this->render('Admin/AdminCourse_Discussion.html.twig');
         }
 
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx PLACES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/lieux", name="Places")
+         * @route ("/admin/lieux", name="PlacesAdmin")
          */
         public function Places(){
             //var_dump('hello world');
             //die;
-            return $this->render('Places.html.twig');
+            return $this->render('Admin/AdminPlaces.html.twig');
         }
 
         /**
-         * @route ("/lieux/discussions", name="PlacesDiscussion")
+         * @route ("/admin/lieux/discussions", name="PlacesDiscussionAdmin")
          */
         public function PlacesDiscussion(){
             //var_dump('hello world');
             //die;
-            return $this->render('Places_Discussion.html.twig');
+            return $this->render('Admin/AdminPlaces_Discussion.html.twig');
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ACTIVITIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/activitées", name="Activities")
+         * @route ("/admin/activitées", name="ActivitiesAdmin")
          */
         public function Activities(){
             //var_dump('hello world');
             //die;
-            return $this->render('Activities.html.twig');
+            return $this->render('Admin/AdminActivities.html.twig');
         }
 
         /**
-         * @route ("/activitées/discussions", name="ActivitiesDiscussion")
+         * @route ("/admin/activitées/discussions", name="ActivitiesDiscussionAdmin")
          */
         public function ActivitiesDiscussion(){
             //var_dump('hello world');
             //die;
-            return $this->render('Activities_Discussion.html.twig');
+            return $this->render('Admin/AdminActivities_Discussion.html.twig');
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx GALERIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/galeries", name="Galeries")
+         * @route ("/admin/galeries", name="GaleriesAdmin")
          */
         public function Galeries(){
             //var_dump('hello world');
             //die;
-            return $this->render('Galeries.html.twig');
+            return $this->render('Admin/AdminGaleries.html.twig');
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx LES POST xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/postTitle", name="post")
+         * @route ("/admin/postTitle", name="postAdmin")
          */
         public function post(){
             //var_dump('hello world');
             //die;
-            return $this->render('Post.html.twig');
+            return $this->render('Admin/AdminPost.html.twig');
         }
 
         /**
-         * @route ("/imagesTitle", name="images")
+         * @route ("/admin/imagesTitle", name="imagesAdmin")
          */
         public function images(){
             //var_dump('hello world');
             //die;
-            return $this->render('Album.html.twig');
+            return $this->render('Admin/AdminAlbum.html.twig');
         }
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx LES POST xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/recherche", name="search")
+         * @route ("/admin/recherche", name="searchAdmin")
          */
         public function search(){
             //var_dump('hello world');
             //die;
-            return $this->render('Search.html.twig');
+            return $this->render('Admin/AdminSearch.html.twig');
         }
 
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Les formalitées xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/formalité", name="formalitees")
+         * @route ("/admin/formalité", name="formaliteesAdmin")
          */
         public function formalitees(){
             //var_dump('hello world');
             //die;
-            return $this->render('Formalitees.html.twig');
+            return $this->render('Admin/AdminFormalitees.html.twig');
         }
 
-
-        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Connexion xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-        /**
-         * @route ("/connexion", name="connexion")
-         */
-        public function connexion(){
-            //var_dump('hello world');
-            //die;
-            return $this->render('Connexion.html.twig');
-        }
 
     }
 
