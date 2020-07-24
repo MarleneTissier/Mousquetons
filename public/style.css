@@ -1,0 +1,297 @@
+/* HEADER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - BASE */
+header {
+    height: 60vh;
+    /*background-color: #5eb5e0;*/
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; }
+@media all and (max-width: 420px) {
+    header {
+        height: 20vh;
+        /*background-color: #8959A8;*/
+        background-image: url(../img/backgroundBis.JPG);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed; } }
+@media all and (min-width: 769px) {
+    header {
+        height: 70vh;
+        /*background-color: darkslategrey;*/
+        background-image: url(../img/backgrounSecond.JPG);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed; } }
+header div {
+    background-color: #A5ABAF; }
+header ul {
+    list-style: none; }
+header ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em; }
+header ul a:hover {
+    text-decoration: none;
+    color: whitesmoke; }
+@media all and (max-width: 1126px) {
+    header ul a {
+        font-size: 1.0rem; }
+    header ul span {
+        font-size: 1.0em; } }
+@media all and (max-width: 815px) {
+    header ul a {
+        font-size: 0.9rem; }
+    header ul span {
+        font-size: 0.9em; } }
+header ul .magnifyingGlass {
+    width: 30%; }
+@media all and (max-width: 768px) {
+    header h1 {
+        font-size: 1.2rem; } }
+@media all and (max-width: 450px) {
+    header h1 {
+        font-size: 0.7rem; } }
+header .menu {
+    position: sticky;
+    top: -1px; }
+
+.boutton {
+    border: whitesmoke solid 1px;
+    padding: 5%;
+    border-radius: 50px;
+    width: auto;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center; }
+.boutton:hover {
+    text-decoration: none;
+    border: black solid 1px;
+    background-color: whitesmoke;
+    color: black;
+    color: black;
+    text-decoration: none; }
+
+.menuBurger .line {
+    width: 100%;
+    height: 0;
+    border: solid 2px;
+    border-color: white;
+    margin-top: 10%;
+    color: white;
+    margin-bottom: 20%; }
+
+
+/* ARTICLES  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  HOME */
+
+article {
+    background-color: #EAEAEA;
+    margin: 0 5% 2% 5%; }
+article div {
+    margin: 2% 0; }
+article div a {
+    font-size: 1.5em; }
+article div:last-child {
+    padding: 2%;
+    margin: 0; }
+article .bandeauFirst, article .bandeauSecond, article .bandeauThird, article .bandeauFourth {
+    margin: 0; }
+@media all and (min-width: 765px) {
+    article .bandeauFirst, article .bandeauSecond, article .bandeauThird, article .bandeauFourth {
+        height: 30vh; } }
+@media all and (max-width: 765px) {
+    article .bandeauFirst, article .bandeauSecond, article .bandeauThird, article .bandeauFourth {
+        height: 20vh; } }
+article .bandeauFirst {
+    background-image: url(../img/pyrenee.jpg);
+    /*background-color: #718C00;*/
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed; }
+article .bandeauSecond {
+    background-image: url(../img/flower.jpg);
+    /*background-color: #916319;*/
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed; }
+article .bandeauThird {
+    background-image: url(../img/activity.JPG);
+/*background-color: springgreen;*/
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed; }
+    article ul {
+    list-style: none;
+    padding: 1% 0; }
+    article ul span {
+    font-size: 0.8rem; }
+    article ul p {
+    font-size: 0.9rem; }
+
+/* Prez GALERIES  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  HOME */
+
+.album {
+    padding-top: 2%; }
+.album article {
+    background-color: #11ffee00;
+    padding: 2%;
+    margin-bottom: 2%; }
+.album article ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; }
+.album article ul span {
+    font-size: 0.9rem; }
+.album article ul p {
+    font-size: 0.8rem; }
+.album article ul .picture {
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    padding: 2%; }
+.album article ul .picture a {
+    text-decoration: none;
+    color: black; }
+.album article ul .picture a ul {
+    overflow: hidden; }
+.album article ul .picture a ul li:nth-child(even) span {
+    font-size: 1.4em; }
+.album article div {
+    margin-bottom: 3%; }
+
+/* SECTION  - - - - - - - - - -  COURSE  - - - - - - - - - - -  ACTIVITIES  - - - - - - - - - - - -  -  PLACES */
+
+.parcour .activity .places .bandeauFirst {
+    background-image: url(../img/france_parcour.jpg);
+    /*background-color: cornflowerblue;*/
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed; }
+.parcour .activity .places .bandeauSecond {
+    background-image: url(../img/espagne_parcour.JPG);
+    /*background-color: crimson;*/
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed; }
+.parcour .activity .places .bandeauThird {
+    background-image: url(../img/europ_parcour.jpg);
+    /*background-color: darkgoldenrod;*/
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; }
+.parcour .activity .places .bandeauFourth {
+    background-image: url(../img/world_parcour.jpg);
+    /*background-color: darkolivegreen;*/
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; }
+
+/* SECTION - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - GALERIES*/
+
+.listGalerie
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+.listGalerie
+ul li:nth-child(3) span {
+    font-size: 0.8em; }
+.listGalerie
+ul li {
+    text-align: center;
+    align-items: center; }
+.listGalerie
+ul a {
+    text-decoration: none;
+    color: black; }
+.listGalerie
+ul a:hover {
+    text-decoration: none;
+    color: black; }
+.listGalerie
+ul .picture {
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2%; }
+.futureImage{
+    width: 70%;
+    background-color: #916319;
+}
+/* FOOTER  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  BASE */
+
+footer {
+    background-color: #A5ABAF;
+    margin: 0;
+    padding: 2%; }
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; }
+footer ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 1em; }
+footer ul a:hover {
+    text-decoration: none;
+    color: whitesmoke; }
+@media all and (max-width: 815px) {
+    footer ul {
+        display: block; }
+    footer ul li {
+        margin: auto;
+        width: 40%; } }
+
+.listGalerie
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+.listGalerie
+ul li:nth-child(3) span {
+    font-size: 0.8em; }
+.listGalerie
+ul li {
+    text-align: center;
+    align-items: center; }
+.listGalerie
+ul a {
+    text-decoration: none;
+    color: black; }
+.listGalerie
+ul a:hover {
+    text-decoration: none;
+    color: black; }
+.listGalerie
+ul .picture {
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2%; }
+
+body {
+    background-color: #C8C6AF; }
+
+p {
+    font-family: 'Chilanka', cursive; }
+
+h1, h2, h3, h4, a, span {
+    font-family: 'Architects Daughter', cursive; }
+
+.ariane {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+.ariane li {
+    margin-right: 5px; }
+.ariane li span {
+    font-size: 0.7em; }
+
+.introduction {
+    /* haut | droit | bas | gauche */
+    margin: 0 5% 2% 5%;
+    padding: 2%; }
+
+.news {
+    margin: 0 5%; }
+
+/*# sourceMappingURL=style.css.map */
