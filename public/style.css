@@ -1,7 +1,6 @@
 /* HEADER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - BASE */
 header {
     height: 60vh;
-    /*background-color: #5eb5e0;*/
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,20 +8,17 @@ header {
 @media all and (max-width: 420px) {
     header {
         height: 20vh;
-        /*background-color: #8959A8;*/
-        background-image: url(../img/backgroundBis.JPG);
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed; } }
 @media all and (min-width: 769px) {
     header {
         height: 70vh;
-        /*background-color: darkslategrey;*/
-        background-image: url(../img/backgrounSecond.JPG);
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed; } }
+
 header div {
     background-color: #A5ABAF; }
 header ul {
@@ -103,20 +99,14 @@ article .bandeauFirst, article .bandeauSecond, article .bandeauThird, article .b
     article .bandeauFirst, article .bandeauSecond, article .bandeauThird, article .bandeauFourth {
         height: 20vh; } }
 article .bandeauFirst {
-    background-image: url(../img/pyrenee.jpg);
-    /*background-color: #718C00;*/
     background-position: bottom;
     background-size: cover;
     background-attachment: fixed; }
 article .bandeauSecond {
-    background-image: url(../img/flower.jpg);
-    /*background-color: #916319;*/
     background-position: bottom;
     background-size: cover;
     background-attachment: fixed; }
 article .bandeauThird {
-    background-image: url(../img/activity.JPG);
-/*background-color: springgreen;*/
     background-position: bottom;
     background-size: cover;
     background-attachment: fixed; }
@@ -161,26 +151,18 @@ article .bandeauThird {
 /* SECTION  - - - - - - - - - -  COURSE  - - - - - - - - - - -  ACTIVITIES  - - - - - - - - - - - -  -  PLACES */
 
 .parcour .activity .places .bandeauFirst {
-    background-image: url(../img/france_parcour.jpg);
-    /*background-color: cornflowerblue;*/
     background-position: bottom;
     background-size: cover;
     background-attachment: fixed; }
 .parcour .activity .places .bandeauSecond {
-    background-image: url(../img/espagne_parcour.JPG);
-    /*background-color: crimson;*/
     background-position: bottom;
     background-size: cover;
     background-attachment: fixed; }
 .parcour .activity .places .bandeauThird {
-    background-image: url(../img/europ_parcour.jpg);
-    /*background-color: darkgoldenrod;*/
     background-position: center;
     background-size: cover;
     background-attachment: fixed; }
 .parcour .activity .places .bandeauFourth {
-    background-image: url(../img/world_parcour.jpg);
-    /*background-color: darkolivegreen;*/
     background-position: center;
     background-size: cover;
     background-attachment: fixed; }
@@ -207,15 +189,29 @@ ul a {
 ul a:hover {
     text-decoration: none;
     color: black; }
-.listGalerie
-ul .picture {
-    background-color: #EAEAEA;
-    border-radius: 10px;
-    padding: 2%;
-    margin: 2%; }
-.futureImage{
-    width: 70%;
+.PrezGalerie{
+    margin-bottom: 2%;
+    /* haut | droit | bas | gauche */
+    margin: 0 2% 3% 2%;
+}
+.PrezGalerie a{
+    text-decoration: none;
+    color: black;
+    transition-duration: 0.7s;
+}
+.PrezGalerie a:hover{
+    text-decoration: none;
+    color: darkcyan;
+}
+.PicturePrez{
+    width: 300px;
+    height: 300px;
     background-color: #916319;
+    margin: auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 /* FOOTER  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  BASE */
 
@@ -279,12 +275,21 @@ h1, h2, h3, h4, a, span {
 
 .ariane {
     list-style: none;
-    margin: 0;
+    /* haut | droit | bas | gauche */
+    margin: 1% 2% 2% 0;
     padding: 0; }
 .ariane li {
     margin-right: 5px; }
 .ariane li span {
-    font-size: 0.7em; }
+    font-size: 1em; }
+.ariane li a {
+    text-decoration: none;
+    color: black;
+}
+.ariane li a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
 
 .introduction {
     /* haut | droit | bas | gauche */

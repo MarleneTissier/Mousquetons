@@ -17,7 +17,8 @@
 
         <div class="news">
             <article>
-                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst">
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst"
+                     style="background-image: url({{ asset("img/pyrenee.jpg") }});">
                     <div class="d-none d-md-block col-2 icon">
                         <img src="{{ asset('img/pyrenee.jpg') }}" alt="" class="img-fluid">
                     </div>
@@ -92,7 +93,7 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="">Voir plus</a>
+                    <a href={{ path('CourseDiscussion') }}>Voir plus</a>
                 </div>
 
             </article>
@@ -100,7 +101,8 @@
             <!-- article 2 -->
 
             <article>
-                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauSecond">
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauSecond"
+                     style="background-image: url({{ asset("img/flower.jpg") }});">
                     <div class="d-none d-md-block col-2 icon">
                         <img src="{{ asset('img/flower.jpg') }}" alt="" class="img-fluid">
                     </div>
@@ -175,14 +177,15 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="">Voir plus</a>
+                    <a href="{{ path('PlacesDiscussion') }}">Voir plus</a>
                 </div>
             </article>
 
             <!-- article 3 -->
 
             <article>
-                <div class="row align-items-center text-center text-md-left p-4 p-md-0  bandeauThird">
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0  bandeauThird"
+                    style="background-image: url({{ asset("img/activity.JPG")}})">
                     <div class="d-none d-md-block col-2 icon">
                         <img src="{{ asset('img/activity.JPG')}}" alt="" class="img-fluid">
                     </div>
@@ -257,7 +260,7 @@
                     </li>
                 </ul>
                 <div class="text-center text-md-right">
-                    <a href="">Voir plus</a>
+                    <a href={{ path('ActivitiesDiscussion') }}>Voir plus</a>
                 </div>
             </article>
         </div>

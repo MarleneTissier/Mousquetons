@@ -31,6 +31,16 @@
             return $this->render('Course.html.twig');
         }
 
+        /**
+         * @route ("/parcours/discussions", name="CourseDiscussion")
+         */
+        public function CourseDiscussion(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('Course_Discussion.html.twig');
+        }
+
+
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx PLACES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
@@ -42,6 +52,15 @@
             return $this->render('Places.html.twig');
         }
 
+        /**
+         * @route ("/lieux/discussions", name="PlacesDiscussion")
+         */
+        public function PlacesDiscussion(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('Places_Discussion.html.twig');
+        }
+
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ACTIVITIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
@@ -51,6 +70,15 @@
             //var_dump('hello world');
             //die;
             return $this->render('Activities.html.twig');
+        }
+
+        /**
+         * @route ("/activitées/discussions", name="ActivitiesDiscussion")
+         */
+        public function ActivitiesDiscussion(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('Activities_Discussion.html.twig');
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx GALERIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
