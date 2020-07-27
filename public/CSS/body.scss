@@ -1,0 +1,19 @@
+
+body {
+  background-color: #C8C6AF;
+}
+$color : black;
+.ariane{
+  list-style: none;
+}
+.ArianeSpan{
+  color: $color;
+}
+.ArianeLien{
+  text-decoration: none;
+  color: $color;
+}
+.ArianeLien:hover{
+  text-decoration: none;
+  color: $color;
+}
