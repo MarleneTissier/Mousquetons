@@ -94,6 +94,10 @@ body {
   color: black;
 }
 
+img {
+  width: 100%;
+}
+
 .introduction {
   padding: 2%;
 }
@@ -232,6 +236,116 @@ ArticleLiens:hover {
   text-decoration: none;
   color: black;
   list-style: none;
+}
+
+.commentaire {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+  background-color: #EAEAEA;
+  min-height: 20vh;
+  margin-bottom: 2%;
+}
+
+.poster {
+  width: 25%;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  border-right: black 1px solid;
+  align-items: center;
+}
+
+.avatar {
+  width: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+.info {
+  background-color: #EAEAEA;
+}
+
+.content {
+  width: 90%;
+  height: 20%;
+  background-color: #EAEAEA;
+  padding: 2%;
+}
+
+.reponse {
+  width: 70%;
+  background-color: #EAEAEA;
+  padding: 2%;
+  margin: auto;
+  margin-bottom: 4%;
+  min-height: 30vh;
+}
+
+.listGalerieUl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listGalerieLigne:nth-child(3) span {
+  font-size: 0.8em;
+}
+
+.listGalerieLigne {
+  text-align: center;
+  align-items: center;
+}
+
+.PrezGalerie {
+  margin-bottom: 2%;
+  /* haut | droit | bas | gauche */
+  margin: 0 2% 3% 2%;
+  background-color: #11ffee00;
+}
+
+.listGalerieLien {
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.7s;
+}
+
+.listGalerieLien:hover {
+  text-decoration: none;
+  color: darkcyan;
+}
+
+.PicturePrez {
+  height: 300px;
+  background-color: #916319;
+  margin: auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.formalite {
+  padding: 6%;
+}
+
+.formulaires {
+  text-align: center;
+  width: 90%;
+  padding: 8%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.connexion {
+  width: 45%;
+}
+
+.inscription {
+  width: 45%;
 }
 
 .footer {
