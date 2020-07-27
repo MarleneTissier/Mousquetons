@@ -28,11 +28,20 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    public function __construct()
+    {
+        $this->roles=array('ROLE_USER');
+    }
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $username;
 
     public function getId(): ?int
     {
@@ -110,5 +119,12 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 }

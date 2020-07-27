@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+        <ul class="row ariane">
+            <li><a class="ArianeLien"  href={{ path('Home') }}>Acceuil</a></li>
+            <li><span class="ArianeSpan" >/ inscription</span></li>
+        </ul>
+    </div>
+    <div class="formulaires">
+        <div class="formUser">
+            {{ form(userForm) }}
+        </div>
+    </div>
+
+{% endblock %}

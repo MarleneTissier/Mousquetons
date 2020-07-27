@@ -1,90 +1,60 @@
-{% extends 'Admin/Adminbase.html.twig' %}
+{% extends 'Admin/AdminBase.html.twig' %}
 {% block content %}
 
     <main>
         <div class="container-fluid">
             <ul class="row ariane">
-                <li><a href={{ path('HomeAdmin') }}>Acceuil</a></li>
+                <li><a class="ArianeLien"  href={{ path('Home') }}>Acceuil</a></li>
                 <li> / </li>
-                <li><a href={{ path('PlacesAdmin') }}>Lieux</a> </li>
-                <li><span>/ Discussions</span></li>
+                <li><a class="ArianeLien"  href={{ path('Places') }}>Lieux</a> </li>
+                <li><span  class="ArianeSpan" >/ Discussions</span></li>
             </ul>
         </div>
 
-        <article>
-            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst"
-                 style="background-image: url({{ asset("img/pyrenee.jpg") }});">
-                <div class="d-none d-md-block col-2 icon">
-                    <img src="{{ asset('img/pyrenee.jpg') }}" alt="" class="img-fluid">
+
+        <article  class="article">
+                <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                     style="background-image: url({{ asset("img/france_parcour.jpg") }});">
+                    <div class="d-none d-md-block col-2 icon articleDiv">
+                        <img src="{{ asset('img/france_parcour.jpg') }}" alt="" class="img-fluid">
+                    </div>
                 </div>
-            </div>
-            <ul>
-                <li>
-                    <ul class="row menu container-fluid justify-content-between align-items-center m-0">
-                        <li class="col-md-6 text-center text-md-left">
-                            <h2>Les derniers Lieux visités</h2>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>nombres de réponses</span>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>date d'ajour du post</span>
-                        </li>
-                    </ul>
-                </li>
+                <ul class="ArticleLiens">
+                    <li class="ArticleLigne">
+                        <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                            <li class="col-md-6 text-center text-md-left">
+                                <h2>Les lieux en France</h2>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span class="ArticleSpan">nombres de réponses</span>
+                            </li>
+                            <li class="d-none d-md-block col-2 text-center">
+                                <span class="ArticleSpan">date d'ajour du post</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('post') }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>Titre du sujet posté</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">25</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">02.02.2020</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+                <div class="text-center text-md-right articleDiv">
+                    <a class="ArticleLien" href="{{ path('CourseDiscussion') }}">Voir plus</a>
+                </div>
 
-                <li>
-                    <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
-                        <li class="col-md-6 text-center text-md-left">
-                            <h4>Titre du sujet posté</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>25</span>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>02.02.2020</span>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
-                        <li class="col-md-6 text-center text-md-left">
-                            <h4>Titre du sujet posté</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>25</span>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>02.02.2020</span>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0">
-                        <li class="col-md-6 text-center text-md-left">
-                            <h4>Titre du sujet posté</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>25</span>
-                        </li>
-                        <li class="d-none d-md-block col-2 text-center">
-                            <span>02.02.2020</span>
-                        </li>
-                    </ul>
-                </li>
-
-
-            <div class="text-center text-md-right">
-                <!-- for -->
-                <a href="">1 2 3 ...</a>
-            </div>
-
-        </article>
+            </article>
 
 
     </main>

@@ -11,3 +11,7 @@
   background-size: cover;
   background-attachment: fixed;
 }
+@mixin lien (){
+  text-decoration: none;
+  color: whitesmoke;
+}

@@ -98,6 +98,78 @@ img {
   width: 100%;
 }
 
+.footer {
+  background-color: #A5ABAF;
+  margin: 0;
+  padding: 2%;
+}
+
+.footerListe {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerLien {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+}
+
+.footerLien:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+@media all and (max-width: 1025px) {
+  .header {
+    height: 70vh;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+@media all and (max-width: 1126px) {
+  .HeaderLien {
+    font-size: 1rem;
+  }
+}
+@media all and (max-width: 815px) {
+  .HeaderLien {
+    font-size: 0.9rem;
+  }
+}
+@media all and (max-width: 768px) {
+  .HeaderH1 {
+    font-size: 1.2rem;
+  }
+}
+@media all and (max-width: 450px) {
+  .HeaderH1 {
+    font-size: 0.7rem;
+  }
+}
+@media all and (min-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
+    height: 30vh;
+  }
+}
+@media all and (max-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
+    height: 20vh;
+  }
+}
+@media all and (max-width: 815px) {
+  .footerListe {
+    display: block;
+  }
+
+  .footerLigne {
+    margin: auto;
+    width: 40%;
+  }
+}
 .introduction {
   padding: 2%;
 }
@@ -327,10 +399,6 @@ ArticleLiens:hover {
   background-size: cover;
 }
 
-.formalite {
-  padding: 6%;
-}
-
 .formulaires {
   text-align: center;
   width: 90%;
@@ -348,78 +416,35 @@ ArticleLiens:hover {
   width: 45%;
 }
 
-.footer {
-  background-color: #A5ABAF;
-  margin: 0;
-  padding: 2%;
+.RedirectionInscription {
+  margin-bottom: 2%;
+  margin-left: 10%;
 }
 
-.footerListe {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-.footerLien {
+.lienInscription {
   text-decoration: none;
   color: black;
-  font-size: 1em;
 }
 
-.footerLien:hover {
+.lienInscription:hover {
   text-decoration: none;
-  color: whitesmoke;
+  color: darkcyan;
 }
 
-@media all and (max-width: 1025px) {
-  .header {
-    height: 70vh;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  }
+.formulaireConnexion {
+  padding: 10%;
 }
-@media all and (max-width: 1126px) {
-  .HeaderLien {
-    font-size: 1rem;
-  }
-}
-@media all and (max-width: 815px) {
-  .HeaderLien {
-    font-size: 0.9rem;
-  }
-}
-@media all and (max-width: 768px) {
-  .HeaderH1 {
-    font-size: 1.2rem;
-  }
-}
-@media all and (max-width: 450px) {
-  .HeaderH1 {
-    font-size: 0.7rem;
-  }
-}
-@media all and (min-width: 765px) {
-  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
-    height: 30vh;
-  }
-}
-@media all and (max-width: 765px) {
-  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
-    height: 20vh;
-  }
-}
-@media all and (max-width: 815px) {
-  .footerListe {
-    display: block;
-  }
 
-  .footerLigne {
-    margin: auto;
-    width: 40%;
-  }
+.bouttonConnexion {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }
+
+.formalite {
+  padding: 6%;
+}
+
 /*# sourceMappingURL=main.scss.map */
 
 /*# sourceMappingURL=main.css.map */

@@ -10,7 +10,7 @@
 
 
         <article class="introduction article">
-            <h2>Bienvenue chez les Mousquetons</h2>
+            <h2>Bienvenue {% if is_granted('ROLE_USER') %}{{ app.user.username }}{% else %}chez les Les Mousquetons Globe-trotteurs{% endif %}</h2>
             <p>Vous voici sur le forum et le site de partage de photo des Mousquetons Globe-trotteur, qui réunit des passionnés de randonnée et d'activité en plein air. Il est possible de partager ses expériences, ses coups de coeurs, ses conseils et d'encourager les Mousquetons et visiteurs à aller visiter les paysages que l'on a visité. </p>
             <p>La lecture du forum est publique, mais pour écrire où y ajouter du contenu il faut en être membre. C'est simple, rapide et vous intégrerez la famille des Mousquetons.</p>
         </article>
