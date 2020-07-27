@@ -1,0 +1,78 @@
+.introduction{
+  padding: 2%;
+}
+.article {
+  background-color: #EAEAEA;
+  margin: 0 5% 2% 5%;
+}
+.articleDiv{
+  margin: 2% 0;
+}
+.ArticleLien {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+.ArticleLien:hover {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+.articleDiv:last-child {
+  padding: 2%;
+  margin: 0;
+}
+.ArticleLigne{
+  list-style: none;
+}
+.bandeauFirst {
+  @include bandeau();
+}
+.bandeauSecond {
+  @include bandeau();
+}
+.bandeauThird {
+  @include bandeau();
+}
+.ArticleLiens {
+  text-decoration: none;
+  color: black;
+  padding: 1% 0;
+  list-style: none;
+}
+ArticleLiens:hover {
+  text-decoration: none;
+  color: black;
+  padding: 1% 0;
+  list-style: none;
+}
+.ArticleSpan {
+  font-size: 0.8rem;
+}
+.ArticleParagraph{
+  font-size: 0.9rem;
+}
+.album{
+  padding-top: 2%;
+}
+.articleCarousel{
+  background-color: #11ffee00;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+.articleCarouselLien{
+  text-decoration: none;
+  color: black;
+}
+.ArticleCarouselLiens{
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.ArticleCarouselLigne{
+  background-color: #EAEAEA;
+  border-radius: 10px;
+  padding: 2%;
+}

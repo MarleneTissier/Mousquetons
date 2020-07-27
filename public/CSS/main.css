@@ -1,0 +1,293 @@
+.header {
+  height: 80vh;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.HeaderBackground {
+  background-color: #A5ABAF;
+}
+
+.HeaderListe {
+  list-style: none;
+}
+
+.HeaderLien {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+}
+
+.HeaderLien:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.HeaderListe .magnifyingGlass {
+  width: 30%;
+}
+
+.content_search {
+  padding: 5%;
+}
+
+.searchLien {
+  text-decoration: none;
+  color: black;
+}
+
+.searchLien:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.boutton {
+  border: whitesmoke solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  width: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+}
+
+.boutton:hover {
+  text-decoration: none;
+  border: black solid 1px;
+  background-color: whitesmoke;
+  color: black;
+  color: black;
+  text-decoration: none;
+}
+
+.menuBurger .line {
+  width: 100%;
+  height: 0;
+  border: solid 2px;
+  border-color: white;
+  margin-top: 10%;
+  color: white;
+  margin-bottom: 20%;
+}
+
+.introduction {
+  padding: 2%;
+}
+
+.article {
+  background-color: #EAEAEA;
+  margin: 0 5% 2% 5%;
+}
+
+.articleDiv {
+  margin: 2% 0;
+}
+
+.ArticleLien {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+.ArticleLien:hover {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+.articleDiv:last-child {
+  padding: 2%;
+  margin: 0;
+}
+
+.ArticleLigne {
+  list-style: none;
+}
+
+.bandeauFirst {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bandeauSecond {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bandeauThird {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.ArticleLiens {
+  text-decoration: none;
+  color: black;
+  padding: 1% 0;
+  list-style: none;
+}
+
+ArticleLiens:hover {
+  text-decoration: none;
+  color: black;
+  padding: 1% 0;
+  list-style: none;
+}
+
+.ArticleSpan {
+  font-size: 0.8rem;
+}
+
+.ArticleParagraph {
+  font-size: 0.9rem;
+}
+
+.album {
+  padding-top: 2%;
+}
+
+.articleCarousel {
+  background-color: #11ffee00;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+.articleCarouselLien {
+  text-decoration: none;
+  color: black;
+}
+
+.ArticleCarouselLiens {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.ArticleCarouselLigne {
+  background-color: #EAEAEA;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.parcour .activity .places .bandeauFirst {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parcour .activity .places .bandeauSecond {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parcour .activity .places .bandeauThird {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parcour .activity .places .bandeauFourth {
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.ArianeLien {
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+.footer {
+  background-color: #A5ABAF;
+  margin: 0;
+  padding: 2%;
+}
+
+.footerListe {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerLien {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+}
+
+.footerLien:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+@media all and (max-width: 1025px) {
+  .header {
+    height: 70vh;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+@media all and (max-width: 1126px) {
+  .HeaderLien {
+    font-size: 1rem;
+  }
+}
+@media all and (max-width: 815px) {
+  .HeaderLien {
+    font-size: 0.9rem;
+  }
+}
+@media all and (max-width: 768px) {
+  .HeaderH1 {
+    font-size: 1.2rem;
+  }
+}
+@media all and (max-width: 450px) {
+  .HeaderH1 {
+    font-size: 0.7rem;
+  }
+}
+@media all and (min-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
+    height: 30vh;
+  }
+}
+@media all and (max-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth {
+    height: 20vh;
+  }
+}
+@media all and (max-width: 815px) {
+  .footerListe {
+    display: block;
+  }
+
+  .footerLigne {
+    margin: auto;
+    width: 40%;
+  }
+}
+body {
+  background-color: #C8C6AF;
+}
+
+/*# sourceMappingURL=main.scss.map */
+
+/*# sourceMappingURL=main.css.map */

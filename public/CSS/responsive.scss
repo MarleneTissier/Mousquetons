@@ -1,0 +1,47 @@
+//------------------------------------le header
+@media all and (max-width: 1025px) {
+  .header {
+    @include header(70vh)
+  }
+}
+@media all and (max-width: 1126px) {
+  .HeaderLien{
+    font-size: 1.0rem;
+  }
+}
+@media all and (max-width: 815px) {
+  .HeaderLien {
+    font-size: 0.9rem;
+  }
+}
+@media all and (max-width: 768px) {
+  .HeaderH1 {
+    font-size: 1.2rem;
+  }
+}
+@media all and (max-width: 450px) {
+  .HeaderH1 {
+    font-size: 0.7rem;
+  }
+}
+//------------------------------------Articles
+@media all and (min-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth{
+    height: 30vh;
+  }
+}
+@media all and (max-width: 765px) {
+  .bandeauFirst, .bandeauSecond, .bandeauThird, .bandeauFourth{
+    height: 20vh;
+  }
+}
+//------------------------------------le footer
+@media all and (max-width: 815px) {
+  .footerListe {
+    display: block;
+  }
+  .footerLigne {
+    margin: auto;
+    width: 40%;
+  }
+}

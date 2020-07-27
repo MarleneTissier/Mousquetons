@@ -1,0 +1,18 @@
+
+.parcour .activity .places .bandeauFirst {
+  @include bandeau();
+}
+.parcour .activity .places .bandeauSecond {
+  @include bandeau();
+ }
+.parcour .activity .places .bandeauThird {
+  @include bandeau();
+ }
+.parcour .activity .places .bandeauFourth {
+  @include bandeau();
+}
+.ArianeLien{
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}

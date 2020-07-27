@@ -1,0 +1,20 @@
+.footer {
+  background-color: #A5ABAF;
+  margin: 0;
+  padding: 2%;
+}
+.footerListe {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.footerLien {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+}
+.footerLien:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+

@@ -1,0 +1,13 @@
+@mixin header($heightHeader){
+  height:$heightHeader;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+@mixin bandeau (){
+  margin: 0;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
