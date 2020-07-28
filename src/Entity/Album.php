@@ -27,6 +27,24 @@ class Album
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="albums")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=categorie::class, inversedBy="albums")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=post::class, inversedBy="albums")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $post;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +70,42 @@ class Album
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getPost(): ?post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,28 @@ class Post
      * @ORM\Column(type="string", length=500)
      */
     private $img;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="post")
+     */
+    private $discussions;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Album::class, mappedBy="post")
+     */
+    private $albums;
+
+    public function __construct()
+    {
+        $this->discussions = new ArrayCollection();
+        $this->albums = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +76,80 @@ class Post
     public function setImg(string $img): self
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Discussion[]
+     */
+    public function getDiscussions(): Collection
+    {
+        return $this->discussions;
+    }
+
+    public function addDiscussion(Discussion $discussion): self
+    {
+        if (!$this->discussions->contains($discussion)) {
+            $this->discussions[] = $discussion;
+            $discussion->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiscussion(Discussion $discussion): self
+    {
+        if ($this->discussions->contains($discussion)) {
+            $this->discussions->removeElement($discussion);
+            // set the owning side to null (unless already changed)
+            if ($discussion->getPost() === $this) {
+                $discussion->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Album[]
+     */
+    public function getAlbums(): Collection
+    {
+        return $this->albums;
+    }
+
+    public function addAlbum(Album $album): self
+    {
+        if (!$this->albums->contains($album)) {
+            $this->albums[] = $album;
+            $album->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAlbum(Album $album): self
+    {
+        if ($this->albums->contains($album)) {
+            $this->albums->removeElement($album);
+            // set the owning side to null (unless already changed)
+            if ($album->getPost() === $this) {
+                $album->setPost(null);
+            }
+        }
 
         return $this;
     }

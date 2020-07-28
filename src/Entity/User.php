@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -24,14 +26,10 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
-    public function __construct()
-    {
-        $this->roles=["ROLE_USER"];
-    }
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
@@ -39,9 +37,27 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="user")
      */
-    private $username;
+    private $discussions;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="user")
+     */
+    private $posts;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Album::class, mappedBy="user")
+     */
+    private $albums;
+
+    public function __construct()
+    {
+        $this->discussions = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+        $this->albums = new ArrayCollection();
+        $this->roles = ["ROLE_USER"];
+    }
 
     public function getId(): ?int
     {
@@ -121,9 +137,95 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function setUsername(?string $username): self
+    /**
+     * @return Collection|Discussion[]
+     */
+    public function getDiscussions(): Collection
     {
-        $this->username = $username;
+        return $this->discussions;
+    }
+
+    public function addDiscussion(Discussion $discussion): self
+    {
+        if (!$this->discussions->contains($discussion)) {
+            $this->discussions[] = $discussion;
+            $discussion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiscussion(Discussion $discussion): self
+    {
+        if ($this->discussions->contains($discussion)) {
+            $this->discussions->removeElement($discussion);
+            // set the owning side to null (unless already changed)
+            if ($discussion->getUser() === $this) {
+                $discussion->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts[] = $post;
+            $post->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): self
+    {
+        if ($this->posts->contains($post)) {
+            $this->posts->removeElement($post);
+            // set the owning side to null (unless already changed)
+            if ($post->getUser() === $this) {
+                $post->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Album[]
+     */
+    public function getAlbums(): Collection
+    {
+        return $this->albums;
+    }
+
+    public function addAlbum(Album $album): self
+    {
+        if (!$this->albums->contains($album)) {
+            $this->albums[] = $album;
+            $album->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAlbum(Album $album): self
+    {
+        if ($this->albums->contains($album)) {
+            $this->albums->removeElement($album);
+            // set the owning side to null (unless already changed)
+            if ($album->getUser() === $this) {
+                $album->setUser(null);
+            }
+        }
 
         return $this;
     }
