@@ -24,13 +24,13 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
 
     public function __construct()
     {
-        $this->roles=array('ROLE_USER');
+        $this->roles=["ROLE_USER"];
     }
     /**
      * @var string The hashed password

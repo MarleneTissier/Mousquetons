@@ -140,24 +140,14 @@
         }
 
 
-        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Connexion xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-        /**
-         * @route ("/connexion", name="connexion")
-         */
-        public function connexion(){
-            //var_dump('hello world');
-            //die;
-            return $this->render('inscription.html.twig');
-        }
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inscription xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
          * @route("/inscription", name="inscription")
          */
         public function inscription(
             Request $request,
-            EntityManagerInterface $entityManager,
-            UserRepository $userRepository
+            EntityManagerInterface $entityManager
         )
         {
             //nouvelle instance
@@ -168,12 +158,14 @@
             $userForm->handleRequest($request);
             //si le formulaire a ete envoyé et que les données sont valides...
             if ($userForm->isSubmitted()&&$userForm->isValid()){
-                //... alors je persist et flush le livre
+                //... alors je persist et flush le nouvel utilisateur
                 $entityManager->persist($user);
                 $entityManager->flush();
+                //Un message de remerciement
                 $this->addFlash('success', 'Merci de votre inscription');
                 return $this->redirectToRoute('Home');
             }
+            //par défaut j'affiche la page d'inscription
             return $this->render('inscription.html.twig', [
                 'userForm'=>$userForm->createView()
             ]);
