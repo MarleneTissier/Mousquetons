@@ -33,7 +33,7 @@ class Discussion
     private $nmb_post;
 
     /**
-     * @ORM\ManyToOne(targetEntity=categorie::class, inversedBy="discussions")
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="discussions")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
