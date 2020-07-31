@@ -8,6 +8,7 @@
     use App\Repository\UserRepository;
     use Doctrine\ORM\EntityManagerInterface;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+    use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\HttpFoundation\Request;
 
@@ -139,25 +140,46 @@
             return $this->render('Formalitees.html.twig');
         }
 
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Le profil xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+        /**
+         * @route ("/profil", name="profil")
+         */
+        public function profil(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('profil.html.twig');
+        }
+
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inscription xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//https://symfonycasts.com/screencast/symfony-forms/registration-form
 
         /**
          * @route("/inscription", name="inscription")
          */
         public function inscription(
             Request $request,
-            EntityManagerInterface $entityManager
+            EntityManagerInterface $entityManager,
+            UserPasswordEncoderInterface $passwordEncoder
         )
         {
             //nouvelle instance
             $user = new User();
             //recupération du gabarit de formulaire
-            $userForm = $this->createForm(UserType ::class, $user);
+            $userForm = $this->createForm(UserType ::class);
             //je prends les données de la requete et je les envois au formulaire
             $userForm->handleRequest($request);
+
             //si le formulaire a ete envoyé et que les données sont valides...
             if ($userForm->isSubmitted()&&$userForm->isValid()){
+                //encoder le mot de passe :
+                $user = $userForm->getData();
+                $user->setPassword($passwordEncoder->encodePassword(
+                    $user,
+                    $user->getPassword()
+                ));
+
                 //... alors je persist et flush le nouvel utilisateur
                 $entityManager->persist($user);
                 $entityManager->flush();
