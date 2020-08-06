@@ -29,10 +29,6 @@ class Post
      */
     private $img;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="post")
-     */
-    private $discussions;
 
     /**
      * @ORM\ManyToOne(targetEntity=user::class, inversedBy="posts")
@@ -80,36 +76,6 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Collection|Discussion[]
-     */
-    public function getDiscussions(): Collection
-    {
-        return $this->discussions;
-    }
-
-    public function addDiscussion(Discussion $discussion): self
-    {
-        if (!$this->discussions->contains($discussion)) {
-            $this->discussions[] = $discussion;
-            $discussion->setPost($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDiscussion(Discussion $discussion): self
-    {
-        if ($this->discussions->contains($discussion)) {
-            $this->discussions->removeElement($discussion);
-            // set the owning side to null (unless already changed)
-            if ($discussion->getPost() === $this) {
-                $discussion->setPost(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getUser(): ?user
     {

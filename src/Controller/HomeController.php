@@ -219,7 +219,8 @@
             if ($discussionForm->isSubmitted()&&$discussionForm->isValid()){
 ;
                 $discussion->setUser($userID);
-
+                $discussion->setNmbPost(0);
+                $discussion->setDate(new \DateTime('now'));
                 $entityManager->persist($discussion);
                 $entityManager->flush();
                 $this->addFlash('success', 'Votre Discussion a bien été crée !');

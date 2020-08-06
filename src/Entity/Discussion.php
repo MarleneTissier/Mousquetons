@@ -38,11 +38,6 @@ class Discussion
      */
     private $categorie;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="discussions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $post;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="discussions")
@@ -51,7 +46,7 @@ class Discussion
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable=true)
+     * @ORM\Column(type="text", length=500, nullable=true)
      */
     private $first_post;
 
@@ -108,17 +103,6 @@ class Discussion
         return $this;
     }
 
-    public function getPost(): ?Post
-    {
-        return $this->Post;
-    }
-
-    public function setPost(?Post $post): self
-    {
-        $this->Post = $post;
-
-        return $this;
-    }
 
     public function getUser(): ?user
     {
