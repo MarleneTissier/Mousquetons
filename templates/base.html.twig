@@ -19,20 +19,18 @@
                     <li class="col-8">
                         <ul class="row justify-content-start align-items-center p-0">
                             <li class="col-2 m-2 d-none d-md-block"><img src="{{ asset('img/logo_provisoire.png') }}" alt="" class="img-fluid"></li>
-                            <li class="d-none d-lg-block"><a class="HeaderLien" {{ path('Home') }}><h1 class="HeaderH1">Les Mousquetons Globe-trotteurs</h1></a></li>
-                            <li class="d-none d-md-block d-lg-none"><a  class="HeaderLien" href={{ path('Home') }}><h1 class="HeaderH1">Les Mousquetons<br>Globe-trotteurs</h1></a></li>
+                            <li class="d-none d-lg-block"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons Globe-trotteurs</h1></a></li>
+                            <li class="d-none d-md-block d-lg-none"><a  class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons<br>Globe-trotteurs</h1></a></li>
                         </ul>
                     </li>
 
                     <li class="d-none d-md-block col-2 col-lg-1 p-0">
                         {% if is_granted('ROLE_USER') %}
-                        <a class="boutton" href="{{ path('app_logout') }}">Déconnection</a>
+                            <a class="boutton" href="{{ path('app_logout') }}">Déconnection</a>
+                            <a class="boutton" href="{{ path('profil') }}">mon profil</a>
                         {% else %}
-                        <a class="boutton" href="{{ path('app_login') }}">Connexion</a>
+                            <a class="boutton" href="{{ path('app_login') }}">Connexion</a>
                         {% endif %}
-                        {% if is_granted('ROLE_USER') %}
-                        <a class="boutton" href="{{ path('profil') }}">mon profil</a>
-                        {% else %}
                     </li>
 
                 </ul>
@@ -60,19 +58,17 @@
                                     <li class="line"></li>
                                 </ul>
                             </li>
-                            <li class="col-2"><a  class="HeaderLien" href=""><img src="{{ asset('img/recherche.png') }}" alt="" class="img-fluid"></a></li>
-                            <li class="col-6"><h1 class="HeaderH1">Les Mousquetons<br>Globe-trotteurs</h1></li>
+                            <li class="col-2"><a  class="HeaderLien" href="{{ path('Home') }}"><img src="{{ asset('img/recherche.png') }}" alt="" class="img-fluid"></a></li>
+                            <li class="col-6"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons<br>Globe-trotteurs</h1></a></li>
                         </ul>
                     </li>
                     <li class="d-none d-md-block col-2 col-lg-1 p-0">
                         {% if is_granted('ROLE_USER') %}
                             <a class="boutton" href="{{ path('app_logout') }}">Déconnection</a>
+                            <a class="boutton" href="{{ path('profil') }}">mon profil</a>
                         {% else %}
                             <a class="boutton" href="{{ path('app_login') }}">Connexion</a>
                         {% endif %}
-                        {% if is_granted('ROLE_USER') %}
-                            <a class="boutton" href="{{ path('profil') }}">mon profil</a>
-                        {% else %}
                     </li>
                 </ul>
             </div>
