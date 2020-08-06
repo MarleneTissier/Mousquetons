@@ -50,6 +50,11 @@ class Discussion
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $first_post;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +128,18 @@ class Discussion
     public function setUser(?user $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getFirstPost(): ?string
+    {
+        return $this->first_post;
+    }
+
+    public function setFirstPost(?string $first_post): self
+    {
+        $this->first_post = $first_post;
 
         return $this;
     }

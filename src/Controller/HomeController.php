@@ -193,6 +193,30 @@
             ]);
         }
 
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx les formulaires xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+        /**
+         * @route ("/formulaireDicussion", name="formulaireDicussion")
+         */
+        public function formulaireDicussion(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('formulaireDiscussion.html.twig');
+        }
+
+        /**
+         * @route ("/formulaireGalerie", name="formulaireGalerie")
+         */
+        public function formulaireGalerie(){
+            //var_dump('hello world');
+            //die;
+            return $this->render('formulaireGalerie.html.twig');
+        }
+
+
+
+
+
     }
 
 ?>
