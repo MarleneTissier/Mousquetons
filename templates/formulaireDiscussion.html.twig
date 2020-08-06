@@ -1,4 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block content %}
 
+    <div class="form">
+        {# afficher le formulaire
+        #}
+        {{ form_start (discussionForm) }}
+            <div class="userAuthor">
+                <p>Nouvelle discussion de {{ app.user.username }}</p>
+            </div>
+            <div class="discussion_titre">
+                {{ form_label(discussionForm.name) }}
+                {{ form_widget(discussionForm.name, {'attr': {'class': 'input_name'}}) }}
+                {{ form_errors(discussionForm.name)}}
+            </div>
+            <div class="discussion_first_post">
+                {{ form_label(discussionForm.first_post) }}
+                {{ form_widget(discussionForm.first_post, {'attr': {'class': 'input_first_post'}}) }}
+                {{ form_errors(discussionForm.first_post)}}
+            </div>
+            <div class="discussion_categorie">
+                {{ form_label(discussionForm.categorie) }}
+                {{ form_widget(discussionForm.categorie, {'attr': {'class': 'input_categorie'}}) }}
+                {{ form_errors(discussionForm.categorie)}}
+            </div>
+
+        {{ form_end(discussionForm) }}
+    </div>
+
+
 {% endblock %}

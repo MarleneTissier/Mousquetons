@@ -6,6 +6,9 @@
     use App\Entity\User;
     use App\Form\UserType;
     use App\Repository\UserRepository;
+    use App\Form\DiscussionType;
+    use App\Entity\Post;
+    use App\Entity\Discussion;
     use Doctrine\ORM\EntityManagerInterface;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -102,7 +105,7 @@
         /**
          * @route ("/postTitle", name="post")
          */
-        public function post(){
+        public function Post(){
             //var_dump('hello world');
             //die;
             return $this->render('Post.html.twig');
@@ -196,13 +199,40 @@
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx les formulaires xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/formulaireDicussion", name="formulaireDicussion")
+         * @route ("/formulaireDicussion/{id}", name="formulaireDicussion")
          */
-        public function formulaireDicussion(){
+        public function formulaireDicussion(
+            Request $request,
+            EntityManagerInterface $entityManager,
+            UserRepository $UserRepository,
+            $id
+        )
+        {
             //var_dump('hello world');
             //die;
-            return $this->render('formulaireDiscussion.html.twig');
+
+            $userID = $UserRepository->find($id);
+            $discussion = new Discussion();
+            $discussionForm=$this->createForm(DiscussionType::class, $discussion);
+            $discussionForm->handleRequest($request);
+
+            if ($discussionForm->isSubmitted()&&$discussionForm->isValid()){
+;
+                $discussion->setUser($userID);
+
+                $entityManager->persist($discussion);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre Discussion a bien été crée !');
+                return $this->redirectToRoute('profil');
+            }else{
+
+            }
+            return $this->render('formulaireDiscussion.html.twig', [
+            'discussionForm'=>$discussionForm->createView()
+            ]);
         }
+
+
 
         /**
          * @route ("/formulaireGalerie", name="formulaireGalerie")

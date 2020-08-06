@@ -10,6 +10,7 @@
                 <li>pseudo : {{ app.user.username }}</li>
                 <li>email : {{ app.user.email }}</li>
                 <li>date d'inscription :</li>
+                <li>id : {{ app.user.id }}</li>
             </ul>
         </div>
         <div class="description">
@@ -58,7 +59,7 @@
                     </ul>
                 </div>
                <div class="userCreateArticle">
-                   <a class="bouttonProfil" href="{{ path('formulaireDicussion') }}">Créer une discussion</a>
+                   <a class="bouttonProfil" href="{{ path('formulaireDicussion', {'id':app.user.id}) }}">Créer une discussion</a>
                </div>
             </div>
 
@@ -101,7 +102,7 @@
                     </ul>
                 </div>
                 <div class="userCreateGalerie">
-                    <a class="bouttonProfil" href="{{ path('formulaireGalerie') }}">Créer une galerie</a>
+                    <a class="bouttonProfil" href="{{ path('formulaireGalerie', {'id':app.user.id}) }}">Créer une galerie</a>
                 </div>
             </div>
         </div>
