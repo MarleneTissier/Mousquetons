@@ -53,6 +53,18 @@
   text-align: center;
 }
 
+.listBouttonCo {
+  padding: 0;
+}
+
+.bouttonCo {
+  list-style: none;
+}
+
+.bouttonCo:last-child {
+  margin-top: 30%;
+}
+
 .boutton:hover {
   text-decoration: none;
   border: black solid 1px;
@@ -397,6 +409,97 @@ ArticleLiens:hover {
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.userPrez {
+  padding: 3%;
+  display: flex;
+}
+
+.avatar {
+  width: 15%;
+  border: white 2px solid;
+  max-width: 15%;
+}
+
+.userInfo {
+  width: 20%;
+  border: white 2px solid;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.listeUserInfo {
+  list-style: none;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.description {
+  width: 60%;
+  border: white 2px solid;
+}
+
+.paragrapheDescription {
+  padding: 5%;
+}
+
+.userCOntent {
+  padding-bottom: 5%;
+}
+
+.bouttonProfil {
+  padding-left: 5%;
+  color: #788187;
+  text-decoration: underline;
+}
+
+.bouttonProfil:hover {
+  color: #788187;
+  text-decoration: underline;
+}
+
+.userCOntent {
+  display: flex;
+}
+
+.formPlacesUser {
+  height: 30px;
+  border: white 2px solid;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 90%;
+}
+
+.userPlaces {
+  width: 15%;
+  background-color: #d6d4c2;
+}
+
+.listePlaces {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.placeUser {
+  list-style: none;
+}
+
+.userParticipation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.userArticle, .userGalerie {
+  width: 80%;
+  background-color: #d6d4c2;
+}
+
+.userGalerie {
+  margin-top: 10%;
 }
 
 .formulaires {

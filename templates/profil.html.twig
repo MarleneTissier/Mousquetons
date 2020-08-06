@@ -3,13 +3,19 @@
 
     <div class="userPrez">
         <div class="avatar">
-            <img src="" alt="">
+            <img src="{{ asset('img/logo_provisoire.png') }}" alt="" class="img-fluid">
         </div>
         <div class="userInfo">
-
+            <ul class="listeUserInfo">
+                <li>pseudo : {{ app.user.username }}</li>
+                <li>email : {{ app.user.email }}</li>
+                <li>date d'inscription :</li>
+            </ul>
         </div>
         <div class="description">
-
+            <p class="paragrapheDescription">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deserunt dolor doloribus enim esse, eum exercitationem, in ipsa iure laudantium maxime minus modi neque, nobis provident saepe sequi similique tempore!
+            </p>
         </div>
     </div>
     <div class="userCOntent">
@@ -22,9 +28,6 @@
                             <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h2>Les dernieres discussions crées</h2>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">nombres de visionnage</span>
                                 </li>
                                 <li class="d-none d-md-block col-2 text-center">
                                     <span class="ArticleSpan">nombres de réponses</span>
@@ -43,9 +46,6 @@
                                         <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
                                     </li>
                                     <li class="d-none d-md-block col-2 text-center">
-                                        <span class="ArticleSpan">2</span>
-                                    </li>
-                                    <li class="d-none d-md-block col-2 text-center">
                                         <span class="ArticleSpan">25</span>
                                     </li>
                                     <li class="d-none d-md-block col-2 text-center">
@@ -56,12 +56,9 @@
                         </li>
 
                     </ul>
-                    <div class="text-center text-md-right articleDiv">
-                        <a class="ArticleLien"  href={{ path('CourseDiscussion') }}>Voir plus</a>
-                    </div>
                 </div>
                <div class="userCreateArticle">
-                   <a class="boutton" href="{{ path('app_logout') }}">Créer une discussion</a>
+                   <a class="bouttonProfil" href="{{ path('app_logout') }}">Créer une discussion</a>
                </div>
             </div>
 
@@ -74,9 +71,6 @@
                             <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h2>Les dernière galeries crées</h2>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">nombres de visionnage</span>
                                 </li>
                                 <li class="d-none d-md-block col-2 text-center">
                                     <span class="ArticleSpan">nombres de réponses</span>
@@ -95,9 +89,6 @@
                                         <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
                                     </li>
                                     <li class="d-none d-md-block col-2 text-center">
-                                        <span class="ArticleSpan">2</span>
-                                    </li>
-                                    <li class="d-none d-md-block col-2 text-center">
                                         <span class="ArticleSpan">25</span>
                                     </li>
                                     <li class="d-none d-md-block col-2 text-center">
@@ -108,36 +99,43 @@
                         </li>
 
                     </ul>
-                    <div class="text-center text-md-right articleDiv">
-                        <a class="GalerieLien"  href={{ path('CourseDiscussion') }}>Voir plus</a>
-                    </div>
                 </div>
                 <div class="userCreateGalerie">
-                    <a class="boutton" href="{{ path('app_logout') }}">Créer une galerie</a>
+                    <a class="bouttonProfil" href="{{ path('app_logout') }}">Créer une galerie</a>
                 </div>
             </div>
         </div>
+        <div class="userPlaces">
+            <!-- lieux visités -->
+            <div class="userCreateArticle">
+                <div class="formPlacesUser">
 
+                </div>
+                <a class="bouttonProfil" href="{{ path('app_logout') }}">ajouter un lieu visité</a>
+            </div>
+            <div class="listePlaces">
+                <!-- liste des lieux visités -->
+                <ul class="placeUser">
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-        <!-- les contacts -->
+        <!-- les contacts futur ajout
         <div class="userContact">
-
-            <!-- amis -->
             <div class="userFriends">
                 <div class="userCreateArticle">
-                    <a class="boutton" href="{{ path('app_logout') }}">ajouter un ami</a>
-                </div>
-            </div>
-
-            <!-- lieux visités -->
-            <div class="userPlaces">
-                <div class="userCreateArticle">
-                    <a class="boutton" href="{{ path('app_logout') }}">ajouter un lieu visité</a>
+                    <a class="bouttonProfil" href="">ajouter un ami</a>
                 </div>
             </div>
         </div>
+        -->
 
-    </div>
 
 
 {% endblock %}
