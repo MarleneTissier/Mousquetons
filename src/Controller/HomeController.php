@@ -44,10 +44,13 @@
         /**
          * @route ("/parcours", name="Course")
          */
-        public function Course(){
+        public function Course(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            return $this->render('Course.html.twig');
+            $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC']);
+            return $this->render('Course.html.twig', [
+                'parcours' => $parcours
+            ]);
         }
 
         /**
@@ -56,9 +59,15 @@
         public function CourseDiscussion(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC']);
+            $parcoursFrance = $discussionRepository ->findBy(array('categorie'=>'1', 'place'=>'1'), ['id'=>'DESC']);
+            $parcoursEspagne = $discussionRepository ->findBy(array('categorie'=>'1', 'place'=>'2'), ['id'=>'DESC']);
+            $parcoursEurope = $discussionRepository ->findBy(array('categorie'=>'1', 'place'=>'3'), ['id'=>'DESC']);
+            $parcoursMonde = $discussionRepository ->findBy(array('categorie'=>'1', 'place'=>'4'), ['id'=>'DESC']);
             return $this->render('Course_Discussion.html.twig', [
-                'parcours' => $parcours
+                'parcoursFrance' => $parcoursFrance,
+                'parcoursEspagne' => $parcoursEspagne,
+                'parcoursEurope' => $parcoursEurope,
+                'parcoursMonde' => $parcoursMonde
             ]);
         }
 
@@ -80,9 +89,15 @@
         public function PlacesDiscussion(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            $lieux = $discussionRepository ->findBy(['categorie'=>'2'], ['id'=>'DESC']);
+            $lieuxFrance = $discussionRepository ->findBy(array('categorie'=>'2', 'place'=>'1'), ['id'=>'DESC']);
+            $lieuxEspagne = $discussionRepository ->findBy(array('categorie'=>'2', 'place'=>'2'), ['id'=>'DESC']);
+            $lieuxEurope = $discussionRepository ->findBy(array('categorie'=>'2', 'place'=>'3'), ['id'=>'DESC']);
+            $lieuxMonde = $discussionRepository ->findBy(array('categorie'=>'2', 'place'=>'4'), ['id'=>'DESC']);
             return $this->render('Places_Discussion.html.twig',[
-                'lieux'=> $lieux
+                'lieuxFrance'=> $lieuxFrance,
+                'lieuxEspagne'=> $lieuxEspagne,
+                'lieuxEurope'=> $lieuxEurope,
+                'lieuxMonde'=> $lieuxMonde
             ]);
         }
 
@@ -100,10 +115,19 @@
         /**
          * @route ("/activitées/discussions", name="ActivitiesDiscussion")
          */
-        public function ActivitiesDiscussion(){
+        public function ActivitiesDiscussion(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            return $this->render('Activities_Discussion.html.twig');
+            $activitesFrance = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>'1'), ['id'=>'DESC']);
+            $activitesEspagne = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>'2'), ['id'=>'DESC']);
+            $activitesEurope = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>'3'), ['id'=>'DESC']);
+            $activitesMonde = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>'4'), ['id'=>'DESC']);
+            return $this->render('Activities_Discussion.html.twig',[
+                'activitesFrance'=> $activitesFrance,
+                'activitesEspagne'=> $activitesEspagne,
+                'activitesEurope'=> $activitesEurope,
+                'activitesMonde'=> $activitesMonde
+            ]);
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx GALERIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
