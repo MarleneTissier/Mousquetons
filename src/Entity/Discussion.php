@@ -50,6 +50,12 @@ class Discussion
      */
     private $first_post;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Places::class, inversedBy="discussions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $place;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,6 +130,18 @@ class Discussion
     public function setFirstPost(?string $first_post): self
     {
         $this->first_post = $first_post;
+
+        return $this;
+    }
+
+    public function getPlace(): ?places
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?places $place): self
+    {
+        $this->place = $place;
 
         return $this;
     }

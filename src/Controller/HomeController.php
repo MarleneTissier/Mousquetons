@@ -53,10 +53,13 @@
         /**
          * @route ("/parcours/discussions", name="CourseDiscussion")
          */
-        public function CourseDiscussion(){
+        public function CourseDiscussion(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            return $this->render('Course_Discussion.html.twig');
+            $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC']);
+            return $this->render('Course_Discussion.html.twig', [
+                'parcours' => $parcours
+            ]);
         }
 
 
@@ -74,10 +77,13 @@
         /**
          * @route ("/lieux/discussions", name="PlacesDiscussion")
          */
-        public function PlacesDiscussion(){
+        public function PlacesDiscussion(DiscussionRepository $discussionRepository){
             //var_dump('hello world');
             //die;
-            return $this->render('Places_Discussion.html.twig');
+            $lieux = $discussionRepository ->findBy(['categorie'=>'2'], ['id'=>'DESC']);
+            return $this->render('Places_Discussion.html.twig',[
+                'lieux'=> $lieux
+            ]);
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ACTIVITIES xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
