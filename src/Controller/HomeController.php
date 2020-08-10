@@ -28,9 +28,13 @@
             //die;
             $users = $userRepository -> findAll();
             $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC'], 3);
+            $lieux = $discussionRepository ->findBy(['categorie'=>'2'], ['id'=>'DESC'], 3);
+            $activites = $discussionRepository ->findBy(['categorie'=>'3'], ['id'=>'DESC'], 3);
 
             return $this->render('Home.html.twig', [
                 'parcours' => $parcours,
+                'lieux'=> $lieux,
+                'activites' => $activites,
                 'users'=>$users
             ]);
         }
