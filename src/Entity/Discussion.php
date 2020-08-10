@@ -79,7 +79,7 @@ class Discussion
         return $this;
     }
 
-    public function getNmbPost(): ?int
+    public function getNmbPos(): ?int
     {
         return $this->nmb_post;
     }

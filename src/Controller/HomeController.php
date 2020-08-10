@@ -7,6 +7,7 @@
     use App\Form\UserType;
     use App\Repository\UserRepository;
     use App\Form\DiscussionType;
+    use App\Repository\DiscussionRepository;
     use App\Entity\Post;
     use App\Entity\Discussion;
     use Doctrine\ORM\EntityManagerInterface;
@@ -22,10 +23,16 @@
         /**
          * @route ("/", name="Home")
          */
-        public function Home(){
+        public function Home(DiscussionRepository $discussionRepository, UserRepository $userRepository){
             //var_dump('hello world');
             //die;
-            return $this->render('Home.html.twig');
+            $users = $userRepository -> findAll();
+            $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC'], 3);
+
+            return $this->render('Home.html.twig', [
+                'parcours' => $parcours,
+                'users'=>$users
+            ]);
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx COURSE xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
