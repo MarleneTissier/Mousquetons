@@ -255,25 +255,33 @@
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx les formulaires xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
+         * @route ("/test", name="test")
+         */
+        public function test(){
+            $id = $this->getUser()->getId();
+            var_dump($id);
+            die;
+        }
+
+
+        /**
          * @route ("/formulaireDicussion", name="formulaireDicussion")
          */
         public function formulaireDicussion(
             Request $request,
             EntityManagerInterface $entityManager,
-            UserRepository $UserRepository
+            UserRepository $userRepository
         )
         {
             //var_dump('hello world');
             //die;
-            //$userID = $UserRepository->find($id);
-            $user = $this->getUser();
-            $userID=$user->getId();
+            $id = $this->getUser()->getId();
+            $userID = $userRepository->find($id);
             $discussion = new Discussion();
             $discussionForm=$this->createForm(DiscussionType::class, $discussion);
             $discussionForm->handleRequest($request);
 
             if ($discussionForm->isSubmitted()&&$discussionForm->isValid()){
-;
                 $discussion->setUser($userID);
                 $discussion->setNmbPost(0);
                 $discussion->setDate(new \DateTime('now'));
@@ -281,8 +289,6 @@
                 $entityManager->flush();
                 $this->addFlash('success', 'Votre Discussion a bien été crée !');
                 return $this->redirectToRoute('profil');
-            }else{
-
             }
             return $this->render('formulaireDiscussion.html.twig', [
             'discussionForm'=>$discussionForm->createView()

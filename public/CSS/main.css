@@ -552,8 +552,14 @@ ArticleLiens:hover {
   padding: 5%;
 }
 
-.userAuthor, .discussion_titre, .discussion_first_post, .discussion_categorie {
-  margin-bottom: 3%;
+.userAuthor, .discussion_titre, .discussion_first_post, .discussion_categorie, .discussion_place {
+  margin-bottom: 2%;
+}
+
+textarea {
+  width: 70%;
+  height: 250px;
+  resize: none;
 }
 
 /*# sourceMappingURL=main.scss.map */

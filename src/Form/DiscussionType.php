@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Categorie;
 use App\Entity\Discussion;
+use App\Entity\Places;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -21,6 +22,10 @@ class DiscussionType extends AbstractType
             ->add('categorie', EntityType::class, [
             'class'=>Categorie::class,
             'choice_label'=>'name'
+            ])
+            ->add('place', EntityType::class, [
+                'class'=>Places::class,
+                'choice_label'=>'name'
             ])
             ->add('submit', SubmitType::class)
         ;

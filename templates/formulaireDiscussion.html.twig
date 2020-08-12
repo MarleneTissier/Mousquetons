@@ -23,6 +23,11 @@
                 {{ form_widget(discussionForm.categorie, {'attr': {'class': 'input_categorie'}}) }}
                 {{ form_errors(discussionForm.categorie)}}
             </div>
+            <div class="discussion_place">
+                <p>Indiquer le lieu concerné par votre discussion :</p>
+                {{ form_widget(discussionForm.place, {'attr': {'class': 'input_place'}}) }}
+                {{ form_errors(discussionForm.place)}}
+            </div>
 
         {{ form_end(discussionForm) }}
     </div>
