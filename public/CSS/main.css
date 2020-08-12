@@ -556,7 +556,13 @@ ArticleLiens:hover {
   margin-bottom: 2%;
 }
 
-textarea {
+.textarea_content {
+  width: 90%;
+  height: 150px;
+  resize: none;
+}
+
+.discussion_first_post {
   width: 70%;
   height: 250px;
   resize: none;

@@ -30,7 +30,13 @@
         <!--si connecté / futur formulaire -->
         <div class="reponse  col-10">
             {% if is_granted('ROLE_USER') %}
-                {{ form(postForm) }}
+                {{ form_start (postForm) }}
+                    <div class="postForm_content">
+                        <p>participez à la discussion : </p>
+                        {{ form_widget(postForm.content, {'attr': {'class': 'textarea_content'}}) }}
+                        {{ form_errors(postForm.content)}}
+                    </div>
+                {{ form_end(postForm) }}
             {% else %}
                 <p>Veuillez vous connecter pour répondre</p>
             {% endif %}

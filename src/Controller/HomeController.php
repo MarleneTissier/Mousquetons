@@ -4,6 +4,7 @@
 
 
     use App\Entity\User;
+    use App\Form\PostType;
     use App\Form\UserType;
     use App\Repository\UserRepository;
     use App\Form\DiscussionType;
@@ -154,16 +155,34 @@
         /**
          * @route ("/postTitle/{id}", name="post")
          */
-        public function Post(DiscussionRepository $discussionRepository, $id){
+        public function Post(DiscussionRepository $discussionRepository,
+                             EntityManagerInterface $entityManager,
+                             UserRepository $userRepository,
+                             Request $request,
+                             $id){
             //var_dump('hello world');
             //die;
             $discussion = $discussionRepository->find($id);
 
-            $PostForm = $this->createForm(PostType ::class);
+            $post = new Post();
+            $PostForm = $this->createForm(PostType ::class, $post);
+
+            $id = $this->getUser()->getId();
+            $userID = $userRepository->find($id);
+            $PostForm->handleRequest($request);
+
+            if ($PostForm->isSubmitted()&&$PostForm->isValid()){
+                $post->setUser($userID);
+                $entityManager->persist($post);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre post a bien été créé !');
+                return $this->redirectToRoute('post');
+            }
+
 
             return $this->render('Post.html.twig', [
                 'discussion'=>$discussion,
-                ‘postForm’ => $PostForm->createView()
+                'postForm' => $PostForm->createView()
             ]);
         }
 

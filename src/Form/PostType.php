@@ -14,7 +14,6 @@ class PostType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('img')
             ->add('submit', SubmitType::class)
         ;
     }
