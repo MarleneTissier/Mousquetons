@@ -555,28 +555,7 @@ ArticleLiens:hover {
 .userAuthor, .discussion_titre, .discussion_first_post, .discussion_categorie {
   margin-bottom: 3%;
 }
-.discussion_titre input{
-  width: 40%;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;;
-}
-.discussion_first_post textarea{
-  width: 90%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;;
-}
-.discussion_categorie select{
-  width: 10%;
-}
+
 /*# sourceMappingURL=main.scss.map */
 
 /*# sourceMappingURL=main.css.map */

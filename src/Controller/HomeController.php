@@ -152,12 +152,15 @@
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx LES POST xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/postTitle", name="post")
+         * @route ("/postTitle/{id}", name="post")
          */
-        public function Post(){
+        public function Post(DiscussionRepository $discussionRepository, $id){
             //var_dump('hello world');
             //die;
-            return $this->render('Post.html.twig');
+            $discussion = $discussionRepository->find($id);
+            return $this->render('Post.html.twig', [
+                'discussion'=>$discussion
+            ]);
         }
 
         /**
@@ -169,7 +172,7 @@
             return $this->render('Album.html.twig');
         }
 
-        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx LES POST xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx La recherche xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
          * @route ("/recherche", name="search")

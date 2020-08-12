@@ -17,18 +17,23 @@
                     <img src="{{ asset("img/avatar.jpg") }}" alt="">
                 </div>
                 <div class="info">
-                    <p>PSEUDO</p>
+                    <p>{{ discussion.user.username }}</p>
                     <p>DATE INSCRIPTION</p>
                 </div>
             </div>
             <div class="content">
-                <p>LE MESSAGE RECUPERE</p>
+                <h2>{{ discussion.name }}</h2>
+                <p>{{ discussion.FirstPost }}</p>
             </div>
         </div>
 
         <!--si connecté / futur formulaire -->
         <div class="reponse  col-10">
-            <p>Veuillez vous connecter pour répondre</p>
+            {% if is_granted('ROLE_USER') %}
+
+            {% else %}
+                <p>Veuillez vous connecter pour répondre</p>
+            {% endif %}
         </div>
         </div>
     </main>
