@@ -158,8 +158,12 @@
             //var_dump('hello world');
             //die;
             $discussion = $discussionRepository->find($id);
+
+            $PostForm = $this->createForm(PostType ::class);
+
             return $this->render('Post.html.twig', [
-                'discussion'=>$discussion
+                'discussion'=>$discussion,
+                ‘postForm’ => $PostForm->createView()
             ]);
         }
 
@@ -251,19 +255,19 @@
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx les formulaires xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
         /**
-         * @route ("/formulaireDicussion/{id}", name="formulaireDicussion")
+         * @route ("/formulaireDicussion", name="formulaireDicussion")
          */
         public function formulaireDicussion(
             Request $request,
             EntityManagerInterface $entityManager,
-            UserRepository $UserRepository,
-            $id
+            UserRepository $UserRepository
         )
         {
             //var_dump('hello world');
             //die;
-
-            $userID = $UserRepository->find($id);
+            //$userID = $UserRepository->find($id);
+            $user = $this->getUser();
+            $userID=$user->getId();
             $discussion = new Discussion();
             $discussionForm=$this->createForm(DiscussionType::class, $discussion);
             $discussionForm->handleRequest($request);

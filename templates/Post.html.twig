@@ -30,7 +30,7 @@
         <!--si connecté / futur formulaire -->
         <div class="reponse  col-10">
             {% if is_granted('ROLE_USER') %}
-
+                {{ form(postForm) }}
             {% else %}
                 <p>Veuillez vous connecter pour répondre</p>
             {% endif %}
