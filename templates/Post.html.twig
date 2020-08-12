@@ -27,6 +27,23 @@
             </div>
         </div>
 
+        {% for discussionPost in discussionPosts %}
+            <div class="postReponse">
+                <div class="poster">
+                    <div class="avatar">
+                        <img src="{{ asset("img/avatar.jpg") }}" alt="">
+                    </div>
+                    <div class="info">
+                        <p>{{ discussionPost.user.username }}</p>
+                        <p>DATE INSCRIPTION</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ discussionPost.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
         <!--si connecté / futur formulaire -->
         <div class="reponse  col-10">
             {% if is_granted('ROLE_USER') %}

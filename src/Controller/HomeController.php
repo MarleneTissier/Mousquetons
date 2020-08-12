@@ -6,6 +6,7 @@
     use App\Entity\User;
     use App\Form\PostType;
     use App\Form\UserType;
+    use App\Repository\PostRepository;
     use App\Repository\UserRepository;
     use App\Form\DiscussionType;
     use App\Repository\DiscussionRepository;
@@ -156,32 +157,38 @@
          * @route ("/postTitle/{id}", name="post")
          */
         public function Post(DiscussionRepository $discussionRepository,
+                             PostRepository $postRepository,
                              EntityManagerInterface $entityManager,
                              UserRepository $userRepository,
                              Request $request,
                              $id){
-            //var_dump('hello world');
+            //dump('hello world');
             //die;
             $discussion = $discussionRepository->find($id);
-
+            $discussionID = $discussionRepository->find($id);
+            $discussionPosts= $postRepository->findBy(array('discussion'=>$id));
             $post = new Post();
             $PostForm = $this->createForm(PostType ::class, $post);
 
-            $id = $this->getUser()->getId();
-            $userID = $userRepository->find($id);
+            $idUser = $this->getUser()->getId();
+            $userID = $userRepository->find($idUser);
             $PostForm->handleRequest($request);
+
 
             if ($PostForm->isSubmitted()&&$PostForm->isValid()){
                 $post->setUser($userID);
+                $post->setDiscussion($discussionID);
                 $entityManager->persist($post);
                 $entityManager->flush();
                 $this->addFlash('success', 'Votre post a bien été créé !');
-                return $this->redirectToRoute('post');
+                $post = new Post();
+                $PostForm = $this->createForm(PostType ::class, $post);
+               // return $this->redirectToRoute('post');
             }
-
 
             return $this->render('Post.html.twig', [
                 'discussion'=>$discussion,
+                'discussionPosts'=>$discussionPosts,
                 'postForm' => $PostForm->createView()
             ]);
         }

@@ -24,10 +24,6 @@ class Post
      */
     private $content;
 
-    /**
-     * @ORM\Column(type="string", length=500)
-     */
-    private $img;
 
 
     /**
@@ -40,6 +36,12 @@ class Post
      * @ORM\OneToMany(targetEntity=Album::class, mappedBy="post")
      */
     private $albums;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=discussion::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $discussion;
 
     public function __construct()
     {
@@ -60,18 +62,6 @@ class Post
     public function setContent(string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(string $img): self
-    {
-        $this->img = $img;
 
         return $this;
     }
@@ -116,6 +106,18 @@ class Post
                 $album->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDiscussion(): ?discussion
+    {
+        return $this->discussion;
+    }
+
+    public function setDiscussion(?discussion $discussion): self
+    {
+        $this->discussion = $discussion;
 
         return $this;
     }

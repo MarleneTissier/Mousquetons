@@ -39,7 +39,7 @@
             <!-- for pour récup les 3 derniers post -->
             {% for activite in activites %}
                 <li class="ArticleLigne">
-                    <a class="ArticleLien" href="{{ path('post') }}" >
+                    <a class="ArticleLien" href="{{ path('post', {'id':activite.id}) }}" >
                         <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                             <li class="col-md-6 text-center text-md-left">
                                 <h4>{{activite.name}}</h4>

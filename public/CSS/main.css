@@ -332,6 +332,16 @@ ArticleLiens:hover {
   margin-bottom: 2%;
 }
 
+.postReponse {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+  background-color: #EAEAEA;
+  min-height: 20vh;
+  margin-bottom: 2%;
+}
+
 .poster {
   width: 25%;
   padding: 1%;

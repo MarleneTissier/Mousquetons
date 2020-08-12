@@ -39,7 +39,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for activiteFrance in activitesFrance %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post') }}" >
+                        <a class="ArticleLien" href="{{ path('post', {'id':activiteFrance.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{activiteFrance.name}}</h4>
@@ -97,7 +97,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for activiteEspagne in activitesEspagne %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post') }}" >
+                        <a class="ArticleLien" href="{{ path('post', {'id':activiteEspagne.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{activiteEspagne.name}}</h4>
@@ -154,7 +154,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for activiteEurope in activitesEurope %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post') }}" >
+                        <a class="ArticleLien" href="{{ path('post', {'id':activiteEurope.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{activiteEurope.name}}</h4>
@@ -211,7 +211,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for activiteMonde in activitesMonde %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post') }}" >
+                        <a class="ArticleLien" href="{{ path('post', {'id':activiteMonde.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{activiteMonde.name}}</h4>
