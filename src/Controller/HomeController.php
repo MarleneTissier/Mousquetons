@@ -243,8 +243,16 @@
                 'discussions'=>$discussion
             ]);
         }
-
-
+        /**
+         * @route ("/profilUpdate", name="profilUpdate")
+         */
+        public function profilUpdate(
+            UserRepository $userRepository
+        ){
+            //dump('hello world');
+            //die;
+            return $this->render('profilUpdate.html.twig');
+        }
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inscription xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //https://symfonycasts.com/screencast/symfony-forms/registration-form
 

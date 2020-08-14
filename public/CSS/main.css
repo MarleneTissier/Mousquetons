@@ -422,7 +422,10 @@ ArticleLiens:hover {
 }
 
 .userPrez {
-  padding: 3%;
+  padding-bottom: 1%;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
   display: flex;
 }
 
@@ -430,6 +433,7 @@ ArticleLiens:hover {
   width: 15%;
   border: white 2px solid;
   max-width: 15%;
+  background-color: black;
 }
 
 .userInfo {
@@ -458,10 +462,22 @@ ArticleLiens:hover {
   padding-bottom: 5%;
 }
 
-.bouttonProfil {
-  padding-left: 5%;
+.updateProfil {
+  margin-bottom: 3%;
+}
+
+.bouttonProfil, .bouttonUpProfil {
   color: #788187;
   text-decoration: underline;
+}
+
+.bouttonUpProfil {
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.bouttonProfil {
+  padding-left: 5%;
 }
 
 .bouttonProfil:hover {
