@@ -230,10 +230,18 @@
         /**
          * @route ("/profil", name="profil")
          */
-        public function profil(){
+        public function profil(
+            UserRepository $userRepository,
+            DiscussionRepository $discussionRepository
+        ){
             //var_dump('hello world');
             //die;
-            return $this->render('profil.html.twig');
+            $id = $this->getUser()->getId();
+            $userID = $userRepository->find($id);
+            $discussion= $discussionRepository->findBy(array('user'=>$userID));
+            return $this->render('profil.html.twig', [
+                'discussions'=>$discussion
+            ]);
         }
 
 

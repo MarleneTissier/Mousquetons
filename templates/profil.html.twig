@@ -40,20 +40,20 @@
                         </li>
                         <li class="ArticleLigne">
                             <!-- for pour récup les 3 derniers post -->
-                            <a class="ArticleLien" href="" >
-                                <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
-                                    <li class="col-md-6 text-center text-md-left">
-                                        <h4>Titre du sujet posté</h4>
-                                        <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                                    </li>
-                                    <li class="d-none d-md-block col-2 text-center">
-                                        <span class="ArticleSpan">25</span>
-                                    </li>
-                                    <li class="d-none d-md-block col-2 text-center">
-                                        <span class="ArticleSpan">02.02.2020</span>
-                                    </li>
-                                </ul>
-                            </a>
+
+                            {% for discussion in discussions %}
+                                <a class="ArticleLien" href="{{ path('post', {'id':discussion.id}) }}" >
+                                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                                        <li class="col-md-6 text-center text-md-left">
+                                            <h2>{{discussion.name}}</h2>
+                                            <p class="ArticleParagraph" >{{ discussion.FirstPost }}</p>
+                                        </li>
+                                        <li class="d-none d-md-block col-2 text-center">
+                                            <span class="ArticleSpan">{{discussion.date|date('d-M-Y')}}</span>
+                                        </li>
+                                    </ul>
+                                </a>
+                            {% endfor %}
                         </li>
 
                     </ul>
@@ -71,7 +71,7 @@
                         <li class="ArticleLigne">
                             <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
-                                    <h2>Les dernière galeries crées</h2>
+                                    <h2>Les dernieres discussions crées</h2>
                                 </li>
                                 <li class="d-none d-md-block col-2 text-center">
                                     <span class="ArticleSpan">nombres de réponses</span>

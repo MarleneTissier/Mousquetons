@@ -504,12 +504,12 @@ ArticleLiens:hover {
 }
 
 .userArticle, .userGalerie {
-  width: 80%;
+  width: 90%;
   background-color: #d6d4c2;
 }
 
 .userGalerie {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .formulaires {
