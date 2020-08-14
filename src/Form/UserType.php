@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +15,12 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
+            // créer l'input File, avec en option "mapped => false" pour
+            // que symfony n'enregistre pas automatiquement la valeur du champs
+            ->add('avatar',FileType::class, [
+                'mapped' => false
+            ])
+            ->add('description')
             ->add('email')
             ->add('password')
             ->add('soumettre', SubmitType::class)

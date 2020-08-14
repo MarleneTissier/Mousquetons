@@ -3,7 +3,7 @@
 
     <div class="userPrez">
         <div class="avatar">
-            <img src="{{ asset('img/logo_provisoire.png') }}" alt="" class="img-fluid">
+            <img src="{{ asset('profilUser/avatar/'~app.user.avatar) }}" alt="" class="img-fluid">
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">
@@ -15,7 +15,7 @@
         </div>
         <div class="description">
             <p class="paragrapheDescription">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deserunt dolor doloribus enim esse, eum exercitationem, in ipsa iure laudantium maxime minus modi neque, nobis provident saepe sequi similique tempore!
+                {{ app.user.description }}
             </p>
         </div>
     </div>

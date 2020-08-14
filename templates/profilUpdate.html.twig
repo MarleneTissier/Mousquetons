@@ -1,5 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-
+    <div class="formUpdate">
+        {{ form_start (updateUserForm) }}
+        <div class="userAuthor">
+            <p>Mise a jour du profil de {{ app.user.username }}</p>
+        </div>
+        <div class="">
+            <p>Avez-vous une nouvelle adresse mail ?  </p>
+            {{ form_widget(updateUserForm.email, {'attr': {'class': 'input_email'}}) }}
+            {{ form_errors(updateUserForm.email)}}
+        </div>
+        <div class="">
+            <p>Voulez vous modifier votre description ? </p>
+            {{ form_widget(updateUserForm.description, {'attr': {'class': 'input_description'}}) }}
+            {{ form_errors(updateUserForm.description)}}
+        </div>
+        <div class="">
+            <p>Voulez-vous changer votre avatar ? </p>
+            {{ form_widget(updateUserForm.avatar, {'attr': {'class': 'input_avatar'}}) }}
+            {{ form_errors(updateUserForm.avatar)}}
+        </div>
+        {{ form_end(updateUserForm) }}
+    </div>
 
 {% endblock %}

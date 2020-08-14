@@ -17,6 +17,7 @@
     use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\String\Slugger\SluggerInterface;
 
     class HomeController extends AbstractController{
 
@@ -243,16 +244,79 @@
                 'discussions'=>$discussion
             ]);
         }
+
+
+
         /**
          * @route ("/profilUpdate", name="profilUpdate")
          */
         public function profilUpdate(
-            UserRepository $userRepository
+            UserRepository $userRepository,
+            SluggerInterface $slugger,
+            EntityManagerInterface $entityManager,
+            Request $request
         ){
             //dump('hello world');
             //die;
-            return $this->render('profilUpdate.html.twig');
+            $id = $this->getUser()->getId();
+            $userID = $userRepository->find($id);
+            $user=$userRepository->find($userID);
+
+            $updateUserForm=$this->createForm(UserType::class, $user);
+            $updateUserForm->handleRequest($request);
+
+            if ($updateUserForm->isSubmitted() && $updateUserForm->isValid()){
+
+                // je récupère l'image uploadée
+                $userFormAvatar = $updateUserForm->get('avatar')->getData();
+
+                // s'il y a bien une image uploadée dans le formulaire
+                if ($userFormAvatar){
+                    //je récupère le nom de l'image
+                    $originalAvatarName=pathinfo($userFormAvatar->getClientOriginalName(), PATHINFO_FILENAME);
+                    //et grace a son nom original, je génère un nouveau qui sera unique
+                    //pour éviter d'avoir des doublons de noms d'images en BDD
+                    $safeAvatarName = $slugger->slug($originalAvatarName);
+                    $uniqueAvatarName=$safeAvatarName.'-'.uniqid().'.'.$userFormAvatar->guessExtension();
+                    //j'utilise un bloc try and catch
+                    //qui agit comme une condition, mais si le bloc try échoue, ça soulève une erreur grace au catch
+                    try {
+                        // je prends l'image uploadée
+                        // et je la déplace dans un dossier (dans public) + je la renomme avec
+                        // le nom unique générée
+                        // j'utilise un parametre (défini dans services.yaml) pour savoir
+                        // dans quel dossier je la déplace
+                        // un parametre = une sorte de variable globale
+                        $userFormAvatar->move(
+                            $this->getParameter('Avatar_directory'),
+                            $uniqueAvatarName
+                        );
+                    }catch (FileException $e){
+                        return new Response(($e->getMessage()));
+                    }
+                    //je sauvegarde dans la colonne bookCover le nom de mon image
+                    $user->setAvatar($uniqueAvatarName);
+                }
+
+                //... alors je persist et flush le nouvel utilisateur
+                $entityManager->persist($user);
+                $entityManager->flush();
+                //Un message de remerciement
+                $this->addFlash('success', 'votre profil a été mis à jour');
+                return $this->redirectToRoute('profil');
+            }
+
+
+            return $this->render('profilUpdate.html.twig', [
+                'updateUserForm'=>$updateUserForm->createView()
+            ]);
         }
+
+
+
+
+
+
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx inscription xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //https://symfonycasts.com/screencast/symfony-forms/registration-form
 
@@ -262,7 +326,8 @@
         public function inscription(
             Request $request,
             EntityManagerInterface $entityManager,
-            UserPasswordEncoderInterface $passwordEncoder
+            UserPasswordEncoderInterface $passwordEncoder,
+            SluggerInterface $slugger
         )
         {
             //nouvelle instance
@@ -280,13 +345,43 @@
                     $user,
                     $user->getPassword()
                 ));
+                // je récupère l'image uploadée
+                $userFormAvatar = $userForm->get('avatar')->getData();
+
+                // s'il y a bien une image uploadée dans le formulaire
+                if ($userFormAvatar){
+                    //je récupère le nom de l'image
+                    $originalAvatarName=pathinfo($userFormAvatar->getClientOriginalName(), PATHINFO_FILENAME);
+                    //et grace a son nom original, je génère un nouveau qui sera unique
+                    //pour éviter d'avoir des doublons de noms d'images en BDD
+                    $safeAvatarName = $slugger->slug($originalAvatarName);
+                    $uniqueAvatarName=$safeAvatarName.'-'.uniqid().'.'.$userFormAvatar->guessExtension();
+                    //j'utilise un bloc try and catch
+                    //qui agit comme une condition, mais si le bloc try échoue, ça soulève une erreur grace au catch
+                    try {
+                        // je prends l'image uploadée
+                        // et je la déplace dans un dossier (dans public) + je la renomme avec
+                        // le nom unique générée
+                        // j'utilise un parametre (défini dans services.yaml) pour savoir
+                        // dans quel dossier je la déplace
+                        // un parametre = une sorte de variable globale
+                        $userFormAvatar->move(
+                            $this->getParameter('Avatar_directory'),
+                            $uniqueAvatarName
+                        );
+                    }catch (FileException $e){
+                        return new Response(($e->getMessage()));
+                    }
+                    //je sauvegarde dans la colonne bookCover le nom de mon image
+                    $user->setAvatar($uniqueAvatarName);
+                }
 
                 //... alors je persist et flush le nouvel utilisateur
                 $entityManager->persist($user);
                 $entityManager->flush();
                 //Un message de remerciement
                 $this->addFlash('success', 'Merci de votre inscription');
-                return $this->redirectToRoute('Home');
+                return $this->redirectToRoute('profil');
             }
             //par défaut j'affiche la page d'inscription
             return $this->render('inscription.html.twig', [

@@ -56,6 +56,16 @@ class User implements UserInterface
      */
     private $albums;
 
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="string", length=700, nullable=true)
+     */
+    private $description;
+
     public function __construct()
     {
         $this->discussions = new ArrayCollection();
@@ -237,6 +247,30 @@ class User implements UserInterface
                 $album->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
