@@ -14,7 +14,7 @@
         <div class="commentaire">
             <div class="poster">
                 <div class="avatar_post">
-                    <img src="{{ asset("img/avatar.jpg") }}" alt="">
+                    <img src="{{ asset('profilUser/avatar/'~discussion.user.avatar) }}" alt="">
                 </div>
                 <div class="info">
                     <p>{{ discussion.user.username }}</p>
@@ -31,7 +31,7 @@
             <div class="postReponse">
                 <div class="poster">
                     <div class="avatar_post">
-                        <img src="{{ asset("img/avatar.jpg") }}" alt="">
+                        <img src="{{ asset('profilUser/avatar/'~discussionPost.user.avatar) }}" alt="">
                     </div>
                     <div class="info">
                         <p>{{ discussionPost.user.username }}</p>
