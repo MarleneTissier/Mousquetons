@@ -346,17 +346,18 @@ ArticleLiens:hover {
   width: 25%;
   padding: 1%;
   display: flex;
+  flex-direction: column;
   border-right: black 1px solid;
   align-items: center;
 }
 
 .avatar_post {
-  width: 40%;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  max-width: 40%;
+  min-width: 70%;
+  max-width: 80%;
 }
 
 .info {
