@@ -18,6 +18,7 @@
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\String\Slugger\SluggerInterface;
+    use Symfony\Component\Security\Core\User\UserInterface;
 
     class HomeController extends AbstractController{
 
@@ -162,6 +163,7 @@
                              EntityManagerInterface $entityManager,
                              UserRepository $userRepository,
                              Request $request,
+                             ?UserInterface $user,
                              $id){
             //dump('hello world');
             //die;
@@ -171,21 +173,24 @@
             $post = new Post();
             $PostForm = $this->createForm(PostType ::class, $post);
 
-            $idUser = $this->getUser()->getId();
-            $userID = $userRepository->find($idUser);
-            $PostForm->handleRequest($request);
+            if ($user) {
+                $idUser = $this->getUser()->getId();
+                $userID = $userRepository->find($idUser);
+                $PostForm->handleRequest($request);
 
 
-            if ($PostForm->isSubmitted()&&$PostForm->isValid()){
-                $post->setUser($userID);
-                $post->setDiscussion($discussionID);
-                $entityManager->persist($post);
-                $entityManager->flush();
-                $this->addFlash('success', 'Votre post a bien été créé !');
-                //$post = new Post();
-                //$PostForm = $this->createForm(PostType ::class, $post);
-               return $this->redirectToRoute('post', array('id' => $id));
+                if ($PostForm->isSubmitted() && $PostForm->isValid()) {
+                    $post->setUser($userID);
+                    $post->setDiscussion($discussionID);
+                    $entityManager->persist($post);
+                    $entityManager->flush();
+                    $this->addFlash('success', 'Votre post a bien été créé !');
+                    //$post = new Post();
+                    //$PostForm = $this->createForm(PostType ::class, $post);
+                    return $this->redirectToRoute('post', array('id' => $id));
+                }
             }
+
 
             return $this->render('Post.html.twig', [
                 'discussion'=>$discussion,
