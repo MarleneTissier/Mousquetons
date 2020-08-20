@@ -18,13 +18,11 @@ class UserType extends AbstractType
             ->add('username')
             // créer l'input File, avec en option "mapped => false" pour
             // que symfony n'enregistre pas automatiquement la valeur du champs
-            ->add('avatar',FileType::class, [
-                'mapped' => false
-            ])
-            ->add('description')
-            ->add('profil', ProfilType::class)
             ->add('email')
             ->add('password')
+
+            ->add('profil', ProfilType::class)
+
             ->add('soumettre', SubmitType::class)
         ;
     }

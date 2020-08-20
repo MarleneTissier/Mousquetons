@@ -9,7 +9,33 @@
     <div class="formulaires">
 
         <div class="formUser">
-            {{ form(userForm) }}
+            {{ form_start (userForm) }}
+                <div class="formUserUsername">
+                    <p>Veuillez entrer votre Pseudo :  </p>
+                    {{ form_widget(userForm.username, {'attr': {'class': 'input_username'}}) }}
+                    {{ form_errors(userForm.username)}}
+                </div>
+                <div class="formUserPassword">
+                    <p>Veuillez entrer votre mot de passe : </p>
+                    {{ form_widget(userForm.password, {'attr': {'class': 'input_password'}}) }}
+                    {{ form_errors(userForm.password)}}
+                </div>
+                <div class="formUserEmail">
+                    <p>Veuillez indiquer une addresse mail valide :  </p>
+                    {{ form_widget(userForm.email, {'attr': {'class': 'input_email'}}) }}
+                    {{ form_errors(userForm.email)}}
+                </div>
+                <div class="formUserAvatar">
+                    <p>Enregistrez un avatar : </p>
+                    {{ form_widget(userForm.profil.avatar, {'attr': {'class': 'input_avatar'}}) }}
+                    {{ form_errors(userForm.profil.avatar)}}
+                </div>
+                <div class="formUserDescription">
+                    <p>Décrivez-vous un peu :  </p>
+                    {{ form_widget(userForm.profil.Description, {'attr': {'class': 'input_Description'}}) }}
+                    {{ form_errors(userForm.profil.Description)}}
+                </div>
+            {{ form_end  (userForm) }}
         </div>
 
     </div>

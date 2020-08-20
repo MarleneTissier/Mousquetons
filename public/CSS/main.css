@@ -552,6 +552,18 @@ ArticleLiens:hover {
   width: 45%;
 }
 
+.formUser {
+  width: 100%;
+}
+
+.formUserUsername, .formUserAvatar, .formUserDescription, .formUserEmail, .formUserPassword {
+  margin-bottom: 3%;
+}
+
+#user_username, #user_password, #user_email {
+  width: 40%;
+}
+
 .RedirectionInscription {
   margin-bottom: 2%;
   margin-left: 10%;
