@@ -3,7 +3,7 @@
 
     <div class="userPrez">
         <div class="avatar">
-            <img src="{{ asset('profilUser/avatar/'~app.user.avatar) }}" alt="" class="img-fluid">
+            <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="img-fluid">
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">
@@ -15,7 +15,7 @@
         </div>
         <div class="description">
             <p class="paragrapheDescription">
-                {{ app.user.description }}
+                {{ app.user.profil.description }}
             </p>
         </div>
     </div>
