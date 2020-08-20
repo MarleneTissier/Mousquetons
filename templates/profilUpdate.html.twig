@@ -6,11 +6,6 @@
             <p>Mise a jour du profil de {{ app.user.username }}</p>
         </div>
         <div class="">
-            <p>Avez-vous une nouvelle adresse mail ?  </p>
-            {{ form_widget(updateUserForm.email, {'attr': {'class': 'input_email'}}) }}
-            {{ form_errors(updateUserForm.email)}}
-        </div>
-        <div class="">
             <p>Voulez vous modifier votre description ? </p>
             {{ form_widget(updateUserForm.description, {'attr': {'class': 'input_description'}}) }}
             {{ form_errors(updateUserForm.description)}}

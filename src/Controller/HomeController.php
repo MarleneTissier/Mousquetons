@@ -5,6 +5,7 @@
 
     use App\Entity\User;
     use App\Form\PostType;
+    use App\Form\ProfilType;
     use App\Form\UserType;
     use App\Repository\PostRepository;
     use App\Repository\UserRepository;
@@ -267,7 +268,7 @@
             $userID = $userRepository->find($id);
             $user=$userRepository->find($userID);
 
-            $updateUserForm=$this->createForm(UserType::class, $user);
+            $updateUserForm=$this->createForm(ProfilType::class, $user);
             $updateUserForm->handleRequest($request);
 
             if ($updateUserForm->isSubmitted() && $updateUserForm->isValid()){
@@ -386,7 +387,7 @@
                 $entityManager->flush();
                 //Un message de remerciement
                 $this->addFlash('success', 'Merci de votre inscription');
-                return $this->redirectToRoute('profil');
+                return $this->redirectToRoute('Home');
             }
             //par défaut j'affiche la page d'inscription
             return $this->render('inscription.html.twig', [

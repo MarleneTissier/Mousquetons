@@ -55,7 +55,6 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Album::class, mappedBy="user")
      */
     private $albums;
-
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
@@ -65,6 +64,13 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=700, nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Profil::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $profil;
+
+
 
     public function __construct()
     {
@@ -98,7 +104,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     public function setUsername(?string $username): self
@@ -140,7 +146,28 @@ class User implements UserInterface
 
         return $this;
     }
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
 
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
     /**
      * @see UserInterface
      */
@@ -251,27 +278,22 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAvatar(): ?string
+    public function getProfil(): ?Profil
     {
-        return $this->avatar;
+        return $this->profil;
     }
 
-    public function setAvatar(?string $avatar): self
+    public function setProfil(Profil $profil): self
     {
-        $this->avatar = $avatar;
+        $this->profil = $profil;
+
+        // set the owning side of the relation if necessary
+        if ($profil->getUser() !== $this) {
+            $profil->setUser($this);
+        }
 
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
 
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
 }
