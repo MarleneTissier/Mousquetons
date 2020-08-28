@@ -13,7 +13,7 @@ class ProfilType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('avatar',FileType::class, [
+            ->add('Avatar',FileType::class, [
                 'mapped' => false
             ])
             ->add('Description')

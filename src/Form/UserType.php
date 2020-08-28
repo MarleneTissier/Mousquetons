@@ -20,7 +20,7 @@ class UserType extends AbstractType
             // que symfony n'enregistre pas automatiquement la valeur du champs
             ->add('email')
             ->add('password')
-
+            //je récupère le formulaire de l'entité 'profil'
             ->add('profil', ProfilType::class)
 
             ->add('soumettre', SubmitType::class)

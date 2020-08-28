@@ -3,6 +3,7 @@
     namespace App\Controller;
 
 
+    use App\Entity\Profil;
     use App\Entity\User;
     use App\Form\PostType;
     use App\Form\ProfilType;
@@ -339,7 +340,7 @@
             //nouvelle instance
             $user = new User();
             //recupération du gabarit de formulaire
-            $userForm = $this->createForm(UserType ::class);
+            $userForm = $this->createForm(UserType ::class, $user);
             //je prends les données de la requete et je les envois au formulaire
             $userForm->handleRequest($request);
 
@@ -352,8 +353,9 @@
                     $user->getPassword()
                 ));
                 // je récupère l'image uploadée
-                $userFormAvatar = $userForm->get('avatar')->getData();
-
+                $userFormAvatar = $userForm->get('profil')->get('Avatar')->getData();
+                //la j'ai laisser $userFormAvatar qui récupère seulement 'profil' car je n'ai pas encore trouvé
+                //comment récupérer seulement "Avatar' qui se trouve dans 'profil'
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($userFormAvatar){
                     //je récupère le nom de l'image
@@ -366,11 +368,7 @@
                     //qui agit comme une condition, mais si le bloc try échoue, ça soulève une erreur grace au catch
                     try {
                         // je prends l'image uploadée
-                        // et je la déplace dans un dossier (dans public) + je la renomme avec
-                        // le nom unique générée
-                        // j'utilise un parametre (défini dans services.yaml) pour savoir
-                        // dans quel dossier je la déplace
-                        // un parametre = une sorte de variable globale
+                        // et je la déplace dans un dossier et je la renomme avec le nom unique générée
                         $userFormAvatar->move(
                             $this->getParameter('Avatar_directory'),
                             $uniqueAvatarName
@@ -379,9 +377,8 @@
                         return new Response(($e->getMessage()));
                     }
                     //je sauvegarde dans la colonne bookCover le nom de mon image
-                    $user->setAvatar($uniqueAvatarName);
+                    $user->getProfil()->setAvatar($uniqueAvatarName);
                 }
-
                 //... alors je persist et flush le nouvel utilisateur
                 $entityManager->persist($user);
                 $entityManager->flush();
