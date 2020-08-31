@@ -9,6 +9,7 @@
     use App\Form\ProfilType;
     use App\Form\UserType;
     use App\Repository\PostRepository;
+    use App\Repository\ProfilRepository;
     use App\Repository\UserRepository;
     use App\Form\DiscussionType;
     use App\Repository\DiscussionRepository;
@@ -240,15 +241,20 @@
          */
         public function profil(
             UserRepository $userRepository,
+            ProfilRepository $profilRepository,
             DiscussionRepository $discussionRepository
         ){
             //var_dump('hello world');
             //die;
             $id = $this->getUser()->getId();
             $userID = $userRepository->find($id);
+            $userAvatar = $this->getUser()->getProfil()->getAvatar();
+            $userDescription = $this->getUser()->getProfil()->getDescription();
             $discussion= $discussionRepository->findBy(array('user'=>$userID));
             return $this->render('profil.html.twig', [
-                'discussions'=>$discussion
+                'discussions'=>$discussion,
+                'Avatar'=>$userAvatar,
+                'Description'=>$userDescription
             ]);
         }
 

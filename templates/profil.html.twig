@@ -3,7 +3,11 @@
 
     <div class="userPrez">
         <div class="avatar">
-            <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="img-fluid">
+            {% if Avatar is empty %}
+                <div style="background-color: darkgray"></div>
+            {% else %}
+                <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="img-fluid">
+            {% endif %}
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">
@@ -15,7 +19,12 @@
         </div>
         <div class="description">
             <p class="paragrapheDescription">
-                {{ app.user.profil.description }}
+                {% if Description is empty %}
+                    Pas de description pour le moment
+                {% else %}
+                    {{ app.user.profil.description }}
+                {% endif %}
+
             </p>
         </div>
     </div>

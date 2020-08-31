@@ -21,7 +21,7 @@ class UserType extends AbstractType
             ->add('email')
             ->add('password')
             //je récupère le formulaire de l'entité 'profil'
-            ->add('profil', ProfilType::class)
+            ->add('profil', ProfilType::class, array('required' => false))
 
             ->add('soumettre', SubmitType::class)
         ;
