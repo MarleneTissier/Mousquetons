@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Discussion;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @method Discussion|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,23 @@ class DiscussionRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function DiscussionFindByResum($word){
+        //on récupère le mot
+        //createQueryBuilder permet de récupérer le constructeur de requete SQL
+        $queryBuilder = $this->createQueryBuilder('discussion');
+        //récupérer le mot entré dans la BDD et faire de la sécurité
+        $query = $queryBuilder->select('discussion')
+             //la requete SQL avec une clause WHERE et le placeholder correspondant
+            ->where('discussion.first_post LIKE :word')
+            //la sécurité pour empecher les injections SQL en remplaçant le placeholder par
+            //la vraie valeur
+            ->setParameter('word', '%'.$word.'%')
+            //on récupère le résultat
+            ->getQuery();
+        //on attribut à une variable le résultat de la commande précédante
+        $discussions = $query->getResult();
+        //on retourne le résulta
+        return $discussions;
+    }
 }

@@ -216,10 +216,24 @@
         /**
          * @route ("/recherche", name="search")
          */
-        public function search(){
+        public function search(
+            DiscussionRepository $discussionRepository,
+            Request $request
+        ){
             //var_dump('hello world');
             //die;
-            return $this->render('Search.html.twig');
+            //utiliser la class request pour récup la valeur ds l'url qui est envoyée par le formulaire
+            $word = $request->query->get('search');
+            //initialiser la variable discussion
+            $discussion=[];
+            if (!empty($word)){
+                //si elle n'est pas vide, renvoyer le résultat fourni par la méthode DiscussionFindByResum
+                //présent dans le repository DiscussionRepository
+                $discussion=$discussionRepository->DiscussionFindByResum($word);
+            }
+            return $this->render('Search.html.twig', [
+                'discussions'=>$discussion
+            ]);
         }
 
 
