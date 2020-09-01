@@ -607,6 +607,12 @@ ArticleLiens:hover {
   resize: none;
 }
 
+#formUserDescription, #discussion_first_post, #galerieForm_description {
+  width: 90%;
+  height: 150px;
+  resize: none;
+}
+
 .discussion_first_post {
   width: 70%;
   height: 250px;

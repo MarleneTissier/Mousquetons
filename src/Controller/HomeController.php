@@ -3,11 +3,14 @@
     namespace App\Controller;
 
 
+    use App\Entity\Galerie;
     use App\Entity\Profil;
     use App\Entity\User;
+    use App\Form\GalerieType;
     use App\Form\PostType;
     use App\Form\ProfilType;
     use App\Form\UserType;
+    use App\Repository\GalerieRepository;
     use App\Repository\PostRepository;
     use App\Repository\ProfilRepository;
     use App\Repository\UserRepository;
@@ -396,7 +399,7 @@
                     }catch (FileException $e){
                         return new Response(($e->getMessage()));
                     }
-                    //je sauvegarde dans la colonne bookCover le nom de mon image
+                    //je sauvegarde dans la colonne  le nom de mon image
                     $user->getProfil()->setAvatar($uniqueAvatarName);
                 }
                 //... alors je persist et flush le nouvel utilisateur
@@ -451,7 +454,7 @@
                 return $this->redirectToRoute('profil');
             }
             return $this->render('formulaireDiscussion.html.twig', [
-            'discussionForm'=>$discussionForm->createView()
+                'discussionForm'=>$discussionForm->createView()
             ]);
         }
 
@@ -460,10 +463,59 @@
         /**
          * @route ("/formulaireGalerie", name="formulaireGalerie")
          */
-        public function formulaireGalerie(){
+        public function formulaireGalerie(
+            UserRepository $userRepository,
+            GalerieRepository $galerieRepository,
+            EntityManagerInterface $entityManager,
+            SluggerInterface $slugger,
+            Request $request
+        ){
             //var_dump('hello world');
             //die;
-            return $this->render('formulaireGalerie.html.twig');
+            //trouver l'id correspondant à l'utilisateur qui souhaite créer la galerie
+            $id = $this->getUser()->getId();
+            $userID = $userRepository->find($id);
+            //créatio du formulaire
+            $galerie = new Galerie();
+            $galerieForm=$this->createForm(GalerieType::class, $galerie);
+            $galerieForm->handleRequest($request);
+            //on vérifie si les valeurs entrées par l'utilisateur sont correctes :
+            if ($galerieForm->isSubmitted()&&$galerieForm->isValid()){
+                // on vérifie s'il y a une/des images
+                $imageUpload = $galerieForm->get('image')->getData();
+                // s'il y a bien une image uploadée dans le formulaire
+                if ($imageUpload){
+                    //je récupère le nom de l'image
+                    $originalPictureName=pathinfo($imageUpload->getClientOriginalName(), PATHINFO_FILENAME);
+                    //et grace a son nom original, je génère un nouveau qui sera unique
+                    $safePictureName = $slugger->slug($originalPictureName);
+                    $uniquePictureName=$safePictureName.'-'.uniqid().'.'.$imageUpload->guessExtension();
+                    //j'utilise un bloc try and catch qui agit comme une condition
+                    try {
+                        // je prends l'image uploadée et je la déplace dans un dossier (dans public)
+                        $imageUpload->move(
+                            $this->getParameter('book_cover_directory'),
+                            $uniquePictureName
+                        );
+                    }catch (FileException $e){
+                        return new Response(($e->getMessage()));
+                    }
+                    //je sauvegarde le nom de mon image
+                    $galerie->getImage()->setPicture($uniquePictureName);
+                }
+                //on ajoute l'id de l'utilisateur dans la galerie
+                $galerie->setUser($userID);
+                // on persist et on flush
+                $entityManager->persist($galerie);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre Discussion a bien été crée !');
+                //retour à la page profil
+                return $this->redirectToRoute('profil');
+            }
+            //on affiche la page du formulaire
+            return $this->render('formulaireGalerie.html.twig', [
+                'galerieForm'=>$galerieForm->createView()
+            ]);
         }
 
 

@@ -61,6 +61,11 @@ class User implements UserInterface
      */
     private $profil;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Galerie::class, mappedBy="user")
+     */
+    private $galeries;
+
 
 
     public function __construct()
@@ -69,6 +74,7 @@ class User implements UserInterface
         $this->posts = new ArrayCollection();
         $this->albums = new ArrayCollection();
         $this->roles = ["ROLE_USER"];
+        $this->galeries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -260,6 +266,37 @@ class User implements UserInterface
         // set the owning side of the relation if necessary
         if ($profil->getUser() !== $this) {
             $profil->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Galerie[]
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalery(Galerie $galery): self
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries[] = $galery;
+            $galery->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGalery(Galerie $galery): self
+    {
+        if ($this->galeries->contains($galery)) {
+            $this->galeries->removeElement($galery);
+            // set the owning side to null (unless already changed)
+            if ($galery->getUser() === $this) {
+                $galery->setUser(null);
+            }
         }
 
         return $this;

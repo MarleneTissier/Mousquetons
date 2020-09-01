@@ -58,8 +58,12 @@ class Discussion
      */
     private $place;
 
+    // l’attribut cascade = all  permet qu’un évènement doctrine sur l’entité Galerie
+    // déclanche en cascade le même évènement sur l’entité Image :
+    // on persite une galerie donc on persiste ses images,
+    // on supprime une galerie donc on supprime ses images.
     /**
-     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="discussion")
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="discussion", cascade="all")
      */
     private $posts;
 

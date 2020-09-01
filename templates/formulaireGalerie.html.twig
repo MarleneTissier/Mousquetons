@@ -1,4 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+    <div class="form">
+        <div class="userAuthor">
+            <p>Nouvelle galerie de {{ app.user.username }}</p>
+        </div>
+        {{ form_start(galerieForm) }}
+            <div class="galerieForm_name">
+                <p>Quel est le titre de votre galerie ? </p>
+                {{ form_widget(galerieForm.name, {'attr': {'class': 'input_name'}}) }}
+                {{ form_errors(galerieForm.name)}}
+            </div>
+            <div class="galerieForm_description">
+                <p>Veuillez écrire une description de votre galerie : </p>
+                {{ form_widget(galerieForm.description, {'attr': {'class': 'textarea_description'}}) }}
+                {{ form_errors(galerieForm.description)}}
+            </div>
+            <div class="galerieForm_image">
+                <p>Enregistrer vos images :</p>
+            </div>
+        {{ form_end(galerieForm) }}
+    </div>
 
 {% endblock %}
