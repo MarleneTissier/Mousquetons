@@ -18,6 +18,7 @@ class GalerieType extends AbstractType
             ->add('description')
             ->add('images', CollectionType::class, array(
                 'entry_type' => ImageType::class,
+                'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,

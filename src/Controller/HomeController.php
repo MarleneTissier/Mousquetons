@@ -4,6 +4,7 @@
 
 
     use App\Entity\Galerie;
+    use App\Entity\Image;
     use App\Entity\Profil;
     use App\Entity\User;
     use App\Form\GalerieType;
@@ -19,6 +20,7 @@
     use App\Entity\Post;
     use App\Entity\Discussion;
     use Doctrine\ORM\EntityManagerInterface;
+    use Doctrine\Common\Collections\ArrayCollection;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
     use Symfony\Component\Routing\Annotation\Route;
@@ -477,12 +479,32 @@
             $userID = $userRepository->find($id);
             //créatio du formulaire
             $galerie = new Galerie();
+            $image = new Image();
+
+            $originalImages = new ArrayCollection();
+
+            // Create an ArrayCollection of the current Tag objects in the database
+            foreach ($galerie->getImages() as $image) {
+                $originalImages->add($image);
+            }
+
             $galerieForm=$this->createForm(GalerieType::class, $galerie);
             $galerieForm->handleRequest($request);
             //on vérifie si les valeurs entrées par l'utilisateur sont correctes :
             if ($galerieForm->isSubmitted()&&$galerieForm->isValid()){
+
+                // supprimer la relation entre la balise et la tâche
+                foreach ($originalImages as $image) {
+                    if (false === $galerie->getTags()->contains($image)) {
+                        // supprime l'image de la galerie
+                        $image->getTasks()->removeElement($image);
+
+                        $entityManager->persist($image);
+                    }
+                }
+
                 // on vérifie s'il y a une/des images
-                $imageUpload = $galerieForm->get('image')->getData();
+                $imageUpload = $galerieForm->get('images')->get('picture')->getData();
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($imageUpload){
                     //je récupère le nom de l'image
