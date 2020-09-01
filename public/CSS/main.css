@@ -619,6 +619,50 @@ ArticleLiens:hover {
   resize: none;
 }
 
+/**
+Css du boutton UP
+ */
+
+#up {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+  opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#up::after {
+  content: "\f077";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#up:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#up:active {
+  background-color: #555;
+}
+#up.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
 /*# sourceMappingURL=main.scss.map */
 
 /*# sourceMappingURL=main.css.map */

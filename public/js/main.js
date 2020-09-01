@@ -58,3 +58,19 @@ function addTagForm($collectionHolder, $newLinkLi) {
     var $newFormLi = $('<li></li>').append(newForm);
     $newLinkLi.before($newFormLi);
 }
+
+
+// Js pour le retour en haut de page
+var btn = $('#up');
+
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+});
+
+$("#up").click(function(){
+    $("html, body").animate({scrollTop: 0},500);
+});
