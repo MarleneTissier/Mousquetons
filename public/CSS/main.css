@@ -619,49 +619,103 @@ ArticleLiens:hover {
   resize: none;
 }
 
-/**
-Css du boutton UP
- */
-
-#up {
-  display: inline-block;
-  background-color: #FF9800;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  border-radius: 4px;
+.menu-burger {
+  transition: all 0.25s;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition: background-color .3s,
-  opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
-}
-#up::after {
-  content: "\f077";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
-  color: #fff;
-}
-#up:hover {
+  top: 0;
+  left: 0;
+  height: 58px;
+  width: 58px;
+  z-index: 1;
   cursor: pointer;
-  background-color: #333;
+  background-color: #A5ABAF;
 }
-#up:active {
-  background-color: #555;
-}
-#up.show {
-  opacity: 1;
-  visibility: visible;
+.menu-burger ul {
+  transition: all 0s;
+  position: fixed;
+  left: -9000px;
 }
 
+.b-a, .menu-burger-expension .burgerDown, .menu-burger-expension .burgerUp, .burgerDown, .burgerUp, .burger {
+  height: 6px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: #4C4C4C;
+}
 
+.burger {
+  position: fixed;
+  left: 12px;
+  top: 4%;
+}
 
+.burgerUp {
+  position: fixed;
+  left: 12px;
+  top: 2%;
+}
 
+.burgerDown {
+  position: fixed;
+  left: 12px;
+  top: 6%;
+}
+
+.menu-burger-expension {
+  transition: all 0.25s;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.menu-burger-expension ul {
+  transition: all 0s;
+  position: relative;
+  left: 0;
+  z-index: 2;
+}
+.menu-burger-expension a {
+  transition: all 0.15s;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: whitesmoke;
+  display: block;
+}
+.menu-burger-expension .lien_Burger {
+  height: 0;
+  margin-top: 10%;
+  margin-bottom: 23%;
+}
+.menu-burger-expension .b-a-extendion {
+  height: 6px;
+  width: 40px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+  transition: all 0.25s;
+}
+.menu-burger-expension .burger {
+  background-color: transparent;
+}
+.menu-burger-expension .burgerUp {
+  position: fixed;
+  left: 12px;
+  top: 4%;
+  transform: rotate(45deg);
+}
+.menu-burger-expension .burgerDown {
+  position: fixed;
+  left: 12px;
+  top: 4%;
+  transform: rotate(-45deg);
+}
+.menu-burger-expension .boutton_Burger {
+  font-size: 2em;
+  padding: 6px;
+  color: whitesmoke;
+  display: block;
+}
 
 /*# sourceMappingURL=main.scss.map */
 

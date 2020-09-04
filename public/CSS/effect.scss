@@ -1,0 +1,101 @@
+//menu burger avant clic :
+
+.menu-burger {
+  transition: all .25s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 58px;
+  width: 58px;
+  z-index: 1;
+  cursor: pointer;
+  background-color: #A5ABAF;
+  ul {
+    transition: all 0s;
+    position: fixed;
+    left: -9000px;
+  }
+}
+.b-a{
+  height: 6px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: #4C4C4C;
+}
+.burger {
+  @extend .b-a !optional;
+  position: fixed;
+  left: 12px;
+  top: 4%;
+}
+.burgerUp {
+    @extend .b-a !optional;
+    position: fixed;
+    left: 12px;
+    top: 2%;
+}
+.burgerDown {
+    @extend .b-a !optional;
+    position: fixed;
+    left: 12px;
+    top: 6%;
+}
+
+//menu burger après clic
+.menu-burger-expension {
+  transition: all .25s;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  ul {
+    transition: all 0s;
+    position: relative;
+    left: 0;
+    z-index: 2;
+  }
+  a {
+    transition: all .15s;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: whitesmoke;
+    display:block;
+  }
+  .lien_Burger{
+    height: 0;
+    margin-top: 10%;
+    margin-bottom: 23%;
+  }
+  .b-a-extendion{
+    height: 6px;
+    width: 40px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    transition: all .25s;
+  }
+  .burger {
+    background-color: transparent;
+  }
+  .burgerUp {
+    @extend .b-a !optional;
+    position: fixed;
+    left: 12px;
+    top: 4%;
+    transform: rotate(45deg);
+  }
+  .burgerDown {
+    @extend .b-a !optional;
+    position: fixed;
+    left: 12px;
+    top: 4%;
+    transform: rotate(-45deg);
+  }
+  .boutton_Burger{
+    font-size: 2em;
+    padding: 6px;
+    color: whitesmoke;
+    display:block;
+  }
+}

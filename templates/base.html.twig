@@ -56,11 +56,29 @@
                     <li class="col-9 col-md-7">
                         <ul class="row justify-content-start align-items-center p-0 HeaderListe">
                             <li class="col-2">
-                                <ul class="menuBurger p-0 HeaderListe">
-                                    <li class="line"></li>
-                                    <li class="line"></li>
-                                    <li class="line"></li>
-                                </ul>
+                                <!--gestion du menu burger-->
+                                <div class="menu-burger">
+                                    <div class="burgerUp"></div>
+                                    <div class="burger"></div>
+                                    <div class="burgerDown"></div>
+                                        <ul class="menuBurger p-0 HeaderListe">
+                                            <li class="lien_Burger"><a  class="HeaderLien" href={{ path('Course') }}>Les parcours</a></li>
+                                            <li class="lien_Burger"><a class="HeaderLien"  href={{ path('Places') }}>Lieux à visiter</a></li>
+                                            <li class="lien_Burger"><a  class="HeaderLien" href={{ path('Activities') }}>Les activités</a></li>
+                                            <li class="lien_Burger"><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
+                                            <li class="lien_Burger"><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
+                                            {% if is_granted('ROLE_USER') %}
+                                                <ul class="listBouttonCo">
+                                                    <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('profil') }}">mon profil</a></li>
+                                                    <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_logout') }}">Déconnection</a></li>
+                                                </ul>
+                                            {% else %}
+                                                <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_login') }}">Connexion</a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+
                             </li>
                             <li class="col-2"><a  class="HeaderLien" href="{{ path('Home') }}"><img src="{{ asset('img/recherche.png') }}" alt="" class="img-fluid"></a></li>
                             <li class="col-6"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons<br>Globe-trotteurs</h1></a></li>

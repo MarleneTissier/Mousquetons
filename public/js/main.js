@@ -74,3 +74,9 @@ $(window).scroll(function() {
 $("#up").click(function(){
     $("html, body").animate({scrollTop: 0},500);
 });
+
+
+//le menu burger
+$(".menu-burger").click(function() {
+    $(this).toggleClass("menu-burger-expension");
+});
