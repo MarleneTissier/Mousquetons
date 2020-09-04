@@ -5,12 +5,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 58px;
-  width: 58px;
+  height: 48px;
+  width: 48px;
   z-index: 1;
+  padding-top: 3%;
   cursor: pointer;
   background-color: #A5ABAF;
+  @include rwd(350){
+    height: 50px;
+    width: 50px;
+    padding: 4%;
+    padding: 3%;
+}
   ul {
+    list-style: none;
     transition: all 0s;
     position: fixed;
     left: -9000px;
@@ -26,19 +34,24 @@
   @extend .b-a !optional;
   position: fixed;
   left: 12px;
-  top: 4%;
+  margin-top: 3%;
+  @include rwd(350){
+    margin-top: 2%;
+  }
 }
 .burgerUp {
     @extend .b-a !optional;
     position: fixed;
     left: 12px;
-    top: 2%;
 }
 .burgerDown {
     @extend .b-a !optional;
     position: fixed;
     left: 12px;
-    top: 6%;
+    margin-top: 6%;
+  @include rwd(350){
+    margin-top: 4%;
+  }
 }
 
 //menu burger après clic
@@ -82,14 +95,14 @@
     @extend .b-a !optional;
     position: fixed;
     left: 12px;
-    top: 4%;
+    margin-top: 2%;
     transform: rotate(45deg);
   }
   .burgerDown {
     @extend .b-a !optional;
     position: fixed;
     left: 12px;
-    top: 4%;
+    margin-top: 2%;
     transform: rotate(-45deg);
   }
   .boutton_Burger{
