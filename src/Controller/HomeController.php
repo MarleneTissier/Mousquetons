@@ -3,10 +3,12 @@
     namespace App\Controller;
 
 
+    use App\Entity\Album;
     use App\Entity\Galerie;
     use App\Entity\Image;
     use App\Entity\Profil;
     use App\Entity\User;
+    use App\Form\AlbumType;
     use App\Form\GalerieType;
     use App\Form\PostType;
     use App\Form\ProfilType;
@@ -22,6 +24,7 @@
     use Doctrine\ORM\EntityManagerInterface;
     use Doctrine\Common\Collections\ArrayCollection;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+    use Symfony\Component\HttpFoundation\File\Exception\FileException;
     use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\HttpFoundation\Request;
@@ -467,7 +470,6 @@
          */
         public function formulaireGalerie(
             UserRepository $userRepository,
-            GalerieRepository $galerieRepository,
             EntityManagerInterface $entityManager,
             SluggerInterface $slugger,
             Request $request
@@ -478,33 +480,36 @@
             $id = $this->getUser()->getId();
             $userID = $userRepository->find($id);
             //créatio du formulaire
-            $galerie = new Galerie();
+            $album = new Album();
             $image = new Image();
 
             $originalImages = new ArrayCollection();
 
-            // Create an ArrayCollection of the current Tag objects in the database
-            foreach ($galerie->getImages() as $image) {
+            // Create an ArrayCollection of the current Image objects in the database
+            foreach ($album->getImages() as $image) {
                 $originalImages->add($image);
             }
 
-            $galerieForm=$this->createForm(GalerieType::class, $galerie);
-            $galerieForm->handleRequest($request);
+            $albumForm = $this->createForm(AlbumType::class, $album);
+            //dump($albumForm);
+            $albumForm->handleRequest($request);
             //on vérifie si les valeurs entrées par l'utilisateur sont correctes :
-            if ($galerieForm->isSubmitted()&&$galerieForm->isValid()){
+            if ($albumForm->isSubmitted()&&$albumForm->isValid()){
 
                 // supprimer la relation entre la balise et la tâche
                 foreach ($originalImages as $image) {
-                    if (false === $galerie->getTags()->contains($image)) {
+                    if (false === $album->getImages()->contains($image)) {
                         // supprime l'image de la galerie
-                        $image->getTasks()->removeElement($image);
+                        $image->getAlbum()->removeElement($image);
 
                         $entityManager->persist($image);
                     }
                 }
-
+                //dump($albumForm);
+                //die();
                 // on vérifie s'il y a une/des images
-                $imageUpload = $galerieForm->get('images')->get('picture')->getData();
+                // --------- un des problèmes rencontré ; il ne trouve pas picture qui n'existe pas pour lui :
+                $imageUpload = $albumForm->get('images')->get('picture')->getData();
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($imageUpload){
                     //je récupère le nom de l'image
@@ -516,27 +521,27 @@
                     try {
                         // je prends l'image uploadée et je la déplace dans un dossier (dans public)
                         $imageUpload->move(
-                            $this->getParameter('book_cover_directory'),
+                            $this->getParameter('ImgAlbum_directory'),
                             $uniquePictureName
                         );
                     }catch (FileException $e){
                         return new Response(($e->getMessage()));
                     }
                     //je sauvegarde le nom de mon image
-                    $galerie->getImage()->setPicture($uniquePictureName);
+                    $album->getImages()->setPicture($uniquePictureName);
                 }
                 //on ajoute l'id de l'utilisateur dans la galerie
-                $galerie->setUser($userID);
+                $album->setUser($userID);
                 // on persist et on flush
-                $entityManager->persist($galerie);
+                $entityManager->persist($album);
                 $entityManager->flush();
-                $this->addFlash('success', 'Votre Discussion a bien été crée !');
+                $this->addFlash('success', 'Votre Album a bien été crée !');
                 //retour à la page profil
                 return $this->redirectToRoute('profil');
             }
             //on affiche la page du formulaire
             return $this->render('formulaireGalerie.html.twig', [
-                'galerieForm'=>$galerieForm->createView()
+                'albumForm'=>$albumForm->createView()
             ]);
         }
 

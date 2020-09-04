@@ -4,26 +4,26 @@
         <div class="userAuthor">
             <p>Nouvelle galerie de {{ app.user.username }}</p>
         </div>
-        {{ form_start(galerieForm) }}
-            <div class="galerieForm_name">
+        {{ form_start(albumForm) }}
+            <div class="albumForm_name">
                 <p>Quel est le titre de votre galerie ? </p>
-                {{ form_widget(galerieForm.name, {'attr': {'class': 'input_name'}}) }}
-                {{ form_errors(galerieForm.name)}}
+                {{ form_widget(albumForm.name, {'attr': {'class': 'input_name'}}) }}
+                {{ form_errors(albumForm.name)}}
             </div>
-            <div class="galerieForm_description">
+            <div class="albumForm_description">
                 <p>Veuillez écrire une description de votre galerie : </p>
-                {{ form_widget(galerieForm.description, {'attr': {'class': 'textarea_description'}}) }}
-                {{ form_errors(galerieForm.description)}}
+                {{ form_widget(albumForm.description, {'attr': {'class': 'textarea_description'}}) }}
+                {{ form_errors(albumForm.description)}}
             </div>
-            <div class="galerieForm_image">
+            <div class="galbumForm_image">
                 <p>Enregistrer vos images :</p>
-                <ul class="generationImage" data-prototype="{{ form_widget(galerieForm.images.vars.prototype)|e('html_attr') }}">
-                    {%  for image in galerieForm.images %}
+                <ul class="generationImage" data-prototype="{{ form_widget(albumForm.images.vars.prototype)|e('html_attr') }}">
+                    {%  for image in albumForm.images %}
                         <li>{{ form_row() }}</li>
                     {% endfor %}
                 </ul>
             </div>
-        {{ form_end(galerieForm) }}
+        {{ form_end(albumForm) }}
     </div>
 
 {% endblock %}

@@ -22,11 +22,13 @@ class Image
      */
     private $name;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity=galerie::class, inversedBy="images")
+     * @ORM\ManyToOne(targetEntity=album::class, inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $galerie;
+    private $album;
+
 
     /**
      * @ORM\Column(type="string", length=500)
@@ -50,14 +52,14 @@ class Image
         return $this;
     }
 
-    public function getGalerie(): ?galerie
+    public function getAlbum(): ?album
     {
-        return $this->galerie;
+        return $this->album;
     }
 
-    public function setGalerie(?galerie $galerie): self
+    public function setAlbum(?galerie $album): self
     {
-        $this->galerie = $galerie;
+        $this->album = $album;
 
         return $this;
     }
