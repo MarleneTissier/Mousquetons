@@ -33,20 +33,18 @@ class Post
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=Album::class, mappedBy="post")
-     */
-    private $albums;
-
-    /**
      * @ORM\ManyToOne(targetEntity=discussion::class, inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $discussion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Album::class, inversedBy="posts")
+     */
+    private $album;
 
     public function __construct()
     {
         $this->discussions = new ArrayCollection();
-        $this->albums = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -79,37 +77,6 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Collection|Album[]
-     */
-    public function getAlbums(): Collection
-    {
-        return $this->albums;
-    }
-
-    public function addAlbum(Album $album): self
-    {
-        if (!$this->albums->contains($album)) {
-            $this->albums[] = $album;
-            $album->setPost($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAlbum(Album $album): self
-    {
-        if ($this->albums->contains($album)) {
-            $this->albums->removeElement($album);
-            // set the owning side to null (unless already changed)
-            if ($album->getPost() === $this) {
-                $album->setPost(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getDiscussion(): ?discussion
     {
         return $this->discussion;
@@ -118,6 +85,18 @@ class Post
     public function setDiscussion(?discussion $discussion): self
     {
         $this->discussion = $discussion;
+
+        return $this;
+    }
+
+    public function getAlbum(): ?album
+    {
+        return $this->album;
+    }
+
+    public function setAlbum(?album $album): self
+    {
+        $this->album = $album;
 
         return $this;
     }

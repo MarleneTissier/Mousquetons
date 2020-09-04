@@ -31,7 +31,7 @@ class Image
 
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=255)
      */
     private $picture;
 
@@ -57,7 +57,7 @@ class Image
         return $this->album;
     }
 
-    public function setAlbum(?galerie $album): self
+    public function setAlbum(?album $album): self
     {
         $this->album = $album;
 

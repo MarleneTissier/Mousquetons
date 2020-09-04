@@ -17,7 +17,7 @@ class AlbumType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('images', CollectionType::class, array(
+            ->add('image', CollectionType::class, array(
                 'entry_type' => ImageType::class,
                 'entry_options' => ['label' => false],
                 'allow_add' => true,

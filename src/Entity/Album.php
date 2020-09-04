@@ -41,12 +41,6 @@ class Album
      */
     private $categorie;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=post::class, inversedBy="albums")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $post;
-
     // l’attribut cascade = all  permet qu’un évènement doctrine sur l’entité Galerie
     // déclanche en cascade le même évènement sur l’entité Image :
     // on persite une galerie donc on persiste ses images,
@@ -54,11 +48,17 @@ class Album
     /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="galerie", cascade="all")
      */
-    private $images;
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="album")
+     */
+    private $posts;
 
     public function __construct()
     {
-        $this->images = new ArrayCollection();
+        $this->image = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -102,17 +102,6 @@ class Album
         return $this;
     }
 
-    public function getPost(): ?post
-    {
-        return $this->post;
-    }
-
-    public function setPost(?post $post): self
-    {
-        $this->post = $post;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -129,35 +118,66 @@ class Album
     /**
      * @return Collection|Image[]
      */
-    public function getImages(): Collection
+    public function getImage(): Collection
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function setImages(string $images)
+    public function setImage(string $image)
     {
-        $this->images = $images;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function addImages(Image $images): self
+    public function addImage(Image $image): self
     {
-        if (!$this->images->contains($images)) {
-            $this->images[] = $images;
-            $images->setAlbum($this);
+        if (!$this->image->contains($image)) {
+            $this->image[] = $image;
+            $image->setAlbum($this);
         }
 
         return $this;
     }
 
-    public function removeImages(Image $images): self
+    public function removeImage(Image $image): self
     {
-        if ($this->images->contains($images)) {
-            $this->images->removeElement($images);
+        if ($this->image->contains($image)) {
+            $this->image->removeElement($image);
             // set the owning side to null (unless already changed)
-            if ($images->getAlbum() === $this) {
-                $images->setAlbum()(null);
+            if ($image->getAlbum() === $this) {
+                $image->setAlbum()(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts[] = $post;
+            $post->setAlbum($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): self
+    {
+        if ($this->posts->contains($post)) {
+            $this->posts->removeElement($post);
+            // set the owning side to null (unless already changed)
+            if ($post->getAlbum() === $this) {
+                $post->setAlbum(null);
             }
         }
 

@@ -482,34 +482,35 @@
             //créatio du formulaire
             $album = new Album();
             $image = new Image();
-
+            dump($album);
             $originalImages = new ArrayCollection();
-
-            // Create an ArrayCollection of the current Image objects in the database
-            foreach ($album->getImages() as $image) {
+            dump($originalImages);
+            // Créer une ArrayCollection des objets Image
+            foreach ($album->getImage() as $image) {
                 $originalImages->add($image);
             }
-
-            $albumForm = $this->createForm(AlbumType::class, $album);
-            //dump($albumForm);
-            $albumForm->handleRequest($request);
+            dump($originalImages);
+            $editForm = $this->createForm(AlbumType::class, $album);
+            $editForm->handleRequest($request);
+            dump($editForm);
             //on vérifie si les valeurs entrées par l'utilisateur sont correctes :
-            if ($albumForm->isSubmitted()&&$albumForm->isValid()){
+            if ($editForm->isSubmitted()&&$editForm->isValid()){
 
-                // supprimer la relation entre la balise et la tâche
+                // supprimer la relation entre image et album
                 foreach ($originalImages as $image) {
-                    if (false === $album->getImages()->contains($image)) {
+                    if (false === $album->getImage()->contains($image)) {
                         // supprime l'image de la galerie
                         $image->getAlbum()->removeElement($image);
 
                         $entityManager->persist($image);
                     }
                 }
-                //dump($albumForm);
-                //die();
+                dump($editForm);
+                die();
                 // on vérifie s'il y a une/des images
+
                 // --------- un des problèmes rencontré ; il ne trouve pas picture qui n'existe pas pour lui :
-                $imageUpload = $albumForm->get('images')->get('picture')->getData();
+                $imageUpload = $editForm->get('image')->get('picture')->getData();
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($imageUpload){
                     //je récupère le nom de l'image
@@ -528,7 +529,7 @@
                         return new Response(($e->getMessage()));
                     }
                     //je sauvegarde le nom de mon image
-                    $album->getImages()->setPicture($uniquePictureName);
+                    $album->getImage()->setPicture($uniquePictureName);
                 }
                 //on ajoute l'id de l'utilisateur dans la galerie
                 $album->setUser($userID);
@@ -541,7 +542,7 @@
             }
             //on affiche la page du formulaire
             return $this->render('formulaireGalerie.html.twig', [
-                'albumForm'=>$albumForm->createView()
+                'albumForm'=>$editForm->createView()
             ]);
         }
 

@@ -17,8 +17,8 @@
             </div>
             <div class="galbumForm_image">
                 <p>Enregistrer vos images :</p>
-                <ul class="generationImage" data-prototype="{{ form_widget(albumForm.images.vars.prototype)|e('html_attr') }}">
-                    {%  for image in albumForm.images %}
+                <ul class="generationImage" data-prototype="{{ form_widget(albumForm.image.vars.prototype)|e('html_attr') }}">
+                    {%  for image in albumForm.image %}
                         <li>{{ form_row() }}</li>
                     {% endfor %}
                 </ul>
