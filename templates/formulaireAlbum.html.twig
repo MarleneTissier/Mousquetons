@@ -6,13 +6,13 @@
         </div>
         {{ form_start(albumForm) }}
             <div class="albumForm_name">
-                <p>Quel est le titre de votre galerie ? </p>
+                <p>Quel est le titre de votre album ? </p>
                 {{ form_widget(albumForm.name, {'attr': {'class': 'input_name'}}) }}
                 {{ form_errors(albumForm.name)}}
             </div>
             <div class="albumForm_description">
-                <p>Veuillez écrire une description de votre galerie : </p>
-                {{ form_widget(albumForm.description, {'attr': {'class': 'textarea_description'}}) }}
+                <p>Veuillez écrire une description de votre album : </p>
+                {{ form_widget(albumForm.description, {'attr': {'class': 'textarea_content'}}) }}
                 {{ form_errors(albumForm.description)}}
             </div>
             <div class="galbumForm_image">

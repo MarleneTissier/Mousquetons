@@ -4,7 +4,7 @@
     <div class="userPrez">
         <div class="avatar">
                 <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
-                <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="img-fluid">
+                <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="">
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">
@@ -47,6 +47,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <hr>
                         <li class="ArticleLigne">
                             <!-- for pour récup les 3 derniers post -->
 
@@ -90,6 +91,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <hr>
                         <li class="ArticleLigne">
                             <!-- for pour récup les 3 derniers post -->
                             <a class="ArticleLien" href="" >
@@ -111,11 +113,11 @@
                     </ul>
                 </div>
                 <div class="userCreateGalerie">
-                    <a class="bouttonProfil" href="{{ path('formulaireGalerie', {'id':app.user.id}) }}">Créer une galerie</a>
+                    <a class="bouttonProfil" href="{{ path('formulaireAlbum', {'id':app.user.id}) }}">Créer un album</a>
                 </div>
             </div>
         </div>
-        <div class="userPlaces">
+        <div class="userPlacesOne">
             <!-- lieux visités -->
             <div class="userCreateArticle">
                 <div class="formPlacesUser">
@@ -134,8 +136,27 @@
                 </ul>
             </div>
         </div>
-    </div>
 
+    </div>
+    <div class="userPlacesTwo">
+        <!-- lieux visités -->
+        <div class="userCreateArticle">
+            <div class="formPlacesUser">
+
+            </div>
+            <a class="bouttonProfil" href="">ajouter un lieu visité</a>
+        </div>
+        <div class="listePlaces">
+            <!-- liste des lieux visités -->
+            <ul class="placeUserTwo">
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
+        </div>
+    </div>
         <!-- les contacts futur ajout
         <div class="userContact">
             <div class="userFriends">

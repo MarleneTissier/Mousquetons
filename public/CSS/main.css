@@ -291,7 +291,7 @@ img {
 
 .footer {
   background-color: #A5ABAF;
-  margin: 0;
+  margin: 3% 0 0 0;
   padding: 5%;
 }
 
@@ -663,27 +663,96 @@ ArticleLiens:hover {
 }
 
 .avatar {
-  width: 15%;
-  border: white 2px solid;
-  max-width: 15%;
+  width: 80%;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 375px) {
+  .avatar {
+    width: 45%;
+    max-width: 45%;
+    margin-right: 5%;
+    margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .avatar {
+    width: 30%;
+    max-width: 30%;
+    margin-right: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .avatar {
+    width: 15%;
+    max-width: 15%;
+  }
+}
+.avatar img {
+  width: 100%;
 }
 
 .userInfo {
-  width: 20%;
+  width: 80%;
   border: white 2px solid;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 375px) {
+  .userInfo {
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .userInfo {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 25%;
+  }
+}
+@media (min-width: 1024px) {
+  .userInfo {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 20%;
+  }
 }
 
 .listeUserInfo {
   list-style: none;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 10%;
 }
 
 .description {
-  width: 60%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   border: white 2px solid;
+  overflow: auto;
+}
+@media (min-width: 375px) {
+  .description {
+    width: 90%;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 768px) {
+  .description {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 40%;
+  }
+}
+@media (min-width: 1024px) {
+  .description {
+    width: 55%;
+  }
 }
 
 .paragrapheDescription {
@@ -701,7 +770,7 @@ ArticleLiens:hover {
 }
 
 .bouttonProfil, .bouttonUpProfil {
-  color: #788187;
+  color: #538e9a;
   text-decoration: underline;
 }
 
@@ -710,13 +779,18 @@ ArticleLiens:hover {
   padding-bottom: 3%;
 }
 
+.bouttonUpProfil:hover {
+  color: #003e4b;
+  text-decoration: none;
+}
+
 .bouttonProfil {
   padding-left: 5%;
 }
 
 .bouttonProfil:hover {
-  color: #788187;
   text-decoration: underline;
+  color: #003e4b;
 }
 
 .userCOntent {
@@ -731,12 +805,18 @@ ArticleLiens:hover {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  margin: auto;
+  width: 95%;
+}
+@media (min-width: 1024px) {
+  .userParticipation {
+    width: 80%;
+  }
 }
 
 .userArticle, .userGalerie {
-  width: 90%;
   background-color: #d6d4c2;
+  width: 90%;
 }
 
 .userGalerie {
@@ -747,18 +827,45 @@ ArticleLiens:hover {
   list-style: none;
 }
 
+.placeUserTwo {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.placeUserTwo li {
+  margin-right: 3%;
+}
+
 .formPlacesUser {
   height: 30px;
   border: white 2px solid;
   margin: auto;
-  margin-top: 5%;
-  margin-bottom: 5%;
   width: 90%;
 }
 
-.userPlaces {
-  width: 15%;
+.userPlacesOne {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .userPlacesOne {
+    width: 15%;
+    display: block;
+    margin-right: 5%;
+    background-color: #d6d4c2;
+  }
+}
+
+.userPlacesTwo {
   background-color: #d6d4c2;
+  border: white 2px solid;
+  margin: auto;
+  padding: 2%;
+  width: 90%;
+}
+@media (min-width: 1024px) {
+  .userPlacesTwo {
+    display: none;
+  }
 }
 
 .listePlaces {

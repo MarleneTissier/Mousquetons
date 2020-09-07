@@ -11,97 +11,196 @@
 }
 
 //avatar -------------------------
-.avatar{
-  width: 15%;
+.avatar {
+  width: 80%;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @include rwd(375){
+    width: 45%;
+    max-width: 45%;
+    margin-right: 5%;
+    margin-left: 0;
+  }
+  @include rwd(768) {
+    width: 30%;
+    max-width: 30%;
+    margin-right: 0;
+  }
+  @include rwd(1024) {
+    width: 15%;
+    max-width: 15%;
+  }
+  img {
+    width: 100%;
+  }
+}
+// info utilisateur ---------------------
+.userInfo {
+  width: 80%;
   border: white 2px solid;
-  max-width: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  @include rwd(375) {
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include rwd(768) {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 25%;
+  }
+  @include rwd(1024) {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 20%;
+  }
 }
 
-// info utilisateur ---------------------
-.userInfo{
-  width: 20%;
-  border: white 2px solid;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.listeUserInfo{
+.listeUserInfo {
   list-style: none;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 10%;
 }
 
 
 // description utilisateur ---------------------
-.description{
-  width: 60%;
+.description {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  @include rwd(375){
+    width: 90%;
+    margin-top: 5%;
+  }
   border: white 2px solid;
+  overflow: auto;
+  @include rwd(768) {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 40%;
+  }
+  @include rwd(1024) {
+    width: 55%;
+  }
 }
-.paragrapheDescription{
+
+.paragrapheDescription {
   padding: 5%;
 }
-#user_profil_Description{
+
+#user_profil_Description {
   width: 70%;
   height: 150px;
   resize: none;
 }
+
 //up de l'utilisateur ---------------------
-.updateProfil{
+.updateProfil {
   margin-bottom: 3%;
 }
-.bouttonProfil, .bouttonUpProfil{
-  color: #788187;
-  text-decoration: underline;
-}
-.bouttonUpProfil{
-  padding-left: 3%;
-  padding-bottom: 3%;
-}
-.bouttonProfil{
-  padding-left: 5%;
-}
-.bouttonProfil:hover{
-  color: #788187;
+
+.bouttonProfil, .bouttonUpProfil {
+  color: #538e9a;
   text-decoration: underline;
 }
 
+.bouttonUpProfil {
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.bouttonUpProfil:hover {
+  color: #003e4b;
+  text-decoration: none;
+}
+
+.bouttonProfil {
+  padding-left: 5%;
+}
+
+.bouttonProfil:hover {
+  text-decoration: underline;
+  color: #003e4b;
+}
+
 // contenu de l'utilisateur -----------------------
-.userCOntent{
+.userCOntent {
   padding-bottom: 5%;
 }
-.userCOntent{
+
+.userCOntent {
   display: flex;
 }
-.userParticipation{
+
+.userParticipation {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  margin: auto;
+  width: 95%;
+  @include rwd(1024) {
+    width: 80%;
+  }
 }
-.userArticle, .userGalerie{
-  width: 90%;
+
+.userArticle, .userGalerie {
   background-color: #d6d4c2;
+  width: 90%;
 }
-.userGalerie{
+
+.userGalerie {
   margin-top: 5%;
 }
 
 // lieux visiter ---------------------
-.placeUser{
+.placeUser {
   list-style: none;
 }
-.formPlacesUser{
+
+.placeUserTwo {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    margin-right: 3%;
+  }
+}
+
+.formPlacesUser {
   height: 30px;
   border: white 2px solid;
   margin: auto;
-  margin-top: 5%;
-  margin-bottom: 5%;
   width: 90%;
 }
-.userPlaces{
-  width: 15%;
-  background-color: #d6d4c2;
+
+.userPlacesOne {
+  display: none;
+  @include rwd(1024) {
+    width: 15%;
+    display: block;
+    margin-right: 5%;
+    background-color: #d6d4c2;
+  }
 }
-.listePlaces{
+
+.userPlacesTwo {
+  background-color: #d6d4c2;
+  border: white 2px solid;
+  margin: auto;
+  padding: 2%;
+  width: 90%;
+  @include rwd(1024) {
+    display: none;
+  }
+}
+
+.listePlaces {
   padding-top: 5%;
   padding-bottom: 5%;
 }
+

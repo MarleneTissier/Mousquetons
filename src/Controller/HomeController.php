@@ -288,6 +288,7 @@
         public function profilUpdate(
             UserRepository $userRepository,
             SluggerInterface $slugger,
+            ProfilRepository $profilRepository,
             EntityManagerInterface $entityManager,
             Request $request
         ){
@@ -296,12 +297,15 @@
             $id = $this->getUser()->getId();
             $userID = $userRepository->find($id);
             $user=$userRepository->find($userID);
+            $profil=$profilRepository->find($user);
 
-            $updateUserForm=$this->createForm(ProfilType::class, $user);
+            $updateUserForm=$this->createForm(ProfilType::class, $profil);
             $updateUserForm->handleRequest($request);
 
             if ($updateUserForm->isSubmitted() && $updateUserForm->isValid()){
 
+                dump($updateUserForm);
+                die();
                 // je récupère l'image uploadée
                 $userFormAvatar = $updateUserForm->get('avatar')->getData();
 
@@ -466,7 +470,7 @@
 
 
         /**
-         * @route ("/formulaireGalerie", name="formulaireGalerie")
+         * @route ("/formulaireAlbum", name="formulaireAlbum")
          */
         public function formulaireGalerie(
             UserRepository $userRepository,
@@ -541,7 +545,7 @@
                 return $this->redirectToRoute('profil');
             }
             //on affiche la page du formulaire
-            return $this->render('formulaireGalerie.html.twig', [
+            return $this->render('formulaireAlbum.html.twig', [
                 'albumForm'=>$editForm->createView()
             ]);
         }

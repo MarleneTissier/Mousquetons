@@ -6,14 +6,14 @@
             <p>Mise a jour du profil de {{ app.user.username }}</p>
         </div>
         <div class="">
-            <p>Voulez vous modifier votre description ? </p>
-            {{ form_widget(updateUserForm.description, {'attr': {'class': 'input_description'}}) }}
-            {{ form_errors(updateUserForm.description)}}
-        </div>
-        <div class="">
             <p>Voulez-vous changer votre avatar ? </p>
-            {{ form_widget(updateUserForm.avatar, {'attr': {'class': 'input_avatar'}}) }}
-            {{ form_errors(updateUserForm.avatar)}}
+            {{ form_widget(updateUserForm.Avatar, {'attr': {'class': 'input_avatar'}}) }}
+            {{ form_errors(updateUserForm.Avatar)}}
+        </div>
+        <div class="textarea_content">
+            <p>Voulez vous modifier votre description ? </p>
+            {{ form_widget(updateUserForm.Description, {'attr': {'class': 'input_description'}}) }}
+            {{ form_errors(updateUserForm.Description)}}
         </div>
         {{ form_end(updateUserForm) }}
     </div>
