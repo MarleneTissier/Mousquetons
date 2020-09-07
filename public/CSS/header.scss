@@ -59,6 +59,10 @@
   @include sm{
     top: 25%;
   }
+  :hover{
+    text-decoration: none;
+    color: whitesmoke;
+  }
 }
 .HeaderH1{
   color: black;
