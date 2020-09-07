@@ -4,13 +4,20 @@
   padding-left: 3%;
   padding-right: 3%;
   display: flex;
+  flex-wrap: wrap;
+  @include rwd(1020){
+    display: flex;
+  }
 }
+
+//avatar -------------------------
 .avatar{
   width: 15%;
   border: white 2px solid;
   max-width: 15%;
-  background-color: black;
 }
+
+// info utilisateur ---------------------
 .userInfo{
   width: 20%;
   border: white 2px solid;
@@ -22,6 +29,9 @@
   padding-top: 5%;
   padding-bottom: 5%;
 }
+
+
+// description utilisateur ---------------------
 .description{
   width: 60%;
   border: white 2px solid;
@@ -34,9 +44,7 @@
   height: 150px;
   resize: none;
 }
-.userCOntent{
-  padding-bottom: 5%;
-}
+//up de l'utilisateur ---------------------
 .updateProfil{
   margin-bottom: 3%;
 }
@@ -55,8 +63,31 @@
   color: #788187;
   text-decoration: underline;
 }
+
+// contenu de l'utilisateur -----------------------
+.userCOntent{
+  padding-bottom: 5%;
+}
 .userCOntent{
   display: flex;
+}
+.userParticipation{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.userArticle, .userGalerie{
+  width: 90%;
+  background-color: #d6d4c2;
+}
+.userGalerie{
+  margin-top: 5%;
+}
+
+// lieux visiter ---------------------
+.placeUser{
+  list-style: none;
 }
 .formPlacesUser{
   height: 30px;
@@ -73,20 +104,4 @@
 .listePlaces{
   padding-top: 5%;
   padding-bottom: 5%;
-}
-.placeUser{
-  list-style: none;
-}
-.userParticipation{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-.userArticle, .userGalerie{
-  width: 90%;
-  background-color: #d6d4c2;
-}
-.userGalerie{
-  margin-top: 5%;
 }

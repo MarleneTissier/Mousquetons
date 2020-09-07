@@ -1,26 +1,52 @@
 .header {
-  @include header(80vh);
+  @include header(70vh);
 }
 .HeaderBackground {
   background-color: #A5ABAF;
+  min-height: 8vh;
 }
-// les listes :
+// les listes -----------------------
 .HeaderListe {
   padding: 5%;
   list-style: none;
   display: flex;
   position: relative;
+  justify-content: flex-end;
 }
-.HeaderOnglet{
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.HeaderOngletOne{
   display: none;
-  @include sm{
+  @include rwd(765){
     padding: 1%;
     list-style: none;
     display: flex;
+    width: 60%;
   }
 }
-
-// le titre
+.HeaderOngletTwo{
+  display: none;
+  @include rwd(765){
+    align-items: center;
+    padding: 1%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    li{
+      margin-right: 2%;
+    }
+  }
+  @include rwd(1220){
+    align-items: center;
+    width: 20%;
+    justify-content: flex-end;
+  }
+}
+// le titre ----------------------
 .Header_TitleSite{
   list-style: none;
   display: flex;
@@ -48,17 +74,18 @@
   }
 }
 
-// les bouttons
+// les bouttons -------------------
 .header_boutton{
   display: none;
-  @include sm{
+  @include rwd(765){
     display: block;
-    width: 15%;
-    position: absolute;
-    right: 1%;
+    right: 3%;
     padding: 0;
     top: 30%;
   }
+  @include rwd(1220){
+  }
+
 }
 .boutton {
   border: whitesmoke solid 1px;
@@ -69,11 +96,47 @@
   text-decoration: none;
   text-align: center;
 }
+.bouttonConUser {
+  border: whitesmoke solid 1px;
+  border-radius: 50px;
+  right: 3%;
+  padding: 5%;
+  margin-top: 0;
+  width: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+}
+.bouttonConUser:hover{
+    text-decoration: none;
+    border: black solid 1px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.bouttonDeco{
+  border: #ff0000 solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  width: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(214, 52, 46, 0.75);
+}
 .listBouttonCo{
   list-style: none;
+  display: none;
+  @include rwd(765){
+    display: block;
+    padding: 0;
+  }
 }
 .bouttonCo:last-child{
-  margin-top: 20%;
+  margin-top: 30%;
+  @include rwd(1220){
+    margin-top: 20%;
+  }
 }
 .boutton:hover {
   text-decoration: none;
@@ -84,22 +147,23 @@
   text-decoration: none;
 }
 
-// le logo et l'image de recherche
+// le logo et l'image de recherche ---------------
 .header_Logo{
   display: none;
-  @include sm{
+  @include rwd(765){
     display: block;
     position: absolute;
     top: 3%;
     left: 3%;
     width: 10%;
   }
+
 }
 .Logo{
   width: 100%;
 }
 
-// les liens
+// les liens ---------------------
 .HeaderLien  {
   text-decoration: none;
   color: black;
@@ -112,11 +176,15 @@
 .LienNav{
   padding-left: 7%;
 }
+
 .Lien_Search{
-  width: 15%;
-  position: absolute;
-  right: 1%;
-  padding: 0;
+    display: block;
+  @include rwd(1220){
+    position: absolute;
+    right: 10%;
+    padding: 0;
+    width: 20%;
+  }
 }
 .content_search{
   padding: 5%;
@@ -136,10 +204,15 @@
     margin-right: 2%;
   }
   .search{
-    width: 15%;
+    display: none;
+    @include rwd(1220){
+      display: block;
+      width: 10%;
+    }
   }
 }
-//le menu burger
+
+//le menu burger ---------------------
 .menuBurger .line {
   width: 100%;
   height: 0;

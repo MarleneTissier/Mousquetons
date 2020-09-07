@@ -16,7 +16,10 @@
     width: 50px;
     padding: 4%;
     padding: 3%;
-}
+  }
+  @include rwd(1220){
+    display: none;
+  }
   ul {
     list-style: none;
     transition: all 0s;
@@ -109,6 +112,12 @@
     font-size: 2em;
     padding: 6px;
     color: whitesmoke;
+    display:block;
+  }
+  .boutton_BurgerDeco{
+    font-size: 2em;
+    padding: 6px;
+    color: red;
     display:block;
   }
 }

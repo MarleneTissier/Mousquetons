@@ -20,32 +20,37 @@
             <div class="HeaderListe">
                 <div class="header_Logo"><img src="{{ asset('img/logo.png') }}" alt="" class="Logo"></div>
                 <div class="header_Title"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons Globe-trotteurs</h1></a></div>
-                <div class="header_boutton">
-                    {% if is_granted('ROLE_USER') %}
-                        <ul class="listBouttonCo">
-                            <li class="bouttonCo"><a class="boutton" href="{{ path('app_logout') }}">Déconnection</a></li>
-                            <li class="bouttonCo"><a class="boutton" href="{{ path('profil') }}">mon profil</a></li>
-                        </ul>
-                    {% else %}
-                        <a class="boutton" href="{{ path('app_login') }}">Connexion</a>
-                    {% endif %}
-                </div>
+
 
             </div>
-            <ul class=" HeaderOnglet">
-                <li class="LienNav"><a  class="HeaderLien" href={{ path('Course') }}>Les parcours</a></li>
-                <li class="LienNav"><a class="HeaderLien"  href={{ path('Places') }}>Lieux à visiter</a></li>
-                <li class="LienNav"><a  class="HeaderLien" href={{ path('Activities') }}>Les activités</a></li>
-                <li class=""><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
-                <li class="Lien_Search">
-                    <a  class="HeaderLien" href="">
-                        <ul class="HeaderListe_search">
-                            <li class=""><a class="searchLien" href="{{ path('search') }}">Une recherche?</a></li>
-                            <li class="search"><img src="{{ asset('img/recherche.png') }}" alt=""  class="img-fluid"></li>
-                        </ul>
-                    </a>
-                </li>
-            </ul>
+            <div class="menu">
+                <ul class=" HeaderOngletOne">
+                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Course') }}>Les parcours</a></li>
+                    <li class="LienNav"><a class="HeaderLien"  href={{ path('Places') }}>Lieux à visiter</a></li>
+                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Activities') }}>Les activités</a></li>
+                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
+                </ul>
+                <ul class=" HeaderOngletTwo">
+                    <li class="Lien_Search">
+                        <a  class="HeaderLien" href="{{ path('search') }}">
+                            <ul class="HeaderListe_search">
+                                <li class="">Une recherche?</li>
+                                <li class="search"><img src="{{ asset('img/recherche.png') }}" alt="loupe"  class="img-fluid"></li>
+                            </ul>
+                        </a>
+                    </li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="header_boutton">
+                            <ul class="listBouttonCo">
+                                <li class="bouttonCo"><a class="bouttonDeco" href="{{ path('app_logout') }}">Déconnection</a></li>
+                                <li class="bouttonCo"><a class="boutton" href="{{ path('profil') }}">mon profil</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a class="bouttonConUser" href="{{ path('app_login') }}">Connexion</a></li>
+                    {% endif %}
+                </ul>
+            </div>
 
             <ul class="d-flex container-fluid justify-content-between align-items-center p-2 m-0 d-md-none d-block HeaderListe">
                 <li class="col-9 col-md-7">
@@ -65,7 +70,7 @@
                                     <li class="lien_Burger"><a  class="" href={{ path('search') }}>Une recherche ? </a></li>
                                     {% if is_granted('ROLE_USER') %}
                                         <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('profil') }}">mon profil</a></li>
-                                        <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_logout') }}">Déconnection</a></li>
+                                        <li class="lien_Burger"><a class="boutton_BurgerDeco" href="{{ path('app_logout') }}">Déconnection</a></li>
                                     {% else %}
                                         <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_login') }}">Connexion</a></li>
                                     {% endif %}
@@ -87,11 +92,11 @@
 
         <!--le footer-->
         <footer class="footer">
-            <ul class="container-fluid justify-content-center text-center align-items-center m-0 footerListe">
-                <li class="col-md-2 footerLigne"><a class="footerLien" href="{{ path('formalitees') }}">Nous contacter</a></li>
-                <li class="col-md-4 footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Réglement du forum</a></li>
-                <li class="col-md-4 footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Politique de confidentialité</a></li>
-                <li class="col-md-2 footerLigne"><a  class="footerLien" href="{{ path('formalitees') }}">Plan du site</a></li>
+            <ul class="footerListe">
+                <li class="footerLigne"><a class="footerLien" href="{{ path('formalitees') }}">Nous contacter</a></li>
+                <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Réglement du forum</a></li>
+                <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Politique de confidentialité</a></li>
+                <li class="footerLigne"><a  class="footerLien" href="{{ path('formalitees') }}">Plan du site</a></li>
             </ul>
         </footer>
 

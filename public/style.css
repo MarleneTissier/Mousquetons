@@ -370,10 +370,7 @@ footer ul a:hover {
     color: whitesmoke; }
 @media all and (max-width: 815px) {
     footer ul {
-        display: block; }
-    footer ul li {
-        margin: auto;
-        width: 40%; } }
+        display: block; } }
 
 .listGalerie
 ul {

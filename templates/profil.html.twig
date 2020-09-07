@@ -3,11 +3,8 @@
 
     <div class="userPrez">
         <div class="avatar">
-            {% if Avatar is empty %}
-                <div style="background-color: darkgray"></div>
-            {% else %}
+                <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
                 <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="img-fluid">
-            {% endif %}
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">

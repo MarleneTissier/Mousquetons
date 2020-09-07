@@ -1,5 +1,5 @@
 .header {
-  height: 80vh;
+  height: 70vh;
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,6 +8,7 @@
 
 .HeaderBackground {
   background-color: #A5ABAF;
+  min-height: 8vh;
 }
 
 .HeaderListe {
@@ -15,16 +16,48 @@
   list-style: none;
   display: flex;
   position: relative;
+  justify-content: flex-end;
 }
 
-.HeaderOnglet {
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.HeaderOngletOne {
   display: none;
 }
-@media (min-width: 576px) {
-  .HeaderOnglet {
+@media (min-width: 765px) {
+  .HeaderOngletOne {
     padding: 1%;
     list-style: none;
     display: flex;
+    width: 60%;
+  }
+}
+
+.HeaderOngletTwo {
+  display: none;
+}
+@media (min-width: 765px) {
+  .HeaderOngletTwo {
+    align-items: center;
+    padding: 1%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+  }
+  .HeaderOngletTwo li {
+    margin-right: 2%;
+  }
+}
+@media (min-width: 1220px) {
+  .HeaderOngletTwo {
+    align-items: center;
+    width: 20%;
+    justify-content: flex-end;
   }
 }
 
@@ -68,17 +101,14 @@
 .header_boutton {
   display: none;
 }
-@media (min-width: 576px) {
+@media (min-width: 765px) {
   .header_boutton {
     display: block;
-    width: 15%;
-    position: absolute;
-    right: 1%;
+    right: 3%;
     padding: 0;
     top: 30%;
   }
 }
-
 .boutton {
   border: whitesmoke solid 1px;
   padding: 5%;
@@ -89,12 +119,54 @@
   text-align: center;
 }
 
+.bouttonConUser {
+  border: whitesmoke solid 1px;
+  border-radius: 50px;
+  right: 3%;
+  padding: 5%;
+  margin-top: 0;
+  width: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+}
+
+.bouttonConUser:hover {
+  text-decoration: none;
+  border: black solid 1px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.bouttonDeco {
+  border: #ff0000 solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  width: auto;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(214, 52, 46, 0.75);
+}
+
 .listBouttonCo {
   list-style: none;
+  display: none;
+}
+@media (min-width: 765px) {
+  .listBouttonCo {
+    display: block;
+    padding: 0;
+  }
 }
 
 .bouttonCo:last-child {
-  margin-top: 20%;
+  margin-top: 30%;
+}
+@media (min-width: 1220px) {
+  .bouttonCo:last-child {
+    margin-top: 20%;
+  }
 }
 
 .boutton:hover {
@@ -109,7 +181,7 @@
 .header_Logo {
   display: none;
 }
-@media (min-width: 576px) {
+@media (min-width: 765px) {
   .header_Logo {
     display: block;
     position: absolute;
@@ -139,10 +211,15 @@
 }
 
 .Lien_Search {
-  width: 15%;
-  position: absolute;
-  right: 1%;
-  padding: 0;
+  display: block;
+}
+@media (min-width: 1220px) {
+  .Lien_Search {
+    position: absolute;
+    right: 10%;
+    padding: 0;
+    width: 20%;
+  }
 }
 
 .content_search {
@@ -167,7 +244,13 @@
   margin-right: 2%;
 }
 .HeaderListe_search .search {
-  width: 15%;
+  display: none;
+}
+@media (min-width: 1220px) {
+  .HeaderListe_search .search {
+    display: block;
+    width: 10%;
+  }
 }
 
 .menuBurger .line {
@@ -209,13 +292,24 @@ img {
 .footer {
   background-color: #A5ABAF;
   margin: 0;
-  padding: 2%;
+  padding: 5%;
 }
 
 .footerListe {
   list-style: none;
-  display: flex;
-  justify-content: space-between;
+  padding: 0;
+}
+.footerListe li {
+  margin-bottom: 3%;
+}
+@media (min-width: 1220px) {
+  .footerListe {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footerListe li {
+    margin-bottom: 0;
+  }
 }
 
 .footerLien {
@@ -223,10 +317,28 @@ img {
   color: black;
   font-size: 1em;
 }
+@media (min-width: 768px) {
+  .footerLien {
+    font-size: x-large;
+  }
+}
 
 .footerLien:hover {
   text-decoration: none;
   color: whitesmoke;
+}
+
+.footerLigne {
+  width: 80%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3%;
+}
+@media (min-width: 1220px) {
+  .footerLigne {
+    margin-bottom: 0;
+  }
 }
 
 @media all and (max-width: 1025px) {
@@ -272,14 +384,32 @@ img {
   .footerListe {
     display: block;
   }
-
-  .footerLigne {
-    margin: auto;
-    width: 40%;
-  }
 }
 .introduction {
   padding: 2%;
+}
+
+.container_ariane {
+  width: 70%;
+}
+
+.ariane {
+  padding-left: 10%;
+}
+@media (min-width: smpx) {
+  .ariane {
+    font-size: x-small;
+  }
+}
+@media (min-width: mdpx) {
+  .ariane {
+    font-size: small;
+  }
+}
+@media (min-width: lgpx) {
+  .ariane {
+    font-size: unset;
+  }
 }
 
 .article {
@@ -524,13 +654,18 @@ ArticleLiens:hover {
   padding-left: 3%;
   padding-right: 3%;
   display: flex;
+  flex-wrap: wrap;
+}
+@media (min-width: 1020px) {
+  .userPrez {
+    display: flex;
+  }
 }
 
 .avatar {
   width: 15%;
   border: white 2px solid;
   max-width: 15%;
-  background-color: black;
 }
 
 .userInfo {
@@ -561,10 +696,6 @@ ArticleLiens:hover {
   resize: none;
 }
 
-.userCOntent {
-  padding-bottom: 5%;
-}
-
 .updateProfil {
   margin-bottom: 3%;
 }
@@ -589,7 +720,31 @@ ArticleLiens:hover {
 }
 
 .userCOntent {
+  padding-bottom: 5%;
+}
+
+.userCOntent {
   display: flex;
+}
+
+.userParticipation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.userArticle, .userGalerie {
+  width: 90%;
+  background-color: #d6d4c2;
+}
+
+.userGalerie {
+  margin-top: 5%;
+}
+
+.placeUser {
+  list-style: none;
 }
 
 .formPlacesUser {
@@ -609,26 +764,6 @@ ArticleLiens:hover {
 .listePlaces {
   padding-top: 5%;
   padding-bottom: 5%;
-}
-
-.placeUser {
-  list-style: none;
-}
-
-.userParticipation {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-
-.userArticle, .userGalerie {
-  width: 90%;
-  background-color: #d6d4c2;
-}
-
-.userGalerie {
-  margin-top: 5%;
 }
 
 .formulaires {
@@ -735,6 +870,11 @@ ArticleLiens:hover {
     padding: 3%;
   }
 }
+@media (min-width: 1220px) {
+  .menu-burger {
+    display: none;
+  }
+}
 .menu-burger ul {
   list-style: none;
   transition: all 0s;
@@ -829,6 +969,12 @@ ArticleLiens:hover {
   font-size: 2em;
   padding: 6px;
   color: whitesmoke;
+  display: block;
+}
+.menu-burger-expension .boutton_BurgerDeco {
+  font-size: 2em;
+  padding: 6px;
+  color: red;
   display: block;
 }
 

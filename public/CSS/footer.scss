@@ -1,20 +1,42 @@
 .footer {
   background-color: #A5ABAF;
   margin: 0;
-  padding: 2%;
+  padding: 5%;
 }
 .footerListe {
   list-style: none;
-  display: flex;
-  justify-content: space-between;
+  padding: 0;
+  li{
+    margin-bottom: 3%;
+  }
+  @include rwd(1220){
+    display: flex;
+    justify-content: space-between;
+    li{
+      margin-bottom: 0;
+    }
+  }
 }
 .footerLien {
   text-decoration: none;
   color: black;
   font-size: 1em;
+  @include rwd(768){
+    font-size: x-large;
+  }
 }
 .footerLien:hover {
   text-decoration: none;
   color: whitesmoke;
 }
 
+.footerLigne{
+  width: 80%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3%;
+  @include rwd(1220){
+    margin-bottom: 0;
+  }
+}

@@ -1,6 +1,22 @@
 .introduction{
   padding: 2%;
 }
+.container_ariane{
+  width: 70%;
+}
+.ariane{
+  padding-left: 10%;
+  @include rwd(sm){
+    font-size: x-small;
+  }
+  @include rwd(md){
+    font-size: small;
+  }
+  @include rwd(lg){
+    font-size: unset;
+  }
+
+}
 .article {
   background-color: #EAEAEA;
   margin: 0 5% 2% 5%;
