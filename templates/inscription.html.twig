@@ -32,7 +32,7 @@
                 </div>
                 <div class="formUserDescription">
                     <p>Décrivez-vous un peu :  </p>
-                    {{ form_widget(userForm.profil.Description, {'attr': {'class': 'input_Description'}}) }}
+                    {{ form_widget(userForm.profil.Description, {'attr': {'class': 'textarea_content'}}) }}
                     {{ form_errors(userForm.profil.Description)}}
                 </div>
             {{ form_end  (userForm) }}

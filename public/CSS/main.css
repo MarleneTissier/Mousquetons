@@ -1,3 +1,47 @@
+.suppression {
+  text-align: right;
+  padding: 5% 5% 0 0;
+}
+
+.supprMessage {
+  color: black;
+}
+
+.supprMessage:hover {
+  color: red;
+  border: #ff0000 solid 1px;
+  padding: 1%;
+  border-radius: 50px;
+  background-color: rgba(214, 52, 46, 0.75);
+}
+
+.validation {
+  visibility: hidden;
+}
+
+.validation_up {
+  opacity: 1;
+  visibility: visible;
+  background-color: whitesmoke;
+  border: black solid 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 2%;
+}
+
+.bouttonChoise {
+  list-style: none;
+  display: flex;
+}
+.bouttonChoise li {
+  width: 50%;
+  align-items: center;
+}
+.bouttonChoise li a {
+  text-decoration: none;
+}
+
 .header {
   height: 70vh;
   background-position: right;
@@ -264,11 +308,11 @@
   border: #ff0000 solid 1px;
   padding: 5%;
   border-radius: 50px;
+  background-color: rgba(214, 52, 46, 0.75);
   width: 70%;
   color: whitesmoke;
   text-decoration: none;
   text-align: center;
-  background-color: rgba(214, 52, 46, 0.75);
 }
 
 .bouttonDecoHeaderOne:hover {

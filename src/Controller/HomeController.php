@@ -13,6 +13,7 @@
     use App\Form\PostType;
     use App\Form\ProfilType;
     use App\Form\UserType;
+    use App\Form\UserUpdateType;
     use App\Repository\GalerieRepository;
     use App\Repository\PostRepository;
     use App\Repository\ProfilRepository;
@@ -295,19 +296,16 @@
             //dump('hello world');
             //die;
             $id = $this->getUser()->getId();
-            $userID = $userRepository->find($id);
-            $user=$userRepository->find($userID);
-            $profil=$profilRepository->find($user);
+            $user=$userRepository->find($id);
+            //$profil=$profilRepository->ByUser($id);
 
-            $updateUserForm=$this->createForm(ProfilType::class, $profil);
+            $updateUserForm=$this->createForm(UserUpdateType::class, $user);
             $updateUserForm->handleRequest($request);
 
             if ($updateUserForm->isSubmitted() && $updateUserForm->isValid()){
 
-                dump($updateUserForm);
-                die();
                 // je récupère l'image uploadée
-                $userFormAvatar = $updateUserForm->get('avatar')->getData();
+                $userFormAvatar = $updateUserForm->get('profil')->get('Avatar')->getData();
 
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($userFormAvatar){
@@ -333,8 +331,8 @@
                     }catch (FileException $e){
                         return new Response(($e->getMessage()));
                     }
-                    //je sauvegarde dans la colonne bookCover le nom de mon image
-                    $user->setAvatar($uniqueAvatarName);
+                    //je sauvegarde dans la colonne  le nom de mon image
+                    $user->getProfil()->setAvatar($uniqueAvatarName);
                 }
 
                 //... alors je persist et flush le nouvel utilisateur
@@ -352,7 +350,23 @@
         }
 
 
-
+        /**
+         * @route("/delete_profil", name="delete_profil")
+         */
+        public function delete_admin_author(
+            UserRepository $userRepository,
+            ProfilRepository $profilRepository,
+            EntityManagerInterface $entityManager)
+        {
+            $id = $this->getUser()->getId();
+            $user=$userRepository->find($id);
+            $profil=$profilRepository->ByUser($id);
+            $entityManager->remove($user);
+            $entityManager->remove($profil);
+            $entityManager->flush();
+            $this->addFlash('success', 'Votre profil a été supprimé !');
+            return $this->redirectToRoute('Home');
+        }
 
 
 

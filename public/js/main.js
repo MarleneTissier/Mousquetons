@@ -30,6 +30,7 @@ $(document).ready(function() {
     });
 });
 
+
 //pour supprimer un élément de la liste
 function addTagFormDeleteLink($tagFormLi) {
     var $removeFormButton = $('<button type="button">Supprimer image</button>');
@@ -40,6 +41,7 @@ function addTagFormDeleteLink($tagFormLi) {
         $tagFormLi.remove();
     });
 }
+
 
 //mise en place des fonctions ajout / supprimer
 function addTagForm($collectionHolder, $newLinkLi) {
@@ -79,4 +81,21 @@ $("#up").click(function(){
 //le menu burger
 $(".menu-burger").click(function() {
     $(this).toggleClass("menu-burger-expension");
+});
+
+//la pop up de suppression de profil
+//ouvrir popup
+$('.supprMessage').on('click', function(event){
+    event.preventDefault();
+    $('.validation').addClass('validation_up');
+    $('.validation_up').removeClass('validation');
+});
+
+//fermer popup
+$('.validation').on('click', function(event){
+    if( $(event.target).is('.button_noDelet')) {
+        event.preventDefault();
+        $('.validation_up').addClass('validation');
+        $('.validation').removeClass('validation_up');
+    }
 });
