@@ -36,13 +36,10 @@
     display: flex;
     justify-content: space-around;
     width: 35%;
-    li{
-      margin-right: 2%;
-    }
   }
   @include rwd(1220){
     align-items: center;
-    width: 20%;
+    width: 40%;
     justify-content: flex-end;
   }
 }
@@ -82,6 +79,7 @@
 .header_boutton{
   display: none;
   @include rwd(765){
+    width: 50%;
     display: block;
     right: 3%;
     padding: 0;
@@ -100,6 +98,23 @@
   text-decoration: none;
   text-align: center;
 }
+.boutton:hover {
+  text-decoration: none;
+  border: black solid 1px;
+  background-color: whitesmoke;
+  color: black;
+  color: black;
+  text-decoration: none;
+}
+
+.bouttonCo{
+  width: 30%;
+  @include rwd(1220){
+    width: 40%;
+  }
+}
+
+// les bouttons connexions au niveau du menu ---------------------------
 .bouttonConUser {
   border: whitesmoke solid 1px;
   border-radius: 50px;
@@ -117,38 +132,112 @@
     background-color: whitesmoke;
     color: black;
 }
-
-.bouttonDeco{
+.bouttonCoHeader{
+  border: whitesmoke solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  color: whitesmoke;
+  width: 70%;
+  text-decoration: none;
+  text-align: center;
+}
+.bouttonCoHeader:hover {
+  text-decoration: none;
+  border: black solid 1px;
+  background-color: whitesmoke;
+  color: black;
+}
+.bouttonDecoHeader{
   border: #ff0000 solid 1px;
   padding: 5%;
   border-radius: 50px;
-  width: auto;
+  width: 70%;
   color: whitesmoke;
   text-decoration: none;
   text-align: center;
   background-color: rgba(214, 52, 46, 0.75);
 }
-.listBouttonCo{
+.bouttonDecoHeader:hover{
+  border: #ff0000 solid 1px;
+  color: black;
+  text-decoration: none;
+  padding: 5%;
+  border-radius: 50px;
+  width: 70%;
+  text-align: center;
+  background-color: rgba(214, 52, 46);
+}
+.listBouttonCoOne{
   list-style: none;
   display: none;
-  @include rwd(765){
+  @include rwd(545){
     display: block;
-    padding: 0;
+    li:first-child{
+      margin-bottom: 30%;
+    }
   }
-}
-.bouttonCo:last-child{
-  margin-top: 30%;
   @include rwd(1220){
-    margin-top: 20%;
+    display: none;
   }
 }
-.boutton:hover {
+.listBouttonCoTwo{
+  list-style: none;
+  display: none;
+  @include rwd(1220){
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    li{
+      width: 40%;
+    }
+  }
+}
+
+// les bouttons connexions au niveau du titre ---------------------------
+.BouttonCoUnderPC{
+  position: absolute;
+  top: 30%;
+  ul{
+    list-style: none;
+  }
+  @include rwd(1220){
+    display: none;
+  }
+}
+.bouttonCoHeaderOne{
+  border: whitesmoke solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  color: whitesmoke;
+  width: 70%;
+  text-decoration: none;
+  text-align: center;
+}
+.bouttonCoHeaderOne:hover {
   text-decoration: none;
   border: black solid 1px;
   background-color: whitesmoke;
   color: black;
+}
+.bouttonDecoHeaderOne{
+  border: #ff0000 solid 1px;
+  padding: 5%;
+  border-radius: 50px;
+  width: 70%;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(214, 52, 46, 0.75);
+}
+.bouttonDecoHeaderOne:hover{
+  border: #ff0000 solid 1px;
   color: black;
   text-decoration: none;
+  padding: 5%;
+  border-radius: 50px;
+  width: 70%;
+  text-align: center;
+  background-color: rgba(214, 52, 46);
 }
 
 // le logo et l'image de recherche ---------------
@@ -181,13 +270,11 @@
   padding-left: 7%;
 }
 
-.Lien_Search{
+.liSearch{
     display: block;
   @include rwd(1220){
-    position: absolute;
-    right: 10%;
-    padding: 0;
-    width: 20%;
+    display: block;
+    margin-right: 3%;
   }
 }
 .content_search{

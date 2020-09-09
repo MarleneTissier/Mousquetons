@@ -71,19 +71,19 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  @include rwd(375){
+  @include sm{
     width: 90%;
     margin-top: 5%;
   }
   border: white 2px solid;
   overflow: auto;
-  @include rwd(768) {
+  @include md {
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
     width: 40%;
   }
-  @include rwd(1024) {
+  @include lg {
     width: 55%;
   }
 }

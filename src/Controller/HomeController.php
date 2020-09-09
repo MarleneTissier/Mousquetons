@@ -487,13 +487,13 @@
             $album = new Album();
             $image = new Image();
             dump($album);
+            dump($image);
             $originalImages = new ArrayCollection();
             dump($originalImages);
             // Créer une ArrayCollection des objets Image
             foreach ($album->getImage() as $image) {
                 $originalImages->add($image);
             }
-            dump($originalImages);
             $editForm = $this->createForm(AlbumType::class, $album);
             $editForm->handleRequest($request);
             dump($editForm);
@@ -515,6 +515,9 @@
 
                 // --------- un des problèmes rencontré ; il ne trouve pas picture qui n'existe pas pour lui :
                 $imageUpload = $editForm->get('image')->get('picture')->getData();
+                dump($imageUpload);
+                die();
+
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($imageUpload){
                     //je récupère le nom de l'image

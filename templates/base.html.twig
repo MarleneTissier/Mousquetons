@@ -11,100 +11,100 @@
         <title>Les Mousquetons Globe-trotteurs</title>
     </head>
     <body>
+        <!-- lien pour le retour en haut de page -->
+        <a id="up"></a>
+        <!--le header-->
+        <header class="container-fluid p-0 header" style="background-image:url('{{ asset('img/background.jpg') }}')">
+            <div class="HeaderBackground">
+                <div class="HeaderListe">
+                    <div class="header_Logo"><img src="{{ asset('img/logo.png') }}" alt="" class="Logo"></div>
+                    <div class="header_Title"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons Globe-trotteurs</h1></a></div>
 
-    <!-- lien pour le retour en haut de page -->
-    <a id="up"></a>
-    <!--le header-->
-    <header class="container-fluid p-0 header" style="background-image:url('{{ asset('img/background.jpg') }}')">
-        <div class="HeaderBackground">
-            <div class="HeaderListe">
-                <div class="header_Logo"><img src="{{ asset('img/logo.png') }}" alt="" class="Logo"></div>
-                <div class="header_Title"><a class="HeaderLien" href="{{ path('Home') }}"><h1 class="HeaderH1">Les Mousquetons Globe-trotteurs</h1></a></div>
+                    <div class="BouttonCoUnderPC">
+                        <ul class="listBouttonCoOne">
+                            {% if is_granted('ROLE_USER') %}
+                                <li><a class="bouttonCoHeaderOne" href="{{ path('profil') }}">mon profil</a></li>
+                                <li><a class="bouttonDecoHeaderOne" href="{{ path('app_logout') }}">Déconnection</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
 
 
-            </div>
-            <div class="menu">
-                <ul class=" HeaderOngletOne">
-                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Course') }}>Les parcours</a></li>
-                    <li class="LienNav"><a class="HeaderLien"  href={{ path('Places') }}>Lieux à visiter</a></li>
-                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Activities') }}>Les activités</a></li>
-                    <li class="LienNav"><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
-                </ul>
-                <ul class=" HeaderOngletTwo">
-                    <li class="Lien_Search">
-                        <a  class="HeaderLien" href="{{ path('search') }}">
-                            <ul class="HeaderListe_search">
-                                <li class="">Une recherche?</li>
-                                <li class="search"><img src="{{ asset('img/recherche.png') }}" alt="loupe"  class="img-fluid"></li>
-                            </ul>
-                        </a>
-                    </li>
-                    {% if is_granted('ROLE_USER') %}
-                        <li class="header_boutton">
-                            <ul class="listBouttonCo">
-                                <li class="bouttonCo"><a class="bouttonDeco" href="{{ path('app_logout') }}">Déconnection</a></li>
-                                <li class="bouttonCo"><a class="boutton" href="{{ path('profil') }}">mon profil</a></li>
-                            </ul>
-                        </li>
-                    {% else %}
-                        <li><a class="bouttonConUser" href="{{ path('app_login') }}">Connexion</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-
-            <ul class="d-flex container-fluid justify-content-between align-items-center p-2 m-0 d-md-none d-block HeaderListe">
-                <li class="col-9 col-md-7">
-                    <ul class="row justify-content-start align-items-center p-0 HeaderListe">
-                        <li class="col-2">
-                            <!--gestion du menu burger-->
-                            <div class="menu-burger">
-                                <div class="burgerUp"></div>
-                                <div class="burger"></div>
-                                <div class="burgerDown"></div>
-                                <ul class="menuBurger p-0">
-                                    <li class="lien_Burger"><a  class="" href={{ path('Course') }}>Les parcours</a></li>
-                                    <li class="lien_Burger"><a class=""  href={{ path('Places') }}>Lieux à visiter</a></li>
-                                    <li class="lien_Burger"><a  class="" href={{ path('Activities') }}>Les activités</a></li>
-                                    <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
-                                    <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
-                                    <li class="lien_Burger"><a  class="" href={{ path('search') }}>Une recherche ? </a></li>
-                                    {% if is_granted('ROLE_USER') %}
-                                        <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('profil') }}">mon profil</a></li>
-                                        <li class="lien_Burger"><a class="boutton_BurgerDeco" href="{{ path('app_logout') }}">Déconnection</a></li>
-                                    {% else %}
-                                        <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_login') }}">Connexion</a></li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </li>
+                </div>
+                <div class="menu">
+                    <ul class=" HeaderOngletOne">
+                        <li class="LienNav"><a  class="HeaderLien" href={{ path('Course') }}>Les parcours</a></li>
+                        <li class="LienNav"><a class="HeaderLien"  href={{ path('Places') }}>Lieux à visiter</a></li>
+                        <li class="LienNav"><a  class="HeaderLien" href={{ path('Activities') }}>Les activités</a></li>
+                        <li class="LienNav"><a  class="HeaderLien" href={{ path('Galeries') }}>Les galeries</a></li>
                     </ul>
-                </li>
-            </ul>
-        </div>
-    </header>
+                    <ul class=" HeaderOngletTwo">
+                        <li class="liSearch">
+                            <a class="HeaderLien" href="{{ path('search') }}">Une recherche?</a>
+                        </li>
+                        {% if is_granted('ROLE_USER') %}
+                            <li class="header_boutton">
+                                <ul class="listBouttonCoTwo">
+                                    <li><a class="bouttonCoHeader" href="{{ path('profil') }}">mon profil</a></li>
+                                    <li><a class="bouttonDecoHeader" href="{{ path('app_logout') }}">Déconnection</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a class="bouttonConUser" href="{{ path('app_login') }}">Connexion</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
 
-        <!--le contenu-->
-        <div class="main">
-            {% block content %}
+                <ul class="d-flex container-fluid justify-content-between align-items-center p-2 m-0 d-md-none d-block HeaderListe">
+                    <li class="col-9 col-md-7">
+                        <ul class="row justify-content-start align-items-center p-0 HeaderListe">
+                            <li class="col-2">
+                                <!--gestion du menu burger-->
+                                <div class="menu-burger">
+                                    <div class="burgerUp"></div>
+                                    <div class="burger"></div>
+                                    <div class="burgerDown"></div>
+                                    <ul class="menuBurger p-0">
+                                        <li class="lien_Burger"><a  class="" href={{ path('Course') }}>Les parcours</a></li>
+                                        <li class="lien_Burger"><a class=""  href={{ path('Places') }}>Lieux à visiter</a></li>
+                                        <li class="lien_Burger"><a  class="" href={{ path('Activities') }}>Les activités</a></li>
+                                        <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
+                                        <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
+                                        <li class="lien_Burger"><a  class="" href={{ path('search') }}>Une recherche ? </a></li>
+                                        {% if is_granted('ROLE_USER') %}
+                                            <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('profil') }}">mon profil</a></li>
+                                            <li class="lien_Burger"><a class="boutton_BurgerDeco" href="{{ path('app_logout') }}">Déconnection</a></li>
+                                        {% else %}
+                                            <li class="lien_Burger"><a class="boutton_Burger" href="{{ path('app_login') }}">Connexion</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+            <!--le contenu-->
+        <main class="main">
+                {% block content %}
 
-            {% endblock content%}
-        </div>
-
-        <!--le footer-->
+                {% endblock content%}
+            </main>
+            <!--le footer-->
         <footer class="footer">
-            <ul class="footerListe">
-                <li class="footerLigne"><a class="footerLien" href="{{ path('formalitees') }}">Nous contacter</a></li>
-                <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Réglement du forum</a></li>
-                <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Politique de confidentialité</a></li>
-                <li class="footerLigne"><a  class="footerLien" href="{{ path('formalitees') }}">Plan du site</a></li>
-            </ul>
-        </footer>
-
-        <!-- JS, Popper.js, and jQuery -->
+                <ul class="footerListe">
+                    <li class="footerLigne"><a class="footerLien" href="{{ path('formalitees') }}">Nous contacter</a></li>
+                    <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Réglement du forum</a></li>
+                    <li class="footerLigne"><a class="footerLien"  href="{{ path('formalitees') }}">Politique de confidentialité</a></li>
+                    <li class="footerLigne"><a  class="footerLien" href="{{ path('formalitees') }}">Plan du site</a></li>
+                </ul>
+            </footer>
+            <!-- JS, Popper.js, and jQuery -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="{{ asset ('js/main.js') }}"></script>
-
     </body>
 </html>
+
