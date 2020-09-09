@@ -1,8 +1,11 @@
 .formalite{
   padding: 6%;
 }
-.form{
+.form, .formUpdate{
   padding: 5%;
+  div{
+    margin-bottom: 2%;
+  }
 }
 .userAuthor, .discussion_titre, .discussion_first_post, .discussion_categorie, .discussion_place{
   margin-bottom: 2%;
@@ -11,6 +14,7 @@
   width: 90%;
   height: 150px;
   resize: none;
+  margin-bottom: 2%;
 }
 #formUserDescription, #discussion_first_post, #galerieForm_description{
   width: 90%;
@@ -22,3 +26,5 @@
   height: 250px;
   resize: none;
 }
+
+//l'Update de Profil -------------------------

@@ -3,13 +3,13 @@
 
     <div class="userPrez">
         <div class="avatar">
-                <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
-                <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="">
+            <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
+            <img src="{{ asset('profilUser/avatar/'~User.profil.avatar) }}" alt="" class="">
         </div>
         <div class="userInfo">
             <ul class="listeUserInfo">
-                <li>pseudo : {{ app.user.username }}</li>
-                <li>email : {{ app.user.email }}</li>
+                <li>pseudo : {{ User.username }}</li>
+                <li>email : {{ User.email }}</li>
             </ul>
         </div>
         <div class="description">
@@ -17,14 +17,11 @@
                 {% if Description is empty %}
                     Pas de description pour le moment
                 {% else %}
-                    {{ app.user.profil.description }}
+                    {{ User.profil.description }}
                 {% endif %}
 
             </p>
         </div>
-    </div>
-    <div class="updateProfil">
-        <a class="bouttonUpProfil" href="{{ path('profilUpdate')}}">modifier son profil</a>
     </div>
     <div class="userCOntent">
         <div class="userParticipation">
@@ -66,9 +63,6 @@
 
                     </ul>
                 </div>
-               <div class="userCreateArticle">
-                   <a class="bouttonProfil" href="{{ path('formulaireDicussion') }}">Créer une discussion</a>
-               </div>
             </div>
 
 
@@ -110,21 +104,13 @@
 
                     </ul>
                 </div>
-                <div class="userCreateGalerie">
-                    <a class="bouttonProfil" href="{{ path('formulaireAlbum', {'id':app.user.id}) }}">Créer un album</a>
-                </div>
             </div>
         </div>
         <div class="userPlacesOne">
             <!-- lieux visités -->
-            <div class="userCreateArticle">
-                <div class="formPlacesUser">
-
-                </div>
-                <a class="bouttonProfil" href="">ajouter un lieu visité</a>
-            </div>
             <div class="listePlaces">
                 <!-- liste des lieux visités -->
+                <p>Lieux visités</p>
                 <ul class="placeUser">
                     <li>test</li>
                     <li>test</li>
@@ -138,14 +124,10 @@
     </div>
     <div class="userPlacesTwo">
         <!-- lieux visités -->
-        <div class="userCreateArticle">
-            <div class="formPlacesUser">
 
-            </div>
-            <a class="bouttonProfil" href="">ajouter un lieu visité</a>
-        </div>
         <div class="listePlaces">
             <!-- liste des lieux visités -->
+            <p>Lieux visités</p>
             <ul class="placeUserTwo">
                 <li>test</li>
                 <li>test</li>
@@ -155,28 +137,16 @@
             </ul>
         </div>
     </div>
-    <div class="blockSuppr">
-        <div class="suppression">
-            <a class="supprMessage" href="">Supprimer le profil</a>
-            <div class="validation">
-                <p>Attention ! <br> Etes vous certain de vouloir supprimer ce profil ?</p>
-                <ul class="bouttonChoise">
-                    <li><a  class="button_deleteLien" href="{{path('delete_profil') }}">supprimer ce profil</a></li>
-                    <li><a class="button_updateLien" href="">Non</a></li>
-                </ul>
+
+    <!-- les contacts futur ajout
+    <div class="userContact">
+        <div class="userFriends">
+            <div class="userCreateArticle">
+                <a class="bouttonProfil" href="">ajouter un ami</a>
             </div>
         </div>
     </div>
-
-        <!-- les contacts futur ajout
-        <div class="userContact">
-            <div class="userFriends">
-                <div class="userCreateArticle">
-                    <a class="bouttonProfil" href="">ajouter un ami</a>
-                </div>
-            </div>
-        </div>
-        -->
+    -->
 
 {% endblock %}
 

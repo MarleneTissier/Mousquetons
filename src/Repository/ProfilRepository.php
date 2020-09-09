@@ -52,12 +52,19 @@ class ProfilRepository extends ServiceEntityRepository
         //on récupère id
         //createQueryBuilder permet de récupérer le constructeur de requete SQL
         $queryBuilder = $this->createQueryBuilder('profil');
-        $query = $queryBuilder->select('profil')
+        $query = $queryBuilder
+            ->select('profil')
             //la requete SQL avec une clause WHERE
-            ->where('profil.user = '.$idUser)
+            ->where('profil.user = :idUser')
+            //la sécurité pour empecher les injections SQL en remplaçant le placeholder par
+            //la vraie valeur
+            ->setParameter('idUser', $idUser)
             //on récupère le résultat
             ->getQuery();
-        $prodil = $query->getResult();
-        return $prodil;
+        $profil = $query->getResult();
+        return $profil;
+    }
+    public function delete(){
+
     }
 }

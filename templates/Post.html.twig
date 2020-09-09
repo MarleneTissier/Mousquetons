@@ -10,32 +10,33 @@
     </div>
 
     <main>
-        <!-- for -->
+
         <div class="commentaire">
-            <div class="poster">
-                <div class="avatar_post">
-                    <img src="{{ asset('profilUser/avatar/'~discussion.user.profil.avatar) }}" alt="">
-                </div>
-                <div class="info">
-                    <p>{{ discussion.user.username }}</p>
-                </div>
-            </div>
+            <a class="poster" href="{{ path('profilOtherUser', {'id':discussion.user.id}) }}">
+                    <div class="avatar_post">
+                        <img src="{{ asset('profilUser/avatar/'~discussion.user.profil.avatar) }}" alt="">
+                    </div>
+                    <div class="info">
+                        <p>{{ discussion.user.username }}</p>
+                    </div>
+            </a>
             <div class="content">
                 <h2>{{ discussion.name }}</h2>
                 <p>{{ discussion.FirstPost }}</p>
             </div>
+
         </div>
 
         {% for discussionPost in discussionPosts %}
             <div class="postReponse">
-                <div class="poster">
+                <a class="poster" href="{{ path('profilOtherUser', {'id':discussionPost.user.id}) }}">
                     <div class="avatar_post">
                         <img src="{{ asset('profilUser/avatar/'~discussionPost.user.profil.avatar) }}" alt="">
                     </div>
                     <div class="info">
                         <p>{{ discussionPost.user.username }}</p>
                     </div>
-                </div>
+                </a>
                 <div class="content">
                     <p>{{ discussionPost.content }}</p>
                 </div>

@@ -267,13 +267,16 @@
             ProfilRepository $profilRepository,
             DiscussionRepository $discussionRepository
         ){
-            //var_dump('hello world');
-            //die;
+            //récupérer l'id de la personne connectée
             $id = $this->getUser()->getId();
             $userID = $userRepository->find($id);
+            //récupérer l'avatar selon l'id
             $userAvatar = $this->getUser()->getProfil()->getAvatar();
+            //récupérer la description selon l'id
             $userDescription = $this->getUser()->getProfil()->getDescription();
+            //récupérer les discussions que l'utilisateur à créé
             $discussion= $discussionRepository->findBy(array('user'=>$userID));
+            //return des info récupérées
             return $this->render('profil.html.twig', [
                 'discussions'=>$discussion,
                 'Avatar'=>$userAvatar,
@@ -293,15 +296,15 @@
             EntityManagerInterface $entityManager,
             Request $request
         ){
-            //dump('hello world');
-            //die;
+            //récupération de l'id de l'utilisateur connecté
             $id = $this->getUser()->getId();
+            //récupération des informations utilisateur selin l'id
             $user=$userRepository->find($id);
-            //$profil=$profilRepository->ByUser($id);
-
+            //génération du formulaire
             $updateUserForm=$this->createForm(UserUpdateType::class, $user);
             $updateUserForm->handleRequest($request);
 
+            //travail de l'avatar comme pour l'inscription
             if ($updateUserForm->isSubmitted() && $updateUserForm->isValid()){
 
                 // je récupère l'image uploadée
@@ -343,7 +346,6 @@
                 return $this->redirectToRoute('profil');
             }
 
-
             return $this->render('profilUpdate.html.twig', [
                 'updateUserForm'=>$updateUserForm->createView()
             ]);
@@ -360,12 +362,44 @@
         {
             $id = $this->getUser()->getId();
             $user=$userRepository->find($id);
-            $profil=$profilRepository->ByUser($id);
+            $profils=$this->getDoctrine()->getRepository(Profil::class)->ByUser($id);
+
+            foreach ($profils as $profil){
+                $entityManager->remove($profil);
+            }
+
             $entityManager->remove($user);
-            $entityManager->remove($profil);
+
             $entityManager->flush();
+
             $this->addFlash('success', 'Votre profil a été supprimé !');
-            return $this->redirectToRoute('Home');
+            return $this->redirectToRoute('app_logout');
+        }
+
+        /**
+         * @route("/profil/{id}", name="profilOtherUser")
+         */
+        public function profil_other_user(
+            UserRepository $userRepository,
+            DiscussionRepository $discussionRepository,
+            $id
+        ){
+
+            //récupérer l'id de la personne voulu
+            $user = $userRepository->find($id);
+            //récupérer l'avatar selon l'id
+            $userAvatar = $user->getProfil()->getAvatar();
+            //récupérer la description selon l'id
+            $userDescription = $user->getProfil()->getDescription();
+            //récupérer les discussions que l'utilisateur à créé
+            $discussion= $discussionRepository->findBy(array('user'=>$user));
+            //return des info récupérées
+            return $this->render('profilOtherUser.html.twig', [
+                    'User'=>$user,
+                    'discussions'=>$discussion,
+                    'Avatar'=>$userAvatar,
+                    'Description'=>$userDescription
+            ]);
         }
 
 
@@ -374,6 +408,7 @@
 //https://symfonycasts.com/screencast/symfony-forms/registration-form
 
         /**
+         * route qui mene les utilisateur à la page d'inscription
          * @route("/inscription", name="inscription")
          */
         public function inscription(
@@ -400,8 +435,6 @@
                 ));
                 // je récupère l'image uploadée
                 $userFormAvatar = $userForm->get('profil')->get('Avatar')->getData();
-                //la j'ai laisser $userFormAvatar qui récupère seulement 'profil' car je n'ai pas encore trouvé
-                //comment récupérer seulement "Avatar' qui se trouve dans 'profil'
                 // s'il y a bien une image uploadée dans le formulaire
                 if ($userFormAvatar){
                     //je récupère le nom de l'image
