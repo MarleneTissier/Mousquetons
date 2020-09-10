@@ -39,8 +39,6 @@
             $parcours = $discussionRepository->findBy(['categorie' => '1'], ['id' => 'DESC'], 3);
             $lieux = $discussionRepository->findBy(['categorie' => '2'], ['id' => 'DESC'], 3);
             $activites = $discussionRepository->findBy(['categorie' => '3'], ['id' => 'DESC'], 3);
-            //dump($parcours);
-            //die;
 
             return $this->render('Home.html.twig', [
                 'parcours' => $parcours,
@@ -239,14 +237,20 @@
         /**
          * @route ("/admin/deletePost/{id}", name="AdminDeletePost")
          */
-        public function AdminDeletePost(DiscussionRepository $discussionRepository, $id){
+        public function AdminDeletePost(
+            PostRepository $postRepository,
+            EntityManagerInterface $entityManager,
+            $id){
             //var_dump('hello world');
             //die;
-            $activites = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>$id), ['id'=>'DESC']);
-
-            return $this->render('Admin/Activities_Discussion.html.twig',[
-                'activites'=>$activites
-            ]);
+            $post = $postRepository->find($id);
+            //dump($id);
+            //dump ($post);
+            //die();
+            $entityManager->remove($post);
+            $entityManager->flush();
+            $this->addFlash('success', 'Votre post a été supprimé !');
+            return $this->redirectToRoute('HomeAdmin');
         }
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Les profils xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

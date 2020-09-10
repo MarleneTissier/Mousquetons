@@ -41,7 +41,7 @@
                     <p>{{ discussionPost.content }}</p>
                 </div>
                 <div class="suppression">
-                    <a class="suppr" href="{{path('AdminDeletePost', {'id':discussionPost.id})) }}">Supprimer</a>
+                    <a class="suppr" href="{{path('AdminDeletePost',{'id':discussionPost.id}) }}">Supprimer</a>
                 </div>
             </div>
         {% endfor %}
