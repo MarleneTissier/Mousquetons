@@ -15,6 +15,8 @@
             <p>La lecture du forum est publique, mais pour écrire où y ajouter du contenu il faut en être membre. C'est simple, rapide et vous intégrerez la famille des Mousquetons.</p>
         </article>
 
+        <!-- article Parcours -->
+
         <div class="news">
             <article class="article">
                 <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
@@ -23,16 +25,20 @@
                         <img src="{{ asset('img/pyrenee.jpg') }}" alt="" class="img-fluid">
                     </div>
                 </div>
+                </ul>
                 <ul class="ArticleLiens">
                     <li class="ArticleLigne">
                         <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                             <li class="col-md-6 text-center text-md-left">
                                 <h2>Les derniers parcours partagés</h2>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
-                                <span class="ArticleSpan">nombres de visionnage</span>
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">Auteur</span>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">lieux</span>
+                            </li>
+                            <li class="d-none d-md-block col-1 text-center">
                                 <span class="ArticleSpan">nombres de réponses</span>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
@@ -40,35 +46,43 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="ArticleLigne">
-                        <!-- for pour récup les 3 derniers post -->
-                        <a class="ArticleLien" href="{{ path('post') }}" >
-                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
-                                <li class="col-md-6 text-center text-md-left">
-                                    <h4>Titre du sujet posté</h4>
-                                    <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">2</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">25</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">02.02.2020</span>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
+                    <!--suite du code...-->
+
+
+                    <!-- for pour récup les 3 derniers post -->
+                    {% for parcour in parcours %}
+                        <li class="ArticleLigne">
+                            <a class="ArticleLien" href="{{ path('post', {'id':parcour.id}) }}" >
+                                <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                    <li class="col-md-6 text-center text-md-left">
+                                        <h4>{{parcour.name}}</h4>
+                                        <p class="ArticleParagraph" >{{ parcour.FirstPost }}</p>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ parcour.user.username }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ parcour.place.name }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ parcour.NmbPos }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-2 text-center">
+                                        <span class="ArticleSpan">{{ parcour.date|date('d-M-Y') }}</span>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                    {% endfor %}
 
                 </ul>
                 <div class="text-center text-md-right articleDiv">
-                    <a class="ArticleLien"  href={{ path('CourseDiscussion') }}>Voir plus</a>
+                    <a class="ArticleLien"  href={{ path('Course')  }}>Voir plus</a>
                 </div>
 
             </article>
 
-            <!-- article 2 -->
+            <!-- article Lieux -->
 
             <article class="article">
                 <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauSecond articleDiv"
@@ -79,14 +93,17 @@
                 </div>
                 <ul class="ArticleLiens">
                     <li class="ArticleLigne">
-                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                        <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                             <li class="col-md-6 text-center text-md-left">
-                                <h3>Des lieux à visiter</h3>
+                                <h2>Les derniers lieux partagés</h2>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
-                                <span class="ArticleSpan">nombres de visionnage</span>
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">Auteur</span>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">lieux</span>
+                            </li>
+                            <li class="d-none d-md-block col-1 text-center">
                                 <span class="ArticleSpan">nombres de réponses</span>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
@@ -94,52 +111,60 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="ArticleLigne">
-                        <!-- for pour récup les 3 derniers post -->
-                        <a  class="ArticleLien" href="{{ path('post') }}" >
-                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
-                                <li class="col-md-6 text-center text-md-left">
-                                    <h4>Nom de lieux</h4>
-                                    <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">2</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">25</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">02.02.2020</span>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
+                    <!-- for pour récup les 3 derniers post -->
+                    {% for lieu in lieux %}
+                        <li class="ArticleLigne">
+                            <a class="ArticleLien" href="{{ path('post', {'id':lieu.id}) }}" >
+                                <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                    <li class="col-md-6 text-center text-md-left">
+                                        <h4>{{lieu.name}}</h4>
+                                        <p class="ArticleParagraph" >{{ lieu.FirstPost }}</p>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ lieu.user.username }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ lieu.place.name }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ lieu.NmbPos }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-2 text-center">
+                                        <span class="ArticleSpan">{{ lieu.date|date('d-M-Y') }}</span>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                    {% endfor %}
 
                 </ul>
                 <div class="text-center text-md-right articleDiv">
-                    <a  class="ArticleLien" href="{{ path('PlacesDiscussion') }}">Voir plus</a>
+                    <a  class="ArticleLien" href="{{ path('Places') }}">Voir plus</a>
                 </div>
             </article>
 
-            <!-- article 3 -->
+            <!-- article Activités -->
 
             <article class="article">
                 <div class="row align-items-center text-center text-md-left p-4 p-md-0  bandeauThird articleDiv"
-                    style="background-image: url({{ asset("img/activity.JPG")}})">
+                     style="background-image: url({{ asset("img/activity.JPG")}})">
                     <div class="d-none d-md-block col-2 icon articleDiv">
                         <img src="{{ asset('img/activity.JPG')}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <ul class="ArticleLiens">
                     <li class="ArticleLigne">
-                        <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                        <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                             <li class="col-md-6 text-center text-md-left">
-                                <h3>Les activités du moment</h3>
+                                <h2>Les dernières activitées partagés</h2>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
-                                <span class="ArticleSpan">nombres de visionnage</span>
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">Auteur</span>
                             </li>
-                            <li class="d-none d-md-block col-2 text-center">
+                            <li class="d-none d-md-block col-1 text-center">
+                                <span class="ArticleSpan">lieux</span>
+                            </li>
+                            <li class="d-none d-md-block col-1 text-center">
                                 <span class="ArticleSpan">nombres de réponses</span>
                             </li>
                             <li class="d-none d-md-block col-2 text-center">
@@ -147,33 +172,39 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="ArticleLigne">
-
-                        <!-- for pour récup les 3 derniers post -->
-                        <a  class="ArticleLien" href="{{ path('post') }}" >
-                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
-                                <li class="col-md-6 text-center text-md-left">
-                                    <h4>Les derniers sujets postés</h4>
-                                    <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">2</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">25</span>
-                                </li>
-                                <li class="d-none d-md-block col-2 text-center">
-                                    <span class="ArticleSpan">02.02.2020</span>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
+                    <!-- for pour récup les 3 derniers post -->
+                    {% for activite in activites %}
+                        <li class="ArticleLigne">
+                            <a class="ArticleLien" href="{{ path('post', {'id':activite.id}) }}" >
+                                <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                    <li class="col-md-6 text-center text-md-left">
+                                        <h4>{{activite.name}}</h4>
+                                        <p class="ArticleParagraph" >{{ activite.FirstPost }}</p>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ activite.user.username }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ activite.place.name }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-1 text-center">
+                                        <span class="ArticleSpan">{{ activite.NmbPos }}</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-2 text-center">
+                                        <span class="ArticleSpan">{{ activite.date|date('d-M-Y') }}</span>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <div class="text-center text-md-right articleDiv">
-                    <a  class="ArticleLien" href={{ path('ActivitiesDiscussion') }}>Voir plus</a>
+                    <a  class="ArticleLien" href={{ path('Activities') }}>Voir plus</a>
                 </div>
             </article>
         </div>
+
+        <!-- Albums -->
 
         <div class="album">
 
@@ -273,10 +304,12 @@
                 </div>
 
             </article>
+
         </div>
 
 
     </main>
+
 
 
 {% endblock %}

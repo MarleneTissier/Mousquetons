@@ -1,0 +1,45 @@
+{% extends 'Admin/AdminBase.html.twig' %}
+{% block content %}
+
+    <div class="userPrez">
+        <div class="avatar">
+            <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
+            <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="">
+        </div>
+        <div class="userInfo">
+            <ul class="listeUserInfo">
+                <li>pseudo : {{ app.user.username }}</li>
+                <li>email : {{ app.user.email }}</li>
+            </ul>
+        </div>
+        <div class="description">
+            <p class="paragrapheDescription">
+                {% if Description is empty %}
+                    Pas de description pour le moment
+                {% else %}
+                    {{ app.user.profil.description }}
+                {% endif %}
+
+            </p>
+        </div>
+    </div>
+    <div class="updateProfil">
+        <a class="bouttonUpProfil" href="{{ path('profilUpdate')}}">modifier son profil</a>
+    </div>
+
+    <div class="listUser">
+
+    </div>
+
+    <!-- les contacts futur ajout
+    <div class="userContact">
+        <div class="userFriends">
+            <div class="userCreateArticle">
+                <a class="bouttonProfil" href="">ajouter un ami</a>
+            </div>
+        </div>
+    </div>
+    -->
+
+{% endblock %}
+

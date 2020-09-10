@@ -1,0 +1,70 @@
+{% extends 'Admin/AdminBase.html.twig' %}
+{% block content %}
+
+    <main>
+        <div class="container-fluid">
+            <ul class="row ariane">
+                <li><a class="ArianeLien"  href={{ path('HomeAdmin') }}>Acceuil</a></li>
+                <li> / </li>
+                <li><a class="ArianeLien"  href={{ path('AdminPlaces') }}>Lieux</a> </li>
+                <li><span  class="ArianeSpan" >/ Discussions</span></li>
+            </ul>
+        </div>
+
+
+        <article  class="article">
+            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                 style="background-image: url({{ asset("img/france_parcour.jpg") }});">
+                <div class="d-none d-md-block col-2 icon articleDiv">
+                    <img src="{{ asset('img/france_parcour.jpg') }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les derniers lieux visités</h2>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                <!-- for pour récup les 3 derniers post -->
+                {% for lieu in lieux %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('post', {'id':lieu.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{lieu.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ lieu.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ lieu.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ lieu.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ lieu.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </article>
+
+
+    </main>
+
+
+
+{% endblock %}

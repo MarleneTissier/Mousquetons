@@ -39,20 +39,28 @@
         /**
          * @route ("/", name="Home")
          */
-        public function Home(DiscussionRepository $discussionRepository, UserRepository $userRepository){
+        public function Home(
+            DiscussionRepository $discussionRepository,
+            UserRepository $userRepository
+        ){
             //var_dump('hello world');
             //die;
-            $users = $userRepository -> findAll();
-            $parcours = $discussionRepository ->findBy(['categorie'=>'1'], ['id'=>'DESC'], 3);
-            $lieux = $discussionRepository ->findBy(['categorie'=>'2'], ['id'=>'DESC'], 3);
-            $activites = $discussionRepository ->findBy(['categorie'=>'3'], ['id'=>'DESC'], 3);
+            if ($this->isGranted('ROLE_ADMIN')) {
+                return $this->render('Admin/AdminHome.html.twig');
+            }else {
 
-            return $this->render('Home.html.twig', [
-                'parcours' => $parcours,
-                'lieux'=> $lieux,
-                'activites' => $activites,
-                'users'=>$users
-            ]);
+                $users = $userRepository->findAll();
+                $parcours = $discussionRepository->findBy(['categorie' => '1'], ['id' => 'DESC'], 3);
+                $lieux = $discussionRepository->findBy(['categorie' => '2'], ['id' => 'DESC'], 3);
+                $activites = $discussionRepository->findBy(['categorie' => '3'], ['id' => 'DESC'], 3);
+
+                return $this->render('Home.html.twig', [
+                    'parcours' => $parcours,
+                    'lieux' => $lieux,
+                    'activites' => $activites,
+                    'users' => $users
+                ]);
+            }
         }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx COURSE xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -360,18 +368,21 @@
             ProfilRepository $profilRepository,
             EntityManagerInterface $entityManager)
         {
+            //on récupère l'id du user connecté
             $id = $this->getUser()->getId();
+            //on récupère les informations du user gracge à l'id et on les stocke dans une variable
             $user=$userRepository->find($id);
+            //on cherche le profil correspondant à l'id du user
             $profils=$this->getDoctrine()->getRepository(Profil::class)->ByUser($id);
-
+            //on fait le tour des profils pour supprimer tout ce qui y correspond
             foreach ($profils as $profil){
                 $entityManager->remove($profil);
             }
-
+            //une fois le profil supprimer, on supprime le user
             $entityManager->remove($user);
-
+            // on flush le tout
             $entityManager->flush();
-
+            //on envoi un message de confirmation et on redirige vers une autre page
             $this->addFlash('success', 'Votre profil a été supprimé !');
             return $this->redirectToRoute('app_logout');
         }

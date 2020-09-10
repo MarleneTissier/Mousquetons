@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+        <ul class="row ariane">
+            <li><a class="ArianeLien"  href={{ path('HomeAdmin') }}>Acceuil</a></li>
+            <li><a class="ArianeLien" >/ discussion précédente</a></li>
+            <li><span class="ArianeSpan">/ nom du post</span></li>
+        </ul>
+    </div>
+
+    <main>
+
+        <div class="commentaire">
+            <a class="poster" href="{{ path('profilOtherUser', {'id':discussion.user.id}) }}">
+                <div class="avatar_post">
+                    <img src="{{ asset('profilUser/avatar/'~discussion.user.profil.avatar) }}" alt="">
+                </div>
+                <div class="info">
+                    <p>{{ discussion.user.username }}</p>
+                </div>
+            </a>
+            <div class="content">
+                <h2>{{ discussion.name }}</h2>
+                <p>{{ discussion.FirstPost }}</p>
+            </div>
+
+        </div>
+
+        {% for discussionPost in discussionPosts %}
+            <div class="postReponse">
+                <a class="poster" href="{{ path('profilOtherUser', {'id':discussionPost.user.id}) }}">
+                    <div class="avatar_post">
+                        <img src="{{ asset('profilUser/avatar/'~discussionPost.user.profil.avatar) }}" alt="">
+                    </div>
+                    <div class="info">
+                        <p>{{ discussionPost.user.username }}</p>
+                    </div>
+                </a>
+                <div class="content">
+                    <p>{{ discussionPost.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <!--si connecté / futur formulaire -->
+        <div class="reponse  col-10">
+            {% if is_granted('ROLE_USER') %}
+                {{ form_start (postForm) }}
+                <div class="postForm_content">
+                    <p>participez à la discussion : </p>
+                    {{ form_widget(postForm.content, {'attr': {'class': 'textarea_content'}}) }}
+                    {{ form_errors(postForm.content)}}
+                </div>
+                {{ form_end(postForm) }}
+            {% else %}
+                <p>Veuillez vous connecter pour répondre</p>
+            {% endif %}
+        </div>
+        </div>
+    </main>
+
+{% endblock %}

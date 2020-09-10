@@ -1,0 +1,248 @@
+{% extends 'Admin/AdminBase.html.twig' %}
+{% block content %}
+
+    <main>
+        <div class="container-fluid">
+            <ul class="row ariane">
+                <li><a class="ArianeLien"  href={{ path('Home') }}>Acceuil</a></li>
+                <li><span class="ArianeSpan" >/ Activités</span></li>
+            </ul>
+        </div>
+
+
+
+        <!--article France-->
+        <article  class="article">
+            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                 style="background-image: url({{ asset("img/activite_en_france.jpg") }});">
+                <div class="d-none d-md-block col-2 icon articleDiv">
+                    <img src="{{ asset('img/activite_en_france.jpg') }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les activités en France</h2>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                <!-- for pour récup les 3 derniers post -->
+                {% for activiteFrance in activitesFrance %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':activiteFrance.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{activiteFrance.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ activiteFrance.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteFrance.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteFrance.place.name }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteFrance.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ activiteFrance.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+            <div class="text-center text-md-right articleDiv">
+                <a class="ArticleLien"  href={{ path('AdminActivitiesDiscussion', {'id':'1'}) }}>Voir plus</a>
+            </div>
+
+        </article>
+
+        <!--article Espagne-->
+        <article  class="article">
+            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                 style="background-image: url({{ asset("img/activite_Espagne.jpg") }});">
+                <div class="d-none d-md-block col-2 icon articleDiv">
+                    <img src="{{ asset('img/activite_Espagne.jpg') }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les activités en Espagne</h2>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                <!-- for pour récup les 3 derniers post -->
+                {% for activiteEspagne in activitesEspagne %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':activiteEspagne.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{activiteEspagne.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ activiteEspagne.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEspagne.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEspagne.place.name }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEspagne.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ activiteEspagne.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="text-center text-md-right articleDiv">
+                <a class="ArticleLien" href="{{ path('AdminActivitiesDiscussion', {'id':'2'}) }}">Voir plus</a>
+            </div>
+
+        </article>
+
+        <!--article Europe-->
+        <article  class="article">
+            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                 style="background-image: url({{ asset("img/activite_europe.jpg") }});">
+                <div class="d-none d-md-block col-2 icon articleDiv">
+                    <img src="{{ asset('img/activite_europe.jpg') }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les activités en Europe</h2>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                <!-- for pour récup les 3 derniers post -->
+                {% for activiteEurope in activitesEurope %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':activiteEurope.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{activiteEurope.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ activiteEurope.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEurope.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEurope.place.name }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteEurope.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ activiteEurope.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="text-center text-md-right articleDiv">
+                <a class="ArticleLien" href="{{ path('AdminActivitiesDiscussion', {'id':'3'}) }}">Voir plus</a>
+            </div>
+
+        </article>
+
+        <!--article Monde-->
+        <article  class="article">
+            <div class="row align-items-center text-center text-md-left p-4 p-md-0 bandeauFirst articleDiv"
+                 style="background-image: url({{ asset("img/activite_dans_le_monde.jpg") }});">
+                <div class="d-none d-md-block col-2 icon articleDiv">
+                    <img src="{{ asset('img/activite_dans_le_monde.jpg') }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les activités dans le monde</h2>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                <!-- for pour récup les 3 derniers post -->
+                {% for activiteMonde in activitesMonde %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':activiteMonde.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{activiteMonde.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ activiteMonde.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteMonde.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteMonde.place.name }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ activiteMonde.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ activiteMonde.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="text-center text-md-right articleDiv">
+                <a class="ArticleLien" href="{{ path('AdminActivitiesDiscussion', {'id':'4'}) }}">Voir plus</a>
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+
+{% endblock %}

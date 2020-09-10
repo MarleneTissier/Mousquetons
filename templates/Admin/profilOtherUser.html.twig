@@ -1,0 +1,164 @@
+{% extends 'Admin/AdminBase.html.twig' %}
+{% block content %}
+
+    <div class="userPrez">
+        <div class="avatar">
+            <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
+            <img src="{{ asset('profilUser/avatar/'~User.profil.avatar) }}" alt="" class="">
+        </div>
+        <div class="userInfo">
+            <ul class="listeUserInfo">
+                <li>pseudo : {{ User.username }}</li>
+                <li>email : {{ User.email }}</li>
+            </ul>
+        </div>
+        <div class="description">
+            <p class="paragrapheDescription">
+                {% if Description is empty %}
+                    Pas de description pour le moment
+                {% else %}
+                    {{ User.profil.description }}
+                {% endif %}
+
+            </p>
+        </div>
+    </div>
+    <div class="userCOntent">
+        <div class="userParticipation">
+            <!-- article crée / a créer -->
+            <div class="userArticle">
+                <div class="userArticleCreate">
+                    <ul class="ArticleLiens">
+                        <li class="ArticleLigne">
+                            <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h2>Les dernieres discussions crées</h2>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">nombres de réponses</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">date d'ajour du post</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="ArticleLigne">
+                            <!-- for pour récup les 3 derniers post -->
+
+                            {% for discussion in discussions %}
+                                <a class="ArticleLien" href="{{ path('post', {'id':discussion.id}) }}" >
+                                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                                        <li class="col-md-6 text-center text-md-left">
+                                            <h2>{{discussion.name}}</h2>
+                                            <p class="ArticleParagraph" >{{ discussion.FirstPost }}</p>
+                                        </li>
+                                        <li class="d-none d-md-block col-2 text-center">
+                                            <span class="ArticleSpan">{{discussion.date|date('d-M-Y')}}</span>
+                                        </li>
+                                    </ul>
+                                </a>
+                            {% endfor %}
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- galerie crée / a créer -->
+            <div class="userGalerie">
+                <div class="userGalerieCreate">
+                    <ul class="GalerieLiens">
+                        <li class="ArticleLigne">
+                            <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h2>Les dernieres discussions crées</h2>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">nombres de réponses</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">date d'ajour du post</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="ArticleLigne">
+                            <!-- for pour récup les 3 derniers post -->
+                            <a class="ArticleLien" href="" >
+                                <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                    <li class="col-md-6 text-center text-md-left">
+                                        <h4>Titre de la galerie</h4>
+                                        <p class="ArticleParagraph" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, numquam, voluptatem consequuntur temporibus reprehenderit eum deserunt doloribus possimus cumque ab ratione soluta delectus dolore alias dicta nulla tempora consectetur! Quam!</p>
+                                    </li>
+                                    <li class="d-none d-md-block col-2 text-center">
+                                        <span class="ArticleSpan">25</span>
+                                    </li>
+                                    <li class="d-none d-md-block col-2 text-center">
+                                        <span class="ArticleSpan">02.02.2020</span>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="userPlacesOne">
+            <!-- lieux visités -->
+            <div class="listePlaces">
+                <!-- liste des lieux visités -->
+                <p>Lieux visités</p>
+                <ul class="placeUser">
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="userPlacesTwo">
+        <!-- lieux visités -->
+
+        <div class="listePlaces">
+            <!-- liste des lieux visités -->
+            <p>Lieux visités</p>
+            <ul class="placeUserTwo">
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
+        </div>
+    </div>
+    <div class="blockSuppr">
+        <div class="suppression">
+            <a class="supprMessage" href="">Supprimer le profil</a>
+            <div class="validation">
+                <p>Attention ! <br> Etes vous certain de vouloir supprimer ce profil ?</p>
+                <ul class="bouttonChoise">
+                    <li><a  class="button_deleteLien" href="{{path('delete_profil') }}">supprimer ce profil</a></li>
+                    <li><a class="button_updateLien" href="">Non</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- les contacts futur ajout
+    <div class="userContact">
+        <div class="userFriends">
+            <div class="userCreateArticle">
+                <a class="bouttonProfil" href="">ajouter un ami</a>
+            </div>
+        </div>
+    </div>
+    -->
+
+{% endblock %}
+

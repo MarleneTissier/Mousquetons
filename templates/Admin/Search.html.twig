@@ -1,0 +1,64 @@
+{% extends 'Admin/AdminBase.html.twig' %}
+{% block content %}
+
+    <div class="content_search">
+
+        <div class="form_search">
+            <form action="" method="get">
+                <label for="">rechercher : </label>
+                <input name="search" type="text">
+            </form>
+        </div>
+
+        <!--resultat-->
+        <div class="result">
+            <ul class="ArticleLiens">
+                <li class="ArticleLigne">
+                    <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
+                        <li class="col-md-6 text-center text-md-left">
+                            <h2>Les résultats de votre recherche : </h2>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">Auteur</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">lieux</span>
+                        </li>
+                        <li class="d-none d-md-block col-1 text-center">
+                            <span class="ArticleSpan">nombres de réponses</span>
+                        </li>
+                        <li class="d-none d-md-block col-2 text-center">
+                            <span class="ArticleSpan">date d'ajour du post</span>
+                        </li>
+                    </ul>
+                </li>
+                {% for discussion in discussions %}
+                    <li class="ArticleLigne">
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':discussion.id}) }}" >
+                            <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
+                                <li class="col-md-6 text-center text-md-left">
+                                    <h4>{{discussion.name}}</h4>
+                                    <p class="ArticleParagraph" >{{ discussion.FirstPost }}</p>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ discussion.user.username }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ discussion.place.name }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-1 text-center">
+                                    <span class="ArticleSpan">{{ discussion.NmbPos }}</span>
+                                </li>
+                                <li class="d-none d-md-block col-2 text-center">
+                                    <span class="ArticleSpan">{{ discussion.date|date('d-M-Y') }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+{% endblock %}

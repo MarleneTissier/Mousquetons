@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ asset('CSS/main.css') }}">
         <title>Les Mousquetons Globe-trotteurs</title>
     </head>
-    <body>
+    <body style="background-color: #C8C6AF">
         <!-- lien pour le retour en haut de page -->
         <a id="up" >
         <img src="{{ asset('img/40163.png') }}" alt="" class="Logo">
@@ -70,7 +70,6 @@
                                         <li class="lien_Burger"><a  class="" href={{ path('Course') }}>Les parcours</a></li>
                                         <li class="lien_Burger"><a class=""  href={{ path('Places') }}>Lieux à visiter</a></li>
                                         <li class="lien_Burger"><a  class="" href={{ path('Activities') }}>Les activités</a></li>
-                                        <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
                                         <li class="lien_Burger"><a  class="" href={{ path('Galeries') }}>Les galeries</a></li>
                                         <li class="lien_Burger"><a  class="" href={{ path('search') }}>Une recherche ? </a></li>
                                         {% if is_granted('ROLE_USER') %}
