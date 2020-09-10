@@ -1,3 +1,9 @@
+h1, h2 {
+  font-family: 'Architects Daughter';
+}
+p, span, a{
+ font-family: 'Chilanka';
+}
 .header {
   height: 70vh;
   background-position: right;

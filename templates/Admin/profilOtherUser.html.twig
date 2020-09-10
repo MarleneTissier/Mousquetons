@@ -47,7 +47,7 @@
                             <!-- for pour récup les 3 derniers post -->
 
                             {% for discussion in discussions %}
-                                <a class="ArticleLien" href="{{ path('post', {'id':discussion.id}) }}" >
+                                <a class="ArticleLien" href="{{ path('Adminpost', {'id':discussion.id}) }}" >
                                     <ul class="row menu container-fluid justify-content-between align-items-center m-0 ArticleLiens">
                                         <li class="col-md-6 text-center text-md-left">
                                             <h2>{{discussion.name}}</h2>
@@ -143,7 +143,7 @@
             <div class="validation">
                 <p>Attention ! <br> Etes vous certain de vouloir supprimer ce profil ?</p>
                 <ul class="bouttonChoise">
-                    <li><a  class="button_deleteLien" href="{{path('delete_profil') }}">supprimer ce profil</a></li>
+                    <li><a  class="button_deleteLien" href="{{path('Admindelete_profil', {'id':User.id})) }}">supprimer ce profil</a></li>
                     <li><a class="button_updateLien" href="">Non</a></li>
                 </ul>
             </div>

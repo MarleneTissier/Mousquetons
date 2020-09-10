@@ -34,12 +34,15 @@
         {
             //var_dump('hello world');
             //die;
+
             $users = $userRepository->findAll();
             $parcours = $discussionRepository->findBy(['categorie' => '1'], ['id' => 'DESC'], 3);
             $lieux = $discussionRepository->findBy(['categorie' => '2'], ['id' => 'DESC'], 3);
             $activites = $discussionRepository->findBy(['categorie' => '3'], ['id' => 'DESC'], 3);
+            //dump($parcours);
+            //die;
 
-            return $this->render('Admin/AdminHome.html.twig', [
+            return $this->render('Home.html.twig', [
                 'parcours' => $parcours,
                 'lieux' => $lieux,
                 'activites' => $activites,
@@ -181,6 +184,13 @@
                     return $this->redirectToRoute('Adminpost', array('id' => $id));
                 }
             }
+
+
+            return $this->render('Admin/Post.html.twig', [
+                'discussion'=>$discussion,
+                'discussionPosts'=>$discussionPosts,
+                'postForm' => $PostForm->createView()
+            ]);
         }
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Les discussions xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -223,11 +233,27 @@
             ]);
         }
 
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Les suppressions xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+        /**
+         * @route ("/admin/deletePost/{id}", name="AdminDeletePost")
+         */
+        public function AdminDeletePost(DiscussionRepository $discussionRepository, $id){
+            //var_dump('hello world');
+            //die;
+            $activites = $discussionRepository ->findBy(array('categorie'=>'3', 'place'=>$id), ['id'=>'DESC']);
+
+            return $this->render('Admin/Activities_Discussion.html.twig',[
+                'activites'=>$activites
+            ]);
+        }
+
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Les profils xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
         /**
-         * @route ("/admin/profil", name="profil")
+         * @route ("/admin/profil", name="Adminprofil")
          */
         public function profil(
             UserRepository $userRepository,
@@ -241,15 +267,19 @@
             $userAvatar = $this->getUser()->getProfil()->getAvatar();
             //récupérer la description selon l'id
             $userDescription = $this->getUser()->getProfil()->getDescription();
+
+            $users=$userRepository->findAll();
+
             //return des info récupérées
             return $this->render('Admin/profil.html.twig', [
                 'Avatar'=>$userAvatar,
-                'Description'=>$userDescription
+                'Description'=>$userDescription,
+                'users'=>$users,
             ]);
         }
 
         /**
-         * @route ("/profilUpdate", name="profilUpdate")
+         * @route ("/admin/profilUpdate", name="AdminprofilUpdate")
          */
         public function profilUpdate(
             UserRepository $userRepository,
@@ -308,22 +338,22 @@
                 return $this->redirectToRoute('profil');
             }
 
-            return $this->render('profilUpdate.html.twig', [
+            return $this->render('Admin/profilUpdate.html.twig', [
                 'updateUserForm'=>$updateUserForm->createView()
             ]);
         }
 
 
         /**
-         * @route("/delete_profil", name="delete_profil")
+         * @route("/admin/delete_profil/{id}", name="Admindelete_profil")
          */
         public function delete_admin_author(
             UserRepository $userRepository,
             ProfilRepository $profilRepository,
-            EntityManagerInterface $entityManager)
+            EntityManagerInterface $entityManager,
+            $id
+        )
         {
-            //on récupère l'id du user connecté
-            $id = $this->getUser()->getId();
             //on récupère les informations du user gracge à l'id et on les stocke dans une variable
             $user=$userRepository->find($id);
             //on cherche le profil correspondant à l'id du user
@@ -338,11 +368,11 @@
             $entityManager->flush();
             //on envoi un message de confirmation et on redirige vers une autre page
             $this->addFlash('success', 'Votre profil a été supprimé !');
-            return $this->redirectToRoute('app_logout');
+            return $this->redirectToRoute('HomeAdmin');
         }
 
         /**
-         * @route("/profil/{id}", name="profilOtherUser")
+         * @route("/admin/profil/{id}", name="AdminprofilOtherUser")
          */
         public function profil_other_user(
             UserRepository $userRepository,
@@ -359,7 +389,7 @@
             //récupérer les discussions que l'utilisateur à créé
             $discussion= $discussionRepository->findBy(array('user'=>$user));
             //return des info récupérées
-            return $this->render('profilOtherUser.html.twig', [
+            return $this->render('Admin/profilOtherUser.html.twig', [
                 'User'=>$user,
                 'discussions'=>$discussion,
                 'Avatar'=>$userAvatar,

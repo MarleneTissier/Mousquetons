@@ -29,7 +29,7 @@
 
         {% for discussionPost in discussionPosts %}
             <div class="postReponse">
-                <a class="poster" href="{{ path('profilOtherUser', {'id':discussionPost.user.id}) }}">
+                <a class="poster" href="{{ path('AdminprofilOtherUser', {'id':discussionPost.user.id}) }}">
                     <div class="avatar_post">
                         <img src="{{ asset('profilUser/avatar/'~discussionPost.user.profil.avatar) }}" alt="">
                     </div>
@@ -39,6 +39,9 @@
                 </a>
                 <div class="content">
                     <p>{{ discussionPost.content }}</p>
+                </div>
+                <div class="suppression">
+                    <a class="suppr" href="{{path('AdminDeletePost', {'id':discussionPost.id})) }}">Supprimer</a>
                 </div>
             </div>
         {% endfor %}

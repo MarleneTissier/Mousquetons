@@ -39,7 +39,7 @@
                     <!-- for pour récup les 3 derniers post -->
                     {% for lieuFrance in lieuxFrance %}
                         <li class="ArticleLigne">
-                            <a class="ArticleLien" href="{{ path('post', {'id':lieuFrance.id}) }}" >
+                            <a class="ArticleLien" href="{{ path('Adminpost', {'id':lieuFrance.id}) }}" >
                                 <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                     <li class="col-md-6 text-center text-md-left">
                                         <h4>{{lieuFrance.name}}</h4>
@@ -97,7 +97,7 @@
                     <!-- for pour récup les 3 derniers post -->
                     {% for lieuEspagne in lieuxEspagne %}
                         <li class="ArticleLigne">
-                            <a class="ArticleLien" href="{{ path('post', {'id':lieuEspagne.id}) }}" >
+                            <a class="ArticleLien" href="{{ path('Adminpost', {'id':lieuEspagne.id}) }}" >
                                 <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                     <li class="col-md-6 text-center text-md-left">
                                         <h4>{{lieuEspagne.name}}</h4>
@@ -154,7 +154,7 @@
                     <!-- for pour récup les 3 derniers post -->
                     {% for lieuEurope in lieuxEurope %}
                         <li class="ArticleLigne">
-                            <a class="ArticleLien" href="{{ path('post', {'id':lieuEurope.id}) }}" >
+                            <a class="ArticleLien" href="{{ path('Adminpost', {'id':lieuEurope.id}) }}" >
                                 <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                     <li class="col-md-6 text-center text-md-left">
                                         <h4>{{lieuEurope.name}}</h4>
@@ -211,7 +211,7 @@
                     <!-- for pour récup les 3 derniers post -->
                     {% for lieuMonde in lieuxMonde %}
                         <li class="ArticleLigne">
-                            <a class="ArticleLien" href="{{ path('post', {'id':lieuMonde.id}) }}" >
+                            <a class="ArticleLien" href="{{ path('Adminpost', {'id':lieuMonde.id}) }}" >
                                 <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                     <li class="col-md-6 text-center text-md-left">
                                         <h4>{{lieuMonde.name}}</h4>

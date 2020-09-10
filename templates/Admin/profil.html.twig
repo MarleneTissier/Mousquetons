@@ -28,6 +28,21 @@
     </div>
 
     <div class="listUser">
+        <ul>
+            {% for user in users %}
+                <li>
+                    <a href="{{ path('AdminprofilOtherUser', {'id':user.id}) }}">{{ user.username }} </a>
+                    <a class="supprMessage" style="color: red" href="">Supprimer le profil</a>
+                    <div class="validation">
+                        <p>Attention ! <br> Etes vous certain de vouloir supprimer ce profil ?</p>
+                        <ul class="bouttonChoise">
+                            <li><a class="button_deleteLien" href="{{path('Admindelete_profil', {'id':user.id}) }}">supprimer ce profil</a></li>
+                            <li><a class="button_updateLien" href="">Non</a></li>
+                        </ul>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
 
     </div>
 

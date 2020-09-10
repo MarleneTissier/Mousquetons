@@ -38,7 +38,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for parcourFrance in parcoursFrance %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post', {'id':parcourFrance.id}) }}" >
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':parcourFrance.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{parcourFrance.name}}</h4>
@@ -93,7 +93,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for parcourEspagne in parcoursEspagne %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post', {'id':parcourEspagne.id}) }}" >
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':parcourEspagne.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{parcourEspagne.name}}</h4>
@@ -147,7 +147,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for parcourEurope in parcoursEurope %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post', {'id':parcourEurope.id}) }}" >
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':parcourEurope.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{parcourEurope.name}}</h4>
@@ -201,7 +201,7 @@
                 <!-- for pour récup les 3 derniers post -->
                 {% for parcourMonde in parcoursMonde %}
                     <li class="ArticleLigne">
-                        <a class="ArticleLien" href="{{ path('post', {'id':parcourMonde.id}) }}" >
+                        <a class="ArticleLien" href="{{ path('Adminpost', {'id':parcourMonde.id}) }}" >
                             <ul class="row menu container-fluid justify-content-between text-align-center align-items-center m-0 ArticleLiens">
                                 <li class="col-md-6 text-center text-md-left">
                                     <h4>{{parcourMonde.name}}</h4>
