@@ -1,18 +1,18 @@
 {% extends 'Admin/AdminBase.html.twig' %}
 {% block content %}
 
-    <div class="userPrez">
+    <div class="adminPrez">
         <div class="avatar">
             <div style="background-image: url('{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}')"></div>
             <img src="{{ asset('profilUser/avatar/'~app.user.profil.avatar) }}" alt="" class="">
         </div>
-        <div class="userInfo">
+        <div class="adminInfo">
             <ul class="listeUserInfo">
                 <li>pseudo : {{ app.user.username }}</li>
                 <li>email : {{ app.user.email }}</li>
             </ul>
         </div>
-        <div class="description">
+        <div class="admindescription">
             <p class="paragrapheDescription">
                 {% if Description is empty %}
                     Pas de description pour le moment
@@ -24,15 +24,15 @@
         </div>
     </div>
     <div class="updateProfil">
-        <a class="bouttonUpProfil" href="{{ path('profilUpdate')}}">modifier son profil</a>
+        <a class="bouttonUpProfil" href="{{ path('AdminprofilUpdate')}}">modifier son profil</a>
     </div>
 
     <div class="listUser">
         <ul>
             {% for user in users %}
-                <li>
+                <li class="userName">
                     <a href="{{ path('AdminprofilOtherUser', {'id':user.id}) }}">{{ user.username }} </a>
-                    <a class="supprMessage" style="color: red" href="">Supprimer le profil</a>
+                    <a class="suppr" style="color: red" href="">Supprimer le profil</a>
                     <div class="validation">
                         <p>Attention ! <br> Etes vous certain de vouloir supprimer ce profil ?</p>
                         <ul class="bouttonChoise">

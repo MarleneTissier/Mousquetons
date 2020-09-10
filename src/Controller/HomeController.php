@@ -429,7 +429,8 @@
 //https://symfonycasts.com/screencast/symfony-forms/registration-form
 
         /**
-         * route qui mene les utilisateur à la page d'inscription
+         * une route définit l'action à exécuter pour chaque URL entrante
+         * donc ici est définit l'action qui est appelé lorsqu'on est sur l'url /inscription
          * @route("/inscription", name="inscription")
          */
         public function inscription(

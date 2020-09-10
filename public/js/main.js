@@ -85,7 +85,7 @@ $(".menu-burger").click(function() {
 
 //la pop up de suppression de profil
 //ouvrir popup
-$('.supprMessage').on('click', function(event){
+$('.suppr').on('click', function(event){
     event.preventDefault();
     $('.validation').addClass('validation_up');
     $('.validation_up').removeClass('validation');

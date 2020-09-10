@@ -1,0 +1,79 @@
+.listUser{
+  width: 70%;
+  background-color: whitesmoke;
+  margin: auto;
+  padding: 5%;
+  ul{
+    list-style: none;
+  }
+}
+.adminPrez{
+  padding-bottom: 1%;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  @include rwd(1020){
+    display: flex;
+  }
+}
+.adminInfo{
+  background-color: whitesmoke;
+  width: 80%;
+  border: darkgrey 2px solid;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  @include rwd(375) {
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include rwd(768) {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 25%;
+  }
+  @include rwd(1024) {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 20%;
+  }
+}
+.admindescription{
+  background-color: whitesmoke;
+  width: 90%;
+  border: darkgrey 2px solid;
+  margin-left: auto;
+  margin-right: auto;
+  @include sm{
+    width: 90%;
+    margin-top: 5%;
+  }
+  border: white 2px solid;
+  overflow: auto;
+  @include md {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 40%;
+  }
+  @include lg {
+    width: 55%;
+  }
+}
+
+.userName{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+.suppr{
+  color: red;
+  :hover{
+    text-decoration: none;
+    color: red;
+  }
+}

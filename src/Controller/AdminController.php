@@ -339,7 +339,7 @@
                 $entityManager->flush();
                 //Un message de remerciement
                 $this->addFlash('success', 'votre profil a été mis à jour');
-                return $this->redirectToRoute('profil');
+                return $this->redirectToRoute('Adminprofil');
             }
 
             return $this->render('Admin/profilUpdate.html.twig', [
@@ -372,7 +372,7 @@
             $entityManager->flush();
             //on envoi un message de confirmation et on redirige vers une autre page
             $this->addFlash('success', 'Votre profil a été supprimé !');
-            return $this->redirectToRoute('HomeAdmin');
+            return $this->redirectToRoute('Adminprofil');
         }
 
         /**
