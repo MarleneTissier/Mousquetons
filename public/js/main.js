@@ -63,17 +63,22 @@ function addTagForm($collectionHolder, $newLinkLi) {
 
 
 // Js pour le retour en haut de page
+//création d'une variable propre à la balise avec l'id "up"
 var btn = $('#up');
-
+//une fonction qui se déclenche au scroll de la fenêtre
 $(window).scroll(function() {
+    //si le scroll dépasse les 300px
     if ($(window).scrollTop() > 300) {
+        //ajouter à la balise "up" la class "show"
         btn.addClass('show');
     } else {
+        //sinon lui retirer la fonction "show"
         btn.removeClass('show');
     }
 });
-
+//une fonction qui se déclenche si on clic sur la balise "up"
 $("#up").click(function(){
+    //lance une animation de retour en haut de page
     $("html, body").animate({scrollTop: 0},500);
 });
 

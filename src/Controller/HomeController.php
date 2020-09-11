@@ -247,8 +247,6 @@
             DiscussionRepository $discussionRepository,
             Request $request
         ){
-            //var_dump('hello world');
-            //die;
             //utiliser la class request pour récup la valeur ds l'url qui est envoyée par le formulaire
             $word = $request->query->get('search');
             //initialiser la variable discussion
